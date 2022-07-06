@@ -20,4 +20,7 @@ Dockerfile
 Create new project on heroku
 Heroku Postgres
 
+To deploy on heroku, just push code to main branch on git and it will be deployed
+
 You must manually seed your production database if/when you so choose (see step 8). Attention! Please run this command only if you wish to seed your production database: heroku run -a HEROKU_APP_NAME flask seed all
+
