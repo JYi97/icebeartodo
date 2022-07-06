@@ -9,10 +9,10 @@ class Folder(db.Model):
 
 
     # Many-to-One relationship with User
-    users = db.relationship('User', back_populates='folders')
+    users = db.relationship('User', back_populates='folders', cascade='all, delete')
 
     # One-to-Many relationship with Activities
-    activities = db.relationship('Activity', back_populates='folders')
+    activities = db.relationship('Activity', back_populates='folders', cascade='all, delete')
 
 
     def to_dict(self):
