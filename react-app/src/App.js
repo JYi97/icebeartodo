@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
 import UpcomingPage from './components/UpcomingPage';
+import FolderDetailsPage from './components/FolderDetailsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/upcoming' exact={true} >
           <UpcomingPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/folders/:id' exact={true} >
+          <FolderDetailsPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
