@@ -13,6 +13,11 @@ const NavBar = () => {
     {currentUser ?  <nav className='navigation-bar'>
       <div className='navigation-bar-buttons'>
         <div>
+          <NavLink className='navigation-bar-home-button' to='/home' exact={true} activeClassName='active'>
+            Home
+          </NavLink>
+        </div>
+        <div>
           <NavLink className='navigation-bar-users-button' to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
