@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+}
+
+.navigation-bar {
+    background-color: #d1deef;
+    margin: 0;
+}
+
+.navigation-bar-home-button,
+.navigation-bar-login-button,
+.navigation-bar-signup-button,
+.navigation-bar-users-button {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.navigation-bar-buttons {
+    display: flex;
+}
