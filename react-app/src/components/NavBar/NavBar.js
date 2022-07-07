@@ -22,6 +22,11 @@ const NavBar = () => {
             Users
           </NavLink>
         </div>
+        <div>
+          <NavLink className='navigation-bar-upcoming-button' to='/upcoming' exact={true} activeClassName='active'>
+            Upcoming
+          </NavLink>
+        </div>
         <div className='navigation-bar-logout-button,'>
           <LogoutButton />
         </div>
