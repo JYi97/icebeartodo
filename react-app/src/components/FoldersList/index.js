@@ -1,7 +1,31 @@
 import './FoldersList.css'
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
+// import { getFolders } from '../../store/folders';
 
 
-const FoldersList = () => {
+const FoldersList = ({ folders }) => {
+
+    let foldersArr = Object.values(folders)
+    console.log("THIS IS IN THE FOLDERS COMPONENT", foldersArr)
+
+    // const dispatch = useDispatch();
+    // const folders = useSelector(state => state?.folders)
+    // console.log(folders)
+
+    // useEffect(() => {
+    //     dispatch(getFolders())
+
+    // }, [dispatch])
+    let folderNames = []
+
+    for (let i = 0; i < foldersArr.length; i++) {
+        folderNames.push(foldersArr[i].title)
+    }
+
+    console.log("THESE SHOULD BE THE FOLDER NAMES", folderNames)
+
 
     return (
         <>
@@ -9,17 +33,23 @@ const FoldersList = () => {
                 List of Folders
             </h3>
             <div>
-                Today's Activities Folder
-                <div>
-                    Activities for the current day and can be hidden so only the title of folder will be displayed.
-                </div>
+                <h4>These are the user's folder's names.</h4>
             </div>
+
             <div>
-                Upcoming Acitivities Folder
-                <div>
-                    Activities for events in the future or can be hidden so only title of folder will be displayed.
-                </div>
+                {folderNames && folderNames.map(name => {
+                    return <div key={folderNames.indexOf(name)}>
+                        {name}
+                        <div>
+                            Activities for events in the folder can be hidden so only title of folder will be displayed.
+                        </div>
+                    </div>
+                })}
             </div>
+
+
+
+
         </>
     )
 }
