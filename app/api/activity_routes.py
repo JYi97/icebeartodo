@@ -14,7 +14,7 @@ activity_routes = Blueprint('activities', __name__)
 #             errorMessages.append(f'{field} : {error}')
 #     return errorMessages
 
-# Users can get all their folders
+# Users can get all their activities from a specific folder
 @activity_routes.route('/')
 def get_all_activities():
     activities = Activity.query.filter(Activity.user_id == current_user.get_id()).all()

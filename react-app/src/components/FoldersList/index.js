@@ -1,14 +1,14 @@
 import './FoldersList.css'
 // import { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import { getFolders } from '../../store/folders';
 
 
 const FoldersList = ({ folders }) => {
 
     let foldersArr = Object.values(folders)
-    console.log("THIS IS IN THE FOLDERS COMPONENT", foldersArr)
+    // console.log("THIS IS IN THE FOLDERS COMPONENT", foldersArr)
 
     // const dispatch = useDispatch();
     // const folders = useSelector(state => state?.folders)
@@ -24,7 +24,7 @@ const FoldersList = ({ folders }) => {
         folderNames.push(foldersArr[i].title)
     }
 
-    console.log("THESE SHOULD BE THE FOLDER NAMES", folderNames)
+    // console.log("THESE SHOULD BE THE FOLDER NAMES", folderNames)
 
 
     return (
@@ -37,9 +37,11 @@ const FoldersList = ({ folders }) => {
             </div>
 
             <div>
-                {folderNames && folderNames.map(name => {
-                    return <div key={folderNames.indexOf(name)}>
-                        {name}
+                {foldersArr && foldersArr.map(folder => {
+                    return <div key={foldersArr.indexOf(folder)}>
+                        <NavLink to={`/folders/${folder.id}`}>
+                        {folder.title}
+                        </NavLink>
                         <div>
                             Activities for events in the folder can be hidden so only title of folder will be displayed.
                         </div>

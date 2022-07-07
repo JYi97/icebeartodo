@@ -16,6 +16,24 @@ export const getFolders = () => async (dispatch) => {
     dispatch(loadFolders(folders))
 }
 
+// Getting one specific folder
+const GET_ONE_FOLDER = 'folder/loadOneFolder'
+
+export const loadOneFolder = (folder) => {
+    return {
+        type: GET_ONE_FOLDER,
+        folder
+    }
+}
+
+export const getOneFolder = (folderId) => async(dispatch) => {
+    const response = await fetch(`/api/folders/${folderId}`)
+
+    const folder = await response.json()
+    // console.log("THIS IS AFTER THE RESPONSE WAS RECEIVED IN THE REDUCER", folder)
+    dispatch(loadOneFolder(folder))
+}
+
 const initialState = {}
 
 const folderReducer = (state = initialState, action) => {
@@ -27,6 +45,12 @@ const folderReducer = (state = initialState, action) => {
             })
             return {
                 ...allFolders
+            }
+        case GET_ONE_FOLDER:
+            const folder = {};
+            folder[action.folder.id] = action.folder
+            return {
+                ...folder
             }
         default:
             return state
