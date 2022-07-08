@@ -19,3 +19,9 @@ activity_routes = Blueprint('activities', __name__)
 def get_all_activities():
     activities = Activity.query.filter(Activity.user_id == current_user.get_id()).all()
     return jsonify([activity.to_dict() for activity in activities])
+
+# Users can get one specific activity
+@activity_routes.route('/<activity_id>')
+def get_one_activity(activity_id):
+    activity = Activity.query.filter(Activity.id == activity_id).first()
+    return jsonify(activity.to_dict())

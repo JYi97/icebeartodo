@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
 import UpcomingPage from './components/UpcomingPage';
 import FolderDetailsPage from './components/FolderDetailsPage';
+import ActivityDetailsPage from './components/ActivityDetailsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/folders/:id' exact={true} >
           <FolderDetailsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/activities/:id' exact={true} >
+          <ActivityDetailsPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

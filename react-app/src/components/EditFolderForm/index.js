@@ -13,7 +13,7 @@ const EditFolderForm = ({ folder, folders }) => {
     const [show, setShow] = useState(false);
     const userId = useSelector(state => state?.session.user.id)
 
-    console.log("THIS IS THE FOLDERS IN THE EDIT FOLDER FORM COMPONENT", folders)
+    // console.log("THIS IS THE FOLDERS IN THE EDIT FOLDER FORM COMPONENT", folders)
 
     const dispatch = useDispatch();
 
@@ -35,6 +35,7 @@ const EditFolderForm = ({ folder, folders }) => {
             return
         }
         if (errors.length === 0) {
+            setShow(false)
             const payload = {
                 folderId,
                 title,

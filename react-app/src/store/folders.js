@@ -12,7 +12,7 @@ export const getFolders = () => async (dispatch) => {
     const response = await fetch('/api/folders/')
 
     const folders = await response.json()
-    console.log("THIS IS INSIDE THE GET FOLDERS THUNK ACTION CREATOR RESPONSE", folders)
+    // console.log("THIS IS INSIDE THE GET FOLDERS THUNK ACTION CREATOR RESPONSE", folders)
     dispatch(loadFolders(folders))
 }
 
@@ -75,8 +75,6 @@ export const editOneFolder = (payload) => async (dispatch) => {
     })
     if (response.ok) {
         const folder = await response.json()
-        console.log("THIS IS THE EDIT ONE FOLDER ACTION CREATOR", folder)
-
         dispatch(updateOneFolder(folder))
     }
 }
