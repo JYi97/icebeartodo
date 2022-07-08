@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
      # One-to-Many relationship with Watchlist
-    folders = db.relationship('Folder', back_populates='users', cascade='all, delete')
+    folders = db.relationship('Folder', back_populates='users')
 
     @property
     def password(self):

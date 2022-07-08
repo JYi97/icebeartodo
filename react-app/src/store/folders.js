@@ -81,6 +81,28 @@ export const editOneFolder = (payload) => async (dispatch) => {
     }
 }
 
+// DELETE one specific folder
+const DELETE_ONE_FOLDER = 'folder/deleteOneFolder'
+
+export const removeOneFolder = (folderId) => {
+    return {
+        type: DELETE_ONE_FOLDER,
+        folderId
+    }
+}
+
+export const deleteOneFolder = (folderId) => async (dispatch) => {
+    const response = await fetch(`/api/folders/${folderId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const folder = await response.json();
+        dispatch(removeOneFolder(folder))
+        return folder
+    }
+}
+
 const initialState = {}
 
 const folderReducer = (state = initialState, action) => {
@@ -116,12 +138,19 @@ const folderReducer = (state = initialState, action) => {
                     return folder
                 }
             }
-            return {...state}
-            // const newState = {
-            //     ...state,
-            //     [action.folder.folderId]: action.folder
-            // }
-            // return newState
+            return { ...state }
+        // const newState = {
+        //     ...state,
+        //     [action.folder.folderId]: action.folder
+        // }
+        // return newState
+        case DELETE_ONE_FOLDER:
+            const newState = { ...state }
+            console.log("THIS IS IN THE DELETE REDUCER NEWSTATE", newState)
+            console.log("THIS IS THE ACTION IN THE DELETE REDUCER", action.folderId)
+            delete newState[action.folderId]
+            console.log("THIS IS IN THE DELETE REDUCER NEWSTATE AFTER DELETING A FOLDER", newState)
+            return newState
         default:
             return state
     }
