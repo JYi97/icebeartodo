@@ -34,6 +34,28 @@ export const getOneFolder = (folderId) => async(dispatch) => {
     dispatch(loadOneFolder(folder))
 }
 
+// Creating one folder
+const CREATE_ONE_FOLDER = 'folder/createOneFolder'
+
+export const addOneFolder = (folder) => {
+    return {
+        type: CREATE_ONE_FOLDER,
+        folder
+    }
+}
+
+export const createOneFolder = (payload) => async(dispatch) => {
+    const response = await fetch('/api/folders/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const folder = await response.json()
+        dispatch(addOneFolder(folder))
+    }
+}
+
 const initialState = {}
 
 const folderReducer = (state = initialState, action) => {
@@ -51,6 +73,14 @@ const folderReducer = (state = initialState, action) => {
             folder[action.folder.id] = action.folder
             return {
                 ...folder
+            }
+        case CREATE_ONE_FOLDER:
+            if (!state[action.folder.id]) {
+                const newState = {
+                    ...state,
+                    [action.folder.id]: action.folder
+                }
+                return newState
             }
         default:
             return state
