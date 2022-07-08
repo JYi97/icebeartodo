@@ -41,7 +41,8 @@ const EditFolderForm = ({ folder, folders }) => {
                 userId,
             }
             await dispatch(editOneFolder(payload))
-            await history.push('/home')
+            await history.push(`/home`)
+            // await history.push(`/folders/${folderId}`)
         }
 
     }

@@ -32,12 +32,14 @@ const FolderForm = ({ folders }) => {
             return
         }
         if (errors.length === 0) {
+            setShow(false)
             const payload = {
                 userId,
                 title,
             }
             dispatch(createOneFolder(payload))
             setTitle('')
+            setErrors([])
         }
 
     }
