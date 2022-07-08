@@ -55,6 +55,16 @@ def patch_folder(folder_id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
+# Users can delete one specific folder
+@folder_routes.route('/<folder_id>', methods=['DELETE'])
+def delete_folder(folder_id):
+    folder = Folder.query.filter(Folder.id == folder_id).first()
+    print("THIS IS IN THE DELETE BACKEND FOR DELETING A FOLDER", folder)
+    db.session.delete(folder)
+    db.session.commit()
+
+    return folder.to_dict()
+
 # Users can get one specific folder
 @folder_routes.route('/<folder_id>')
 def get_one_folder(folder_id):

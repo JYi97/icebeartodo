@@ -9,7 +9,7 @@ class Folder(db.Model):
 
 
     # Many-to-One relationship with User
-    users = db.relationship('User', back_populates='folders', cascade='all, delete')
+    users = db.relationship('User', back_populates='folders')
 
     # One-to-Many relationship with Activities
     activities = db.relationship('Activity', back_populates='folders', cascade='all, delete')

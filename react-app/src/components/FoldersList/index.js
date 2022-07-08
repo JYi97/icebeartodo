@@ -1,15 +1,17 @@
 import './FoldersList.css'
 // import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { getFolders } from '../../store/folders';
 import FolderForm from '../FolderForm';
 import EditFolderForm from '../EditFolderForm';
+import { deleteOneFolder } from '../../store/folders';
 
 
 const FoldersList = ({ folders }) => {
 
     let foldersArr = Object.values(folders)
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -27,10 +29,17 @@ const FoldersList = ({ folders }) => {
                             {folder.title}
                         </NavLink>
                         <div>
-                            <EditFolderForm folder={folder} folders={foldersArr}/>
+                            <EditFolderForm folder={folder} folders={foldersArr} />
                         </div>
                         <div>
                             Activities for events in the folder can be hidden so only title of folder will be displayed.
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    dispatch(deleteOneFolder(folder.id))
+                                }}>Delete
+                            </button>
                         </div>
                     </div>
                 })}
