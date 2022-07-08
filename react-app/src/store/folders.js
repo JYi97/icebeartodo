@@ -26,7 +26,7 @@ export const loadOneFolder = (folder) => {
     }
 }
 
-export const getOneFolder = (folderId) => async(dispatch) => {
+export const getOneFolder = (folderId) => async (dispatch) => {
     const response = await fetch(`/api/folders/${folderId}`)
 
     const folder = await response.json()
@@ -34,7 +34,7 @@ export const getOneFolder = (folderId) => async(dispatch) => {
     dispatch(loadOneFolder(folder))
 }
 
-// Creating one folder
+// CREATE one folder
 const CREATE_ONE_FOLDER = 'folder/createOneFolder'
 
 export const addOneFolder = (folder) => {
@@ -44,15 +44,40 @@ export const addOneFolder = (folder) => {
     }
 }
 
-export const createOneFolder = (payload) => async(dispatch) => {
+export const createOneFolder = (payload) => async (dispatch) => {
     const response = await fetch('/api/folders/', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
     if (response.ok) {
         const folder = await response.json()
         dispatch(addOneFolder(folder))
+    }
+}
+
+// UPDATE one specific folder
+const UPDATE_ONE_FOLDER = 'folder/updateOneFolder'
+
+export const updateOneFolder = (folder) => {
+    return {
+        type: UPDATE_ONE_FOLDER,
+        folder
+    }
+}
+
+export const editOneFolder = (payload) => async (dispatch) => {
+    const folderId = payload.folderId
+    const response = await fetch(`/api/folders/${folderId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const folder = await response.json()
+        console.log("THIS IS THE EDIT ONE FOLDER ACTION CREATOR", folder)
+
+        dispatch(updateOneFolder(folder))
     }
 }
 
@@ -82,6 +107,21 @@ const folderReducer = (state = initialState, action) => {
                 }
                 return newState
             }
+        case UPDATE_ONE_FOLDER:
+            for (let folder in state.folder) {
+                if (folder.id === action.folder.id) {
+                    return action.folder
+                }
+                else {
+                    return folder
+                }
+            }
+            return {...state}
+            // const newState = {
+            //     ...state,
+            //     [action.folder.folderId]: action.folder
+            // }
+            // return newState
         default:
             return state
     }

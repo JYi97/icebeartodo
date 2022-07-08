@@ -39,6 +39,22 @@ def create_folder():
         return new_folder.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+# Users can UPDATE a folder
+@folder_routes.route('/<folder_id>', methods=['PATCH'])
+def patch_folder(folder_id):
+    form = FolderForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    folder = Folder.query.filter(Folder.id == folder_id).first()
+
+    if form.validate_on_submit():
+        folder.title = form.data['title']
+        db.session.add(folder)
+        db.session.commit()
+        return folder.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
 # Users can get one specific folder
 @folder_routes.route('/<folder_id>')
 def get_one_folder(folder_id):

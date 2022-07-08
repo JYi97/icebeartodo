@@ -4,6 +4,7 @@ import './FoldersList.css'
 import { NavLink } from 'react-router-dom';
 // import { getFolders } from '../../store/folders';
 import FolderForm from '../FolderForm';
+import EditFolderForm from '../EditFolderForm';
 
 
 const FoldersList = ({ folders }) => {
@@ -25,6 +26,9 @@ const FoldersList = ({ folders }) => {
                         <NavLink to={`/folders/${folder.id}`}>
                             {folder.title}
                         </NavLink>
+                        <div>
+                            <EditFolderForm folder={folder} folders={foldersArr}/>
+                        </div>
                         <div>
                             Activities for events in the folder can be hidden so only title of folder will be displayed.
                         </div>
