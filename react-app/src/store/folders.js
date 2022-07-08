@@ -84,10 +84,10 @@ export const editOneFolder = (payload) => async (dispatch) => {
 // DELETE one specific folder
 const DELETE_ONE_FOLDER = 'folder/deleteOneFolder'
 
-export const removeOneFolder = (folderId) => {
+export const removeOneFolder = (folder) => {
     return {
         type: DELETE_ONE_FOLDER,
-        folderId
+        folder
     }
 }
 
@@ -130,26 +130,16 @@ const folderReducer = (state = initialState, action) => {
                 return newState
             }
         case UPDATE_ONE_FOLDER:
-            for (let folder in state.folder) {
-                if (folder.id === action.folder.id) {
-                    return action.folder
+            if (state[action.folder.id]) {
+                const newState = {
+                    ...state,
+                    [action.folder.id]: action.folder
                 }
-                else {
-                    return folder
-                }
+                return newState
             }
-            return { ...state }
-        // const newState = {
-        //     ...state,
-        //     [action.folder.folderId]: action.folder
-        // }
-        // return newState
         case DELETE_ONE_FOLDER:
             const newState = { ...state }
-            console.log("THIS IS IN THE DELETE REDUCER NEWSTATE", newState)
-            console.log("THIS IS THE ACTION IN THE DELETE REDUCER", action.folderId)
-            delete newState[action.folderId]
-            console.log("THIS IS IN THE DELETE REDUCER NEWSTATE AFTER DELETING A FOLDER", newState)
+            delete newState[action.folder.id]
             return newState
         default:
             return state
