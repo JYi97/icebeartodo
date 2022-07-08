@@ -8,8 +8,12 @@ import TodayActivities from '../TodayActivities'
 const HomePage = () => {
     const dispatch = useDispatch();
     const userFolders = useSelector(state => state?.folder)
-    console.log("THIS IS IN THE HOME PAGE COMPONENT", userFolders)
+    // console.log("THIS IS IN THE HOME PAGE COMPONENT", Object.values(userFolders))
+    // const foldersNames = Object.values(userFolders).map((folder) => {
+    //     return folder.title
+    // })
 
+    // console.log(foldersNames)
     useEffect(() => {
         dispatch(getFolders())
     }, [dispatch])

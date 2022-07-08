@@ -12,7 +12,7 @@ const FolderForm = ({ folders }) => {
 
     const dispatch = useDispatch();
 
-    const folderTitle = folders.map((folder) => {
+    const folderTitles = folders.map((folder) => {
         return folder.title
     })
 
@@ -21,7 +21,7 @@ const FolderForm = ({ folders }) => {
     useEffect(() => {
         const error = [];
         if (title.length < 1) error.push('You must put a name with at least 1 character')
-        if (folderTitle.includes(title)) error.push('Provide a unique name')
+        if (folderTitles.includes(title)) error.push('Provide a unique name')
         setErrors(error);
     }, [title])
 
