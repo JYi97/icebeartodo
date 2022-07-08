@@ -127,6 +127,7 @@ const folderReducer = (state = initialState, action) => {
                 }
                 return newState
             }
+            break
         case UPDATE_ONE_FOLDER:
             if (state[action.folder.id]) {
                 const newState = {
@@ -135,6 +136,7 @@ const folderReducer = (state = initialState, action) => {
                 }
                 return newState
             }
+            break
         case DELETE_ONE_FOLDER:
             const newState = { ...state }
             delete newState[action.folder.id]

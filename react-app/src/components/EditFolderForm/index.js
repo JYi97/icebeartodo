@@ -50,7 +50,7 @@ const EditFolderForm = ({ folder, folders }) => {
 
     useEffect(() => {
 
-    }, [onSubmit])
+    }, [onSubmit, folderTitles.length])
 
     return (
         <>

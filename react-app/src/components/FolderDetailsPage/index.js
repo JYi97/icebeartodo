@@ -5,6 +5,7 @@ import { getOneFolder } from '../../store/folders';
 import { useEffect } from 'react';
 import ActivitiesList from '../ActivitiesList';
 import { getActivitiesFromFolder } from '../../store/activities';
+import ActivityForm from '../ActivityForm';
 
 const FolderDetailsPage = () => {
     const dispatch = useDispatch()
@@ -34,6 +35,9 @@ const FolderDetailsPage = () => {
             <h2>
                 {folderDetails && folderDetails.title}
             </h2>
+            <div>
+                <ActivityForm folderId={folderId}/>
+            </div>
             <div>
                 {activitiesArr && <ActivitiesList activities={activitiesArr} />}
             </div>
