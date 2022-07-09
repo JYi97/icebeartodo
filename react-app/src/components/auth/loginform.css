@@ -1,0 +1,18 @@
+.login-form-image-container {
+    display: flex;
+    margin: auto;
+    height: auto;
+}
+
+.login-page-login-form,
+.login-page-image {
+    width: 50%;
+    float: left;
+}
+
+.login-page-image,
+.login-page-login-form {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}

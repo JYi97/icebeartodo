@@ -3,9 +3,10 @@ import './splashpage.css'
 const SplashPage = () => {
     return (
         <>
-        <h1>
-            This is the splash page of Ice Bear's To-Do's
-        </h1>
+            <h3>
+                Organize your chores and schedule so you can not only
+                 get your work done but have time to relax like Ice Bear.
+            </h3>
         </>
     )
 }
