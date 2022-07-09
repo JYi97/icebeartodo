@@ -44,4 +44,19 @@ def create_activity():
         db.session.add(new_activity)
         db.session.commit()
         return new_activity.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
 
+@activity_routes.route('/<activity_id>', methods=['PATCH'])
+def patch_activity(activity_id):
+    form = ActivityForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    activity = Activity.query.filter(Activity.id == activity_id).first()
+    if form.validate_on_submit():
+        activity.title = form.data['title']
+        activity.context = form.data['context']
+        activity.date = form.data['date']
+        db.session.add(activity)
+        db.session.commit()
+        return activity.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
