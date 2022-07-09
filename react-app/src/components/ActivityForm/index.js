@@ -1,46 +1,36 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createOneFolder } from '../../store/folders';
-import './folderform.css'
+import { useDispatch } from 'react-redux';
+import { createOneActivity } from '../../store/activities';
+import './activityform.css'
 
-const FolderForm = ({ folders }) => {
-    // console.log(folders, "THIS IS THE FOLDERS FROM THE FOLDER FORM")
+const ActivityForm = ({ folderId }) => {
     const [title, setTitle] = useState('')
+    const [context, setContext] = useState('')
+    const [date, setDate] = useState('')
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
-    const userId = useSelector(state => state?.session.user.id)
-
-    const dispatch = useDispatch();
-
-    const folderTitles = folders.map((folder) => {
-        return folder.title
-    })
-
-    // console.log("THIS IS FROM THE FOLDER FORM THAT SHOULD BE AN ARRAY OF FOLDER NAMES", folderNames)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const error = [];
         if (title.length < 1) error.push('You must put a name with at least 1 character')
-        if (folderTitles.includes(title)) error.push('Provide a unique name')
         setErrors(error);
     }, [title])
 
+
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (errors.length > 0) {
-            setShow(true)
-            return
+        const payload = {
+            folderId,
+            title,
+            context,
+            date
         }
-        if (errors.length === 0) {
-            setShow(false)
-            const payload = {
-                userId,
-                title,
-            }
-            dispatch(createOneFolder(payload))
-            setTitle('')
-            setErrors([])
-        }
+        dispatch(createOneActivity(payload))
+        setTitle('')
+        setContext('')
+        setDate('')
+        setErrors([])
 
     }
 
@@ -51,11 +41,11 @@ const FolderForm = ({ folders }) => {
     return (
         <>
             <div>
-                This is the form to create a folder.
+                This is the form to create an activity.
             </div>
             <div>
                 <form onSubmit={onSubmit}>
-                    <h2>Create Your Folder</h2>
+                    <h2>Create Your Activity</h2>
                     {show ?
 
                         errors.length > 0 ?
@@ -78,9 +68,24 @@ const FolderForm = ({ folders }) => {
                         <div>
                             <input type='text'
                                 required
-                                placeholder='Folder Title'
+                                placeholder='Activity Title'
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='text'
+                                required
+                                placeholder='Activity Context'
+                                value={context}
+                                onChange={(e) => setContext(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='date'
+                                required
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
                             />
                         </div>
                         <button
@@ -91,8 +96,6 @@ const FolderForm = ({ folders }) => {
             </div>
         </>
     )
-
-
 }
 
-export default FolderForm
+export default ActivityForm

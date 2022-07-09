@@ -33,6 +33,73 @@ export const getOneActivity = (activityId) => async (dispatch) => {
     dispatch(loadOneActivity(activity))
 }
 
+// CREATE one activity
+const CREATE_ONE_ACTIVITY = 'activity/createOneActivity'
+
+export const addOneActivity = (activity) => {
+    return {
+        type: CREATE_ONE_ACTIVITY,
+        activity
+    }
+}
+
+export const createOneActivity = (payload) => async (dispatch) => {
+    const response = await fetch('/api/activities/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const activity = await response.json()
+        dispatch(addOneActivity(activity))
+    }
+}
+
+// UPDATE one specific activity
+const UPDATE_ONE_ACTIVITY = 'activity/updateOneActivity'
+
+export const updateOneActivity = (activity) => {
+    return {
+        type: UPDATE_ONE_ACTIVITY,
+        activity
+    }
+}
+
+export const editOneActivity = (payload) => async (dispatch) => {
+    const activityId = payload.activityId
+    const response = await fetch(`/api/activities/${activityId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const activity = await response.json()
+        dispatch(updateOneActivity(activity))
+    }
+}
+
+// DELETE one specific activity
+const DELETE_ONE_ACTIVITY = 'activity/deleteOneActivity'
+
+export const removeOneActivity = (activity) => {
+    return {
+        type: DELETE_ONE_ACTIVITY,
+        activity
+    }
+}
+
+export const deleteOneActivity = (activityId) => async(dispatch) => {
+    const response = await fetch(`/api/activities/${activityId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const activity = await response.json();
+        dispatch(removeOneActivity(activity))
+        return activity
+    }
+}
+
 const initialState = {}
 
 const activityReducer = (state = initialState, action) => {
@@ -51,6 +118,28 @@ const activityReducer = (state = initialState, action) => {
             return {
                 ...activity
             }
+        case CREATE_ONE_ACTIVITY:
+            if (!state[action.activity.id]) {
+                const newState = {
+                    ...state,
+                    [action.activity.id]: action.activity
+                }
+                return newState
+            }
+            break
+        case UPDATE_ONE_ACTIVITY:
+            if (state[action.activity.id]) {
+                const newState = {
+                    ...state,
+                    [action.activity.id]: action.activity
+                }
+                return newState
+            }
+            break
+        case DELETE_ONE_ACTIVITY:
+            const newState = {...state}
+            delete newState[action.activity.id]
+            return newState
         default:
             return state
     }
