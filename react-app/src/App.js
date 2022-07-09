@@ -12,6 +12,7 @@ import HomePage from './components/HomePage';
 import UpcomingPage from './components/UpcomingPage';
 import FolderDetailsPage from './components/FolderDetailsPage';
 import ActivityDetailsPage from './components/ActivityDetailsPage';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/' exact={true} >
+          <SplashPage />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />

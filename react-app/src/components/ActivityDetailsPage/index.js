@@ -33,7 +33,7 @@ const ActivityDetailsPage = () => {
                 {activityDetails && activityDetails.date}
             </h3>
             <EditActivityForm activityId={activityId} activity={activityDetails} />
-            <h3>
+            {/* <h3>
                 Remove this activity
             </h3>
             <div>
@@ -43,7 +43,7 @@ const ActivityDetailsPage = () => {
                     }}
                 >Delete
                 </button>
-            </div>
+            </div> */}
         </>
     )
 

@@ -20,18 +20,26 @@ const ActivityForm = ({ folderId }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const payload = {
-            folderId,
-            title,
-            context,
-            date
+        if (errors.length > 0) {
+            setShow(true)
+            return
         }
-        dispatch(createOneActivity(payload))
-        setTitle('')
-        setContext('')
-        setDate('')
-        setErrors([])
+        if (errors.length === 0) {
+            setShow(false)
+            const payload = {
+                folderId,
+                title,
+                context,
+                date
+            }
 
+            dispatch(createOneActivity(payload))
+            setTitle('')
+            setContext('')
+            setDate('')
+            setErrors([])
+
+        }
     }
 
     useEffect(() => {
@@ -75,7 +83,6 @@ const ActivityForm = ({ folderId }) => {
                         </div>
                         <div>
                             <input type='text'
-                                required
                                 placeholder='Activity Context'
                                 value={context}
                                 onChange={(e) => setContext(e.target.value)}

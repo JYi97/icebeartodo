@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { editOneActivity } from '../../store/activities';
+import { editOneActivity, deleteOneActivity } from '../../store/activities';
 import './editactivityform.css'
 
 
-const EditActivityForm = ({activityId, activity}) => {
+const EditActivityForm = ({ activityId, activity }) => {
     const history = useHistory()
     const [title, setTitle] = useState(activity?.title)
     const [context, setContext] = useState(activity?.context)
@@ -18,6 +18,7 @@ const EditActivityForm = ({activityId, activity}) => {
     useEffect(() => {
         const error = [];
         if (title?.length < 1) error.push('You must put a name with at least 1 character')
+        if (title?.length > 50) error.push('Please insert a shorter title')
         setErrors(error);
     }, [title])
 
@@ -47,59 +48,74 @@ const EditActivityForm = ({activityId, activity}) => {
 
     return (
         <>
-        <div>
-            This is the form to edit an activity.
-        </div>
-        <div>
-            <form onSubmit={onSubmit}>
-                <h2>Edit Your Activity</h2>
-                {show ?
-                    errors.length > 0 ?
-                        <>
-                            <h4>Errors:</h4>
-                            <ul className='errorsArray'>{errors.map(error => {
-                                return (
-                                    <>
-                                        <li
-                                            key={error}>{error}</li>
-                                    </>
-                                )
-                            })}
-                            </ul>
-                        </>
-                        : null
+            <div>
+                This is the form to edit an activity.
+            </div>
+            <div>
+                <form onSubmit={onSubmit}>
+                    <h2>Edit Your Activity</h2>
+                    {show ?
+                        errors.length > 0 ?
+                            <>
+                                <h4>Errors:</h4>
+                                <ul className='errorsArray'>{errors.map(error => {
+                                    return (
+                                        <>
+                                            <li
+                                                key={error}>{error}</li>
+                                        </>
+                                    )
+                                })}
+                                </ul>
+                            </>
+                            : null
 
-                    : null}
+                        : null}
+                    <div>
+                        <div>
+                            <input type='text'
+                                required
+                                placeholder='Activity Title'
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='text'
+                                placeholder='Activity Context'
+                                value={context}
+                                onChange={(e) => setContext(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='date'
+                                required
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            />
+                        </div>
+                        <button
+                            type='submit'
+                        >Submit</button>
+                    </div>
+                </form>
+                <h3>
+                    Remove this activity
+                </h3>
                 <div>
-                    <div>
-                        <input type='text'
-                            required
-                            placeholder='Activity Title'
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <input type='text'
-                            placeholder='Activity Context'
-                            value={context}
-                            onChange={(e) => setContext(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <input type='date'
-                            required
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                        />
-                    </div>
                     <button
-                        type='submit'
-                    >Submit</button>
+                        onClick={() => {
+                            dispatch(deleteOneActivity(activityId))
+                            setTitle('')
+                            setContext('')
+                            setDate('')
+                            history.push(`/folders/${activity.folderId}`)
+                        }}
+                    >Delete
+                    </button>
                 </div>
-            </form>
-        </div>
-    </>
+            </div>
+        </>
     )
 }
 

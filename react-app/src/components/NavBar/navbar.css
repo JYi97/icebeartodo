@@ -18,4 +18,10 @@ body {
 
 .navigation-bar-buttons {
     display: flex;
+    justify-content: space-between;
+
+}
+
+.navigation-bar-auth-buttons {
+    display: flex;
 }
