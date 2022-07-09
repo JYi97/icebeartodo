@@ -7,17 +7,13 @@ import './editactivityform.css'
 
 const EditActivityForm = ({activityId, activity}) => {
     const history = useHistory()
-    const [title, setTitle] = useState(activity.title)
-    const [context, setContext] = useState(activity.context)
-    const [date, setDate] = useState(activity.date)
+    const [title, setTitle] = useState(activity?.title)
+    const [context, setContext] = useState(activity?.context)
+    const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
-    const userId = useSelector(state => state?.session.user.id)
-
-    // console.log("THIS IS THE FOLDERS IN THE EDIT FOLDER FORM COMPONENT", folders)
 
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         const error = [];
@@ -58,7 +54,6 @@ const EditActivityForm = ({activityId, activity}) => {
             <form onSubmit={onSubmit}>
                 <h2>Edit Your Activity</h2>
                 {show ?
-
                     errors.length > 0 ?
                         <>
                             <h4>Errors:</h4>

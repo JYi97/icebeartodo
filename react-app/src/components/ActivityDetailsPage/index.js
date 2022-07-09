@@ -2,7 +2,7 @@ import './activitydetailspage.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getOneActivity } from '../../store/activities';
+import { getOneActivity, deleteOneActivity } from '../../store/activities';
 import EditActivityForm from '../EditActivityForm';
 
 
@@ -32,7 +32,18 @@ const ActivityDetailsPage = () => {
             <h3>
                 {activityDetails && activityDetails.date}
             </h3>
-            <EditActivityForm activityId={activityId} activity={activityDetails}/>
+            <EditActivityForm activityId={activityId} activity={activityDetails} />
+            <h3>
+                Remove this activity
+            </h3>
+            <div>
+                <button
+                    onClick={() => {
+                        dispatch(deleteOneActivity(activityId))
+                    }}
+                >Delete
+                </button>
+            </div>
         </>
     )
 

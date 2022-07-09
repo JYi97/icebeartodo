@@ -78,6 +78,28 @@ export const editOneActivity = (payload) => async (dispatch) => {
     }
 }
 
+// DELETE one specific activity
+const DELETE_ONE_ACTIVITY = 'activity/deleteOneActivity'
+
+export const removeOneActivity = (activity) => {
+    return {
+        type: DELETE_ONE_ACTIVITY,
+        activity
+    }
+}
+
+export const deleteOneActivity = (activityId) => async(dispatch) => {
+    const response = await fetch(`/api/activities/${activityId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const activity = await response.json();
+        dispatch(removeOneActivity(activity))
+        return activity
+    }
+}
+
 const initialState = {}
 
 const activityReducer = (state = initialState, action) => {
@@ -114,6 +136,10 @@ const activityReducer = (state = initialState, action) => {
                 return newState
             }
             break
+        case DELETE_ONE_ACTIVITY:
+            const newState = {...state}
+            delete newState[action.activity.id]
+            return newState
         default:
             return state
     }

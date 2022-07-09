@@ -11,7 +11,7 @@ class Activity(db.Model):
     completed = db.Column(db.Boolean, nullable=False)
 
     # Many-to-One relationship with Folders
-    folders = db.relationship('Folder', back_populates='activities', cascade='all, delete')
+    folders = db.relationship('Folder', back_populates='activities')
 
 
     def to_dict(self):

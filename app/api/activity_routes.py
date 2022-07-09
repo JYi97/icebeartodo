@@ -60,3 +60,12 @@ def patch_activity(activity_id):
         db.session.commit()
         return activity.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+# Users can delete one specific activity
+@activity_routes.route('/<activity_id>', methods=['DELETE'])
+def delete_activity(activity_id):
+    activity = Activity.query.filter(Activity.id == activity_id).first()
+    db.session.delete(activity)
+    db.session.commit()
+
+    return activity.to_dict()
