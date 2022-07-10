@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 # Users can get all their activities from a specific folder
 @activity_routes.route('/')
 def get_all_activities():
-    activities = Activity.query.filter(Activity.user_id == current_user.get_id()).all()
+    activities = Activity.query.filter(Activity.id == current_user.get_id()).all()
     return jsonify([activity.to_dict() for activity in activities])
 
 # Users can get one specific activity
@@ -56,6 +56,7 @@ def patch_activity(activity_id):
         activity.title = form.data['title']
         activity.context = form.data['context']
         activity.date = form.data['date']
+        # activity.folder_id = request.json['folderId']
         db.session.add(activity)
         db.session.commit()
         return activity.to_dict()
