@@ -12,6 +12,8 @@ const EditActivityForm = ({ activityId, activity }) => {
     const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
+    const folderId = activity?.folderId
+    console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
 
     const dispatch = useDispatch();
 
@@ -31,10 +33,11 @@ const EditActivityForm = ({ activityId, activity }) => {
         if (errors.length === 0) {
             setShow(false)
             const payload = {
-                activityId,
+                folderId,
                 title,
                 context,
-                date
+                date,
+                activityId
             }
             await dispatch(editOneActivity(payload))
             await history.push(`/activities/${activityId}`)
