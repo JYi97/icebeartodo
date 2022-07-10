@@ -1,18 +1,28 @@
 .login-form-image-container {
     display: flex;
-    margin: auto;
-    height: auto;
+    margin-top: 10em;
+    /* margin: auto; */
+    /* height: auto; */
 }
 
 .login-page-login-form,
 .login-page-image {
     width: 50%;
     float: left;
+    vertical-align: middle;
 }
 
 .login-page-image,
 .login-page-login-form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    vertical-align: middle;
+}
+
+.login-page-image {
+    align-items: center;
+}
+
+.login-page-login-form{
+    align-items: flex-end;
 }

@@ -8,6 +8,7 @@ const FolderForm = ({ folders }) => {
     const [title, setTitle] = useState('')
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
+    const [showForm, setShowForm] = useState(false)
     const userId = useSelector(state => state?.session.user.id)
 
     const dispatch = useDispatch();
@@ -55,6 +56,53 @@ const FolderForm = ({ folders }) => {
                 This is the form to create a folder.
             </div>
             <div>
+                <button onClick={() => {
+                    if (showForm) {
+                        setShowForm(false)
+                    } else {
+                        setShowForm(true)
+                    }
+                }}>
+                    New Folder
+                </button>
+            </div>
+            {showForm ?
+                <div>
+                    <form onSubmit={onSubmit}>
+                        <h2>Add a new folder</h2>
+                        {show ?
+                            errors.length > 0 ?
+                                <>
+                                    <h4>Errors:</h4>
+                                    <ul className='errorsArray'>{errors.map(error => {
+                                        return (
+                                            <>
+                                                <li
+                                                    key={error}>{error}</li>
+                                            </>
+                                        )
+                                    })}
+                                    </ul>
+                                </>
+                                : null
+
+                            : null}
+                        <div>
+                            <div>
+                                <input type='text'
+                                    required
+                                    placeholder='Folder Title'
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                />
+                            </div>
+                            <button
+                                type='submit'
+                            >Submit</button>
+                        </div>
+                    </form>
+                </div> : null}
+            {/* <div>
                 <form onSubmit={onSubmit}>
                     <h2>Add a new folder</h2>
                     {show ?
@@ -88,7 +136,7 @@ const FolderForm = ({ folders }) => {
                         >Submit</button>
                     </div>
                 </form>
-            </div>
+            </div> */}
         </>
     )
 
