@@ -23,10 +23,10 @@ const HomePage = () => {
         <>
             <h1> Ice Bear's To-Do List</h1>
             <div>
-                <FoldersList folders={userFolders} />
                 <div>
                     <TodayActivities />
                 </div>
+                <FoldersList folders={userFolders} />
             </div>
         </>
     )

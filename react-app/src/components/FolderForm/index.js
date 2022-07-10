@@ -20,8 +20,9 @@ const FolderForm = ({ folders }) => {
 
     useEffect(() => {
         const error = [];
-        if (title.length < 1) error.push('You must put a name with at least 1 character')
-        if (folderTitles.includes(title)) error.push('Provide a unique name')
+        if (title?.length < 1) error.push('Ice Bear wants at least 1 character for title')
+        if (title?.length > 50) error.push('Ice Bear wants a shorter title')
+        if (folderTitles.includes(title)) error.push('Ice Bear wants a new title')
         setErrors(error);
     }, [title])
 
@@ -55,9 +56,8 @@ const FolderForm = ({ folders }) => {
             </div>
             <div>
                 <form onSubmit={onSubmit}>
-                    <h2>Create Your Folder</h2>
+                    <h2>Add a new folder</h2>
                     {show ?
-
                         errors.length > 0 ?
                             <>
                                 <h4>Errors:</h4>

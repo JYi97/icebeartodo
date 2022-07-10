@@ -18,13 +18,13 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink className='navigation-bar-users-button' to='/users' exact={true} activeClassName='active'>
-              Users
+            <NavLink className='navigation-bar-upcoming-button' to='/upcoming' exact={true} activeClassName='active'>
+              Upcoming
             </NavLink>
           </div>
           <div>
-            <NavLink className='navigation-bar-upcoming-button' to='/upcoming' exact={true} activeClassName='active'>
-              Upcoming
+            <NavLink className='navigation-bar-users-button' to='/users' exact={true} activeClassName='active'>
+              Users (This is going to be the activities tab)
             </NavLink>
           </div>
           <div className='navigation-bar-logout-button,'>

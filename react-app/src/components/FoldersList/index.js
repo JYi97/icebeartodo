@@ -23,6 +23,9 @@ const FoldersList = ({ folders }) => {
             </div>
             <h4>{foldersArr && <FolderForm folders={foldersArr} />}</h4>
             <div>
+                <h4>
+                    Folder Stack (Bear Stack)
+                </h4>
                 {foldersArr && foldersArr.map(folder => {
                     return <div key={foldersArr.indexOf(folder)}>
                         <NavLink to={`/folders/${folder.id}`}>
@@ -30,9 +33,6 @@ const FoldersList = ({ folders }) => {
                         </NavLink>
                         <div>
                             <EditFolderForm folder={folder} folders={foldersArr} />
-                        </div>
-                        <div>
-                            Activities for events in the folder can be hidden so only title of folder will be displayed.
                         </div>
                         <div>
                             <button
