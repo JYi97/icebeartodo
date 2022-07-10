@@ -23,8 +23,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=50), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('title')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('activities',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -34,8 +33,7 @@ def upgrade():
     sa.Column('date', sa.Date(), nullable=False),
     sa.Column('completed', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['folder_id'], ['folders.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('title')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 

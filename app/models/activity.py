@@ -4,7 +4,7 @@ class Activity(db.Model):
     __tablename__ = "activities"
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    title = db.Column(db.String(50), nullable=False, unique=True)
+    title = db.Column(db.String(50), nullable=False)
     folder_id = db.Column(db.Integer, db.ForeignKey('folders.id'), nullable=False)
     context = db.Column(db.Text, nullable=True)
     date = db.Column(db.Date, nullable=False)

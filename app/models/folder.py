@@ -5,7 +5,7 @@ class Folder(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    title = db.Column(db.String(50), nullable=False, unique=True)
+    title = db.Column(db.String(50), nullable=False)
 
 
     # Many-to-One relationship with User
