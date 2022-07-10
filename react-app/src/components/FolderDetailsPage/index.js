@@ -36,7 +36,7 @@ const FolderDetailsPage = () => {
                 {folderDetails && folderDetails.title}
             </h2>
             <div>
-                <ActivityForm folderId={folderId}/>
+                {activitiesArr && <ActivityForm folderId={folderId} activities={activitiesArr}/>}
             </div>
             <div>
                 {activitiesArr && <ActivitiesList activities={activitiesArr} />}

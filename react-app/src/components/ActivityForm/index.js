@@ -3,17 +3,24 @@ import { useDispatch } from 'react-redux';
 import { createOneActivity } from '../../store/activities';
 import './activityform.css'
 
-const ActivityForm = ({ folderId }) => {
+const ActivityForm = ({ folderId, activities }) => {
     const [title, setTitle] = useState('')
     const [context, setContext] = useState('')
     const [date, setDate] = useState('')
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
     const dispatch = useDispatch()
+    console.log("THIS IS THE ACTIVITIES", activities)
+
+    const activityTitles = activities.map((activity) => {
+        return activity.title
+    })
 
     useEffect(() => {
         const error = [];
-        if (title.length < 1) error.push('You must put a name with at least 1 character')
+        if (title?.length < 1) error.push('Ice Bear wants at least 1 character')
+        if (title?.length > 50) error.push('Ice Bear wants a shorter title')
+        if (activityTitles.includes(title)) error.push('Ice Bear wants a new activity')
         setErrors(error);
     }, [title])
 
