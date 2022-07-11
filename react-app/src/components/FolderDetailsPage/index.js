@@ -64,7 +64,7 @@ const FolderDetailsPage = () => {
                     onClick={() => {
                         dispatch(deleteOneFolder(folder.id))
                         history.push('/home')
-                    }}>Delete
+                    }}>Delete This Folder
                 </button>
             </div>
             <div>

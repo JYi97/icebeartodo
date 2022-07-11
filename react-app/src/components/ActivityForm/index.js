@@ -9,6 +9,7 @@ const ActivityForm = ({ folderId, activities }) => {
     const [date, setDate] = useState('')
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
+    const [showForm, setShowForm] = useState(false)
     const dispatch = useDispatch()
     console.log("THIS IS THE ACTIVITIES", activities)
 
@@ -45,6 +46,7 @@ const ActivityForm = ({ folderId, activities }) => {
             setContext('')
             setDate('')
             setErrors([])
+            setShowForm(false)
 
         }
     }
@@ -59,6 +61,17 @@ const ActivityForm = ({ folderId, activities }) => {
                 This is the form to create an activity.
             </div>
             <div>
+                <button onClick={() => {
+                    if (showForm) {
+                        setShowForm(false)
+                    } else {
+                        setShowForm(true)
+                    }
+                }}>
+                    Add an Activity
+                </button>
+            </div>
+            {showForm ? <div>
                 <form onSubmit={onSubmit}>
                     <h2>Create Your Activity</h2>
                     {show ?
@@ -107,7 +120,8 @@ const ActivityForm = ({ folderId, activities }) => {
                         >Submit</button>
                     </div>
                 </form>
-            </div>
+            </div> : null}
+
         </>
     )
 }
