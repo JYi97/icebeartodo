@@ -24,7 +24,7 @@ const NavBar = () => {
           </div>
           <div>
             <NavLink className='navigation-bar-users-button' to='/users' exact={true} activeClassName='active'>
-              Users (This is going to be the activities tab)
+              Users (This is going to be the activities history (Completed Only))
             </NavLink>
           </div>
           <div className='navigation-bar-logout-button,'>

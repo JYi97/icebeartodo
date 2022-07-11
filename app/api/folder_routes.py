@@ -74,7 +74,7 @@ def get_one_folder(folder_id):
     print("THIS IS THE FOLDER FROM THE DB IN THE BACKEND", folder)
     return jsonify(folder.to_dict())
 
-# Users can get all activities in on specific folder
+# Users can get all activities from one specific folder
 @folder_routes.route('/<folder_id>/activities')
 def get_activities_for_one_folder(folder_id):
     activities = Activity.query.filter(Activity.folder_id == folder_id).all()

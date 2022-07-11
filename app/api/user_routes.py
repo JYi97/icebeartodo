@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
+from app.models import User, Folder, Activity
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,3 +17,12 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+# Users can get all activities from one specific user
+@user_routes.route('/<user_id>/activities')
+def get_activities_for_one_user(user_id):
+    folders = Folder.query.filter(Folder.user_id == user_id).all()
+    print("THIS IS THE FOLDERS IN THE USER ROUTES", folders)
+    folderIDs = []
+    # activitiesId = []
+    # mapping
