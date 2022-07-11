@@ -15,7 +15,7 @@ const ActivityDetailsPage = () => {
     console.log("THIS IS THE ACTIVITY ID ", activityId)
     console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
 
-
+    
 
     let activity
 
