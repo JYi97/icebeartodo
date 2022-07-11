@@ -47,13 +47,13 @@ const FoldersList = ({ folders }) => {
                             <div>
                                 <EditFolderForm folder={folder} folders={foldersArr} />
                             </div> : null} */}
-                        <div>
+                        {/* <div>
                             <button
                                 onClick={() => {
                                     dispatch(deleteOneFolder(folder.id))
                                 }}>Delete
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 })}
             </div>
