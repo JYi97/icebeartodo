@@ -4,15 +4,15 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { getFolders } from '../../store/folders';
 import FolderForm from '../FolderForm';
-import EditFolderForm from '../EditFolderForm';
-import { deleteOneFolder } from '../../store/folders';
+// import EditFolderForm from '../EditFolderForm';
+// import { deleteOneFolder } from '../../store/folders';
 
 
 const FoldersList = ({ folders }) => {
 
     let foldersArr = Object.values(folders)
-    const dispatch = useDispatch()
-    const [show, setShow] = useState(false);
+    // const dispatch = useDispatch()
+    // const [show, setShow] = useState(false);
 
     return (
         <>
@@ -47,13 +47,13 @@ const FoldersList = ({ folders }) => {
                             <div>
                                 <EditFolderForm folder={folder} folders={foldersArr} />
                             </div> : null} */}
-                        <div>
+                        {/* <div>
                             <button
                                 onClick={() => {
                                     dispatch(deleteOneFolder(folder.id))
                                 }}>Delete
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 })}
             </div>

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { editOneActivity, deleteOneActivity } from '../../store/activities';
 import './editactivityform.css'
-import { getActivitiesFromFolder } from '../../store/activities';
 
 
 const EditActivityForm = ({ activityId, activity, activities }) => {
@@ -13,6 +12,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
+    const [showForm, setShowForm] = useState(false);
     const folderId = activity?.folderId
     console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
     console.log("THIS IS THE ACTIVITIES IN THE EDIT ACTIVITY FORM", activities)
@@ -54,9 +54,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
 
     }
 
-    // useEffect(() => {
-    //     dispatch(getActivitiesFromFolder(folderId))
-    // }, [])
+
 
     useEffect(() => {
 
@@ -68,7 +66,17 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                 This is the form to edit an activity.
             </div>
             <div>
-                <form onSubmit={onSubmit}>
+                <button onClick={() => {
+                    if (showForm) {
+                        setShowForm(false)
+                    } else {
+                        setShowForm(true)
+                    }
+                }}>
+                    Edit Activity
+                </button>
+            </div>
+            {showForm ?  <form onSubmit={onSubmit}>
                     <h2>Edit Your Activity</h2>
                     {show ?
                         errors.length > 0 ?
@@ -114,7 +122,55 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             type='submit'
                         >Submit</button>
                     </div>
-                </form>
+                </form>: null}
+            <div>
+                {/* <form onSubmit={onSubmit}>
+                    <h2>Edit Your Activity</h2>
+                    {show ?
+                        errors.length > 0 ?
+                            <>
+                                <h4>Errors:</h4>
+                                <ul className='errorsArray'>{errors.map(error => {
+                                    return (
+                                        <>
+                                            <li
+                                                key={error}>{error}</li>
+                                        </>
+                                    )
+                                })}
+                                </ul>
+                            </>
+                            : null
+
+                        : null}
+                    <div>
+                        <div>
+                            <input type='text'
+                                required
+                                placeholder='Activity Title'
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='text'
+                                placeholder='Activity Context'
+                                value={context}
+                                onChange={(e) => setContext(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type='date'
+                                required
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            />
+                        </div>
+                        <button
+                            type='submit'
+                        >Submit</button>
+                    </div>
+                </form> */}
                 <h3>
                     Remove this activity
                 </h3>
@@ -127,7 +183,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             setDate('')
                             history.push(`/folders/${activity.folderId}`)
                         }}
-                    >Delete
+                    >Delete This Activity
                     </button>
                 </div>
             </div>

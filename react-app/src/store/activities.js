@@ -88,7 +88,7 @@ export const removeOneActivity = (activity) => {
     }
 }
 
-export const deleteOneActivity = (activityId) => async(dispatch) => {
+export const deleteOneActivity = (activityId) => async (dispatch) => {
     const response = await fetch(`/api/activities/${activityId}`, {
         method: 'DELETE'
     })
@@ -101,11 +101,11 @@ export const deleteOneActivity = (activityId) => async(dispatch) => {
 }
 
 // Getting all activities with userId
-const GET_ACTIVITIES_FROM_USER = 'activity/getAllActivities'
+const GET_ACTIVITIES_FROM_USER = 'activity/loadActivitiesFromUser'
 
-export const loadAllActivities = (activities) => {
+export const loadActivitiesFromUser = (activities) => {
     return {
-        GET_ACTIVITIES_FROM_USER,
+        type: GET_ACTIVITIES_FROM_USER,
         activities
     }
 }
@@ -113,7 +113,24 @@ export const loadAllActivities = (activities) => {
 export const getActivitiesFromUser = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/activities`)
     const activities = await response.json()
-    dispatch(loadAllActivities(activities))
+    console.log("THIS IS THE ACTIVITIES RESPONSE FROM THE FETCH CALL", activities)
+    dispatch(loadActivitiesFromUser(activities))
+}
+
+// Getting all activities from same folder with activityID
+const GET_ACTIVITIES_FROM_ACTIVITYID = 'activity/loadActivitiesFromActivityID'
+
+export const loadActivitiesFromActivityId = (activities) => {
+    return {
+        type: GET_ACTIVITIES_FROM_ACTIVITYID,
+        activities
+    }
+}
+
+export const getActivitiesFromActivityID = (activityId) => async(dispatch) => {
+    const response = await fetch(`/api/activities/${activityId}/folder/activities`)
+    const activities = await response.json()
+    dispatch(loadActivitiesFromActivityId(activities))
 }
 
 const initialState = {}
@@ -129,10 +146,22 @@ const activityReducer = (state = initialState, action) => {
                 ...allActivities
             }
         case GET_ACTIVITIES_FROM_USER:
-            const activities = {};
+            const usersActivities = {};
+            console.log("THIS IS THE ACTIVITIES FROM THE REDUCER", action.activities)
             action.activities.forEach(activity => {
-                activities[activity.id] = activity
+                usersActivities[activity.id] = activity
             })
+            return {
+                ...usersActivities
+            }
+        case GET_ACTIVITIES_FROM_ACTIVITYID:
+            const folderActivities = {};
+            action.activities.forEach(activity => {
+                folderActivities[activity.id] = activity
+            })
+            return {
+                ...folderActivities
+            }
         case GET_ONE_ACTIVITY:
             const activity = {};
             activity[action.activity.id] = action.activity
@@ -158,7 +187,7 @@ const activityReducer = (state = initialState, action) => {
             }
             break
         case DELETE_ONE_ACTIVITY:
-            const newState = {...state}
+            const newState = { ...state }
             delete newState[action.activity.id]
             return newState
         default:

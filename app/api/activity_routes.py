@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user
-from app.models import Activity, db
+from app.models import Activity, db, Folder
 from app.forms import ActivityForm
 
 activity_routes = Blueprint('activities', __name__)
@@ -15,10 +15,18 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-# Users can get all their activities 
+# Users can get all their activities
 @activity_routes.route('/')
 def get_all_activities():
     activities = Activity.query.filter(Activity.id == current_user.get_id()).all()
+    return jsonify([activity.to_dict() for activity in activities])
+
+# Getting activities from folder with activity_id
+@activity_routes.route('/<activity_id>/folder/activities')
+def get_activities_from_folder(activity_id):
+    activity = Activity.query.filter(Activity.id == activity_id).first()
+    folder = Folder.query.filter(Folder.id == activity.folder_id).first()
+    activities = Activity.query.filter(Activity.folder_id == folder.id).all()
     return jsonify([activity.to_dict() for activity in activities])
 
 # Users can get one specific activity

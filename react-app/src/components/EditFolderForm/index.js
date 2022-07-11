@@ -11,6 +11,7 @@ const EditFolderForm = ({ folder, folders }) => {
     const [title, setTitle] = useState(folder.title)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
+    const [showForm, setShowForm] = useState(false);
     const userId = useSelector(state => state?.session.user.id)
 
     // console.log("THIS IS THE FOLDERS IN THE EDIT FOLDER FORM COMPONENT", folders)
@@ -46,7 +47,8 @@ const EditFolderForm = ({ folder, folders }) => {
             await dispatch(editOneFolder(payload))
             // await history.push(`/home`)
             await history.push(`/folders/${folderId}`)
-            
+            setShowForm(false)
+
         }
 
     }
@@ -60,7 +62,45 @@ const EditFolderForm = ({ folder, folders }) => {
             <h4>
                 Edit Folder Form Here
             </h4>
-            <form onSubmit={onSubmit}>
+            <div>
+                <button onClick={() => {
+                    if (showForm) {
+                        setShowForm(false)
+                    } else {
+                        setShowForm(true)
+                    }
+                }}>
+                  Edit Folder Title
+                </button>
+            </div>
+            {showForm ? <form onSubmit={onSubmit}>
+                {show ?
+                    errors.length > 0 ?
+                        <>
+                            <h3>Error</h3>
+                            <ul>{errors.map(error => {
+                                return (
+                                    <>
+                                        <li
+                                            key={error}>{error}</li>
+                                    </>
+                                )
+                            })}
+                            </ul>
+                        </>
+                        : null
+                    : null}
+                <div>
+                    <input type='text'
+                        required
+                        placeholder={folder.title}
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
+                <button type='submit'>Keep your changes to folder title</button>
+            </form> : null}
+            {/* <form onSubmit={onSubmit}>
                 {show ?
                     errors.length > 0 ?
                         <>
@@ -86,7 +126,7 @@ const EditFolderForm = ({ folder, folders }) => {
                     />
                 </div>
                 <button type='submit'>Keep your changes</button>
-            </form>
+            </form> */}
         </>
     )
 }
