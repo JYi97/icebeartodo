@@ -2,7 +2,6 @@ import './activitydetailspage.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getOneActivity, deleteOneActivity } from '../../store/activities';
 import EditActivityForm from '../EditActivityForm';
 
 
@@ -16,7 +15,7 @@ const ActivityDetailsPage = () => {
     console.log("THIS IS THE ACTIVITY ID ", activityId)
     console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
 
-   
+
 
     let activity
 
@@ -43,7 +42,7 @@ const ActivityDetailsPage = () => {
             <h3>
                 {activity && activity.date}
             </h3>
-            <EditActivityForm activityId={activityId} activity={activity} activities={activities}/>
+            {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
             {/* <h3>
                 Remove this activity
             </h3>
