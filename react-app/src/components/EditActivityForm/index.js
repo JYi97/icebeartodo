@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { editOneActivity, deleteOneActivity } from '../../store/activities';
 import './editactivityform.css'
+import { getActivitiesFromFolder } from '../../store/activities';
 
 
-const EditActivityForm = ({ activityId, activity }) => {
+const EditActivityForm = ({ activityId, activity, activities }) => {
     const history = useHistory()
     const [title, setTitle] = useState(activity?.title)
     const [context, setContext] = useState(activity?.context)
@@ -14,6 +15,13 @@ const EditActivityForm = ({ activityId, activity }) => {
     const [show, setShow] = useState(false);
     const folderId = activity?.folderId
     console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
+    console.log("THIS IS THE ACTIVITIES IN THE EDIT ACTIVITY FORM", activities)
+
+    const activityTitles = activities.map((activity) => {
+        return activity.title
+    })
+
+    console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitles)
 
     const dispatch = useDispatch();
 
@@ -21,6 +29,7 @@ const EditActivityForm = ({ activityId, activity }) => {
         const error = [];
         if (title?.length < 1) error.push('You must put a name with at least 1 character')
         if (title?.length > 50) error.push('Please insert a shorter title')
+        if (activityTitles.includes(title)) error.push('Ice Bear wants a new title')
         setErrors(error);
     }, [title])
 
@@ -44,6 +53,10 @@ const EditActivityForm = ({ activityId, activity }) => {
         }
 
     }
+
+    // useEffect(() => {
+    //     dispatch(getActivitiesFromFolder(folderId))
+    // }, [])
 
     useEffect(() => {
 

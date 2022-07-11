@@ -1,18 +1,18 @@
 import './FoldersList.css'
-// import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { getFolders } from '../../store/folders';
 import FolderForm from '../FolderForm';
-// import EditFolderForm from '../EditFolderForm';
-// import { deleteOneFolder } from '../../store/folders';
+import EditFolderForm from '../EditFolderForm';
+import { deleteOneFolder } from '../../store/folders';
 
 
 const FoldersList = ({ folders }) => {
 
     let foldersArr = Object.values(folders)
-    // const dispatch = useDispatch()
-    // const [show, setShow] = useState(false);
+    const dispatch = useDispatch()
+    const [show, setShow] = useState(false);
 
     return (
         <>
@@ -32,7 +32,7 @@ const FoldersList = ({ folders }) => {
                         <NavLink to={`/folders/${folder.id}`}>
                             {folder.title}
                         </NavLink>
-                        {/* <div>
+                        <div>
                             <button onClick={() => {
                                 if (show) {
                                     setShow(false)
@@ -53,7 +53,7 @@ const FoldersList = ({ folders }) => {
                                     dispatch(deleteOneFolder(folder.id))
                                 }}>Delete
                             </button>
-                        </div> */}
+                        </div>
                     </div>
                 })}
             </div>
