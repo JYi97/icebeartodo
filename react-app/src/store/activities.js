@@ -100,6 +100,22 @@ export const deleteOneActivity = (activityId) => async(dispatch) => {
     }
 }
 
+// Getting all activities with userId
+const GET_ACTIVITIES_FROM_USER = 'activity/getAllActivities'
+
+export const loadAllActivities = (activities) => {
+    return {
+        GET_ACTIVITIES_FROM_USER,
+        activities
+    }
+}
+
+export const getActivitiesFromUser = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/users/${userId}/activities`)
+    const activities = await response.json()
+    dispatch(loadAllActivities(activities))
+}
+
 const initialState = {}
 
 const activityReducer = (state = initialState, action) => {
@@ -112,6 +128,11 @@ const activityReducer = (state = initialState, action) => {
             return {
                 ...allActivities
             }
+        case GET_ACTIVITIES_FROM_USER:
+            const activities = {};
+            action.activities.forEach(activity => {
+                activities[activity.id] = activity
+            })
         case GET_ONE_ACTIVITY:
             const activity = {};
             activity[action.activity.id] = action.activity

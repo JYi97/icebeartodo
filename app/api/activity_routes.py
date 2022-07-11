@@ -15,7 +15,7 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-# Users can get all their activities from a specific folder
+# Users can get all their activities 
 @activity_routes.route('/')
 def get_all_activities():
     activities = Activity.query.filter(Activity.id == current_user.get_id()).all()

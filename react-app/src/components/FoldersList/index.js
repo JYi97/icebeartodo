@@ -32,7 +32,7 @@ const FoldersList = ({ folders }) => {
                         <NavLink to={`/folders/${folder.id}`}>
                             {folder.title}
                         </NavLink>
-                        <div>
+                        {/* <div>
                             <button onClick={() => {
                                 if (show) {
                                     setShow(false)
@@ -46,7 +46,7 @@ const FoldersList = ({ folders }) => {
                         {show ?
                             <div>
                                 <EditFolderForm folder={folder} folders={foldersArr} />
-                            </div> : null}
+                            </div> : null} */}
                         <div>
                             <button
                                 onClick={() => {

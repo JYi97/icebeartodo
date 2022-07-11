@@ -15,6 +15,7 @@ const EditFolderForm = ({ folder, folders }) => {
 
     // console.log("THIS IS THE FOLDERS IN THE EDIT FOLDER FORM COMPONENT", folders)
 
+
     const dispatch = useDispatch();
 
     const folderTitles = folders.map((folder) => {
@@ -43,8 +44,9 @@ const EditFolderForm = ({ folder, folders }) => {
                 userId,
             }
             await dispatch(editOneFolder(payload))
-            await history.push(`/home`)
-            // await history.push(`/folders/${folderId}`)
+            // await history.push(`/home`)
+            await history.push(`/folders/${folderId}`)
+            
         }
 
     }
