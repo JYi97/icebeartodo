@@ -10,13 +10,24 @@ const ActivityDetailsPage = () => {
     const dispatch = useDispatch()
     const URLActivityId = useParams()
     const activityId = Number(URLActivityId.id)
-    const activity = useSelector(state => state?.activity)
-    const activityDetails = activity[activityId]
+    const activities = useSelector(state => Object.values(state?.activity))
+    // const activityDetails = activity[activityId]
 
-    useEffect(() => {
+    console.log("THIS IS THE ACTIVITY ID ", activityId)
+    console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
 
-        dispatch(getOneActivity(activityId))
-    }, [dispatch, activityId])
+   
+
+    let activity
+
+    for (let i = 0; i < activities.length; i++) {
+        if (activities[i].id === activityId) {
+            activity = activities[i]
+        }
+    }
+
+    console.log("THIS IS THE SPECIFIC ACTIVITY", activity)
+
 
     return (
         <>
@@ -24,15 +35,15 @@ const ActivityDetailsPage = () => {
                 This is the Activity Details Page
             </h1>
             <h2>
-                {activityDetails && activityDetails.title}
+                {activity && activity.title}
             </h2>
             <h3>
-                {activityDetails && activityDetails.context}
+                {activity && activity.context}
             </h3>
             <h3>
-                {activityDetails && activityDetails.date}
+                {activity && activity.date}
             </h3>
-            <EditActivityForm activityId={activityId} activity={activityDetails} />
+            <EditActivityForm activityId={activityId} activity={activity} activities={activities}/>
             {/* <h3>
                 Remove this activity
             </h3>
