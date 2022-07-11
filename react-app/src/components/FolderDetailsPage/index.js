@@ -45,7 +45,6 @@ const FolderDetailsPage = () => {
 
         dispatch(getFolders())
         dispatch(getActivitiesFromFolder(folderId))
-        // include another properties that includes list of folders
 
     }, [dispatch, folderId])
 

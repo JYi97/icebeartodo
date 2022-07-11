@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import EditActivityForm from '../EditActivityForm';
+import { getFolders } from '../../store/folders';
+import { getActivitiesFromActivityID } from '../../store/activities';
 
 
 const ActivityDetailsPage = () => {
@@ -15,7 +17,7 @@ const ActivityDetailsPage = () => {
     console.log("THIS IS THE ACTIVITY ID ", activityId)
     console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
 
-    
+
 
     let activity
 
@@ -25,7 +27,17 @@ const ActivityDetailsPage = () => {
         }
     }
 
-    console.log("THIS IS THE SPECIFIC ACTIVITY", activity)
+    console.log("THIS IS THE SPECIFIC ACTIVITY", activity?.folderId)
+
+    const folderId = activity?.folderId
+
+    useEffect(() => {
+
+            dispatch(getFolders())
+            dispatch(getActivitiesFromActivityID(activityId))
+
+
+    }, [dispatch, activityId])
 
 
     return (

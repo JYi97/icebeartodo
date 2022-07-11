@@ -117,6 +117,22 @@ export const getActivitiesFromUser = (userId) => async (dispatch) => {
     dispatch(loadActivitiesFromUser(activities))
 }
 
+// Getting all activities from same folder with activityID
+const GET_ACTIVITIES_FROM_ACTIVITYID = 'activity/loadActivitiesFromActivityID'
+
+export const loadActivitiesFromActivityId = (activities) => {
+    return {
+        type: GET_ACTIVITIES_FROM_ACTIVITYID,
+        activities
+    }
+}
+
+export const getActivitiesFromActivityID = (activityId) => async(dispatch) => {
+    const response = await fetch(`/api/activities/${activityId}/folder/activities`)
+    const activities = await response.json()
+    dispatch(loadActivitiesFromActivityId(activities))
+}
+
 const initialState = {}
 
 const activityReducer = (state = initialState, action) => {
@@ -137,6 +153,14 @@ const activityReducer = (state = initialState, action) => {
             })
             return {
                 ...usersActivities
+            }
+        case GET_ACTIVITIES_FROM_ACTIVITYID:
+            const folderActivities = {};
+            action.activities.forEach(activity => {
+                folderActivities[activity.id] = activity
+            })
+            return {
+                ...folderActivities
             }
         case GET_ONE_ACTIVITY:
             const activity = {};
