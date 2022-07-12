@@ -23,8 +23,8 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink className='navigation-bar-users-button' to='/users' exact={true} activeClassName='active'>
-              Users (This is going to be the activities history (Completed Only))
+            <NavLink className='navigation-bar-users-button' to='/history' exact={true} activeClassName='active'>
+              History
             </NavLink>
           </div>
           <div className='navigation-bar-logout-button,'>
@@ -33,7 +33,7 @@ const NavBar = () => {
         </div>
       </nav> : <nav className='navigation-bar'>
         <div className='navigation-bar-buttons'>
-          <div>
+          <div className='navigation-bar-icebeartodo-title'>
             Ice Bear's To-Do's
           </div>
           <div className='navigation-bar-auth-buttons'>
