@@ -20,6 +20,6 @@ class Activity(db.Model):
             'folderId': self.folder_id,
             'title': self.title,
             'context': self.context,
-            'date': self.date,
+            'date': self.date.strftime('%m/%d/%Y'),
             'completed': self.completed
         }
