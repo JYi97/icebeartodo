@@ -9,8 +9,7 @@ body {
 
 .navigation-bar-home-button,
 .navigation-bar-login-button,
-.navigation-bar-signup-button,
-.navigation-bar-users-button {
+.navigation-bar-signup-button {
     text-decoration: none;
     color: white;
     font-size: 24px;
@@ -19,6 +18,7 @@ body {
 .navigation-bar-buttons {
     display: flex;
     justify-content: space-between;
+    height: 40px;
 
 }
 
@@ -27,7 +27,30 @@ body {
     justify-content: space-between;
 }
 
-.navigation-bar-icebeartodo-title{
+.navigation-bar-icebeartodo-title {
     color: white;
-    font-size: 24px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-bar-login-button,
+.navigation-bar-signup-button {
+    border: 1px solid white;
+    margin-right: 25px;
+    border-radius: 30%;
+    padding: 2px;
+    font-size: 26px;
+}
+
+.navigation-bar-login-button-container,
+.navigation-bar-signup-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-bar-login-button:hover,
+.navigation-bar-signup-button:hover {
+    color: skyblue;
+    border: 1px solid skyblue;
 }

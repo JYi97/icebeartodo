@@ -37,12 +37,12 @@ const NavBar = () => {
             Ice Bear's To-Do's
           </div>
           <div className='navigation-bar-auth-buttons'>
-            <div>
+            <div className='navigation-bar-login-button-container'>
             <NavLink className='navigation-bar-login-button' to='/login' exact={true} activeClassName='active'>
               Login
             </NavLink>
             </div>
-            <div>
+            <div className='navigation-bar-signup-button-container'>
             <NavLink className='navigation-bar-signup-button' to='/sign-up' exact={true} activeClassName='active'>
               Sign Up
             </NavLink>
