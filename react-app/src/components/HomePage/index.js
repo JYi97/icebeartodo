@@ -16,15 +16,39 @@ const HomePage = () => {
     //     return folder.title
     // })
     const activities = useSelector(state => Object.values(state?.activity))
+    let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
 
+    if (currentDate) {
+        [currentDate[0], currentDate[1]] = [currentDate[1], currentDate[0]]
+    }
+
+    console.log("THIS SHOULD BE THE CURRENT DAY", currentDate)
+
+    const currentDateFormatted = currentDate.join("/")
+
+
+    console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
     console.log("THIS SHOULD BE THE LIST OF ACTIVITIES", activities)
 
-    const activitiesDates = activities.map(activity => {
-        // return activity.date.split(" ").slice(1, 4)
-        return activity.date
-    })
 
-    console.log("THIS IS THE ARRAY OF DATES", activitiesDates)
+    const todaysActivities = []
+
+    if (currentDateFormatted && activities) {
+        for (let i = 0; i < activities.length; i++) {
+            if (activities[i].date === currentDateFormatted) {
+                todaysActivities.push(activities[i])
+            }
+        }
+    }
+
+    console.log("THIS IS TODAYS ACTIVITIES I HOPE", todaysActivities)
+
+    // const activitiesDates = activities.map(activity => {
+    //     // return activity.date.split(" ").slice(1, 4)
+    //     return activity.date
+    // })
+
+    // console.log("THIS IS THE ARRAY OF DATES", activitiesDates)
 
     // console.log(foldersNames)
     useEffect(() => {
@@ -37,7 +61,7 @@ const HomePage = () => {
             <h1> Ice Bear's To-Do List</h1>
             <div>
                 <div>
-                    <TodayActivities />
+                    <TodayActivities activities={todaysActivities}/>
                 </div>
                 {folders && <FoldersList folders={folders} />}
             </div>
