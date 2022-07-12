@@ -31,11 +31,11 @@ def get_activities_for_one_user(user_id):
     activities = Activity.query.all()
     user_activities = []
     for activity in activities:
-        print("THIS IS THE ACTIVITY IN THE BACKEND", folder_ids)
+        print("THIS IS THE ACTIVITY DATE IN THE BACKEND", activity.date)
         if (activity.folder_id in folder_ids):
             user_activities.append(activity)
             print("THIS IS THE USER ACTIVITIES IN THE BACKEND", user_activities)
-    print("THIS IS THE USER ACTIVITIES AFTER LOOP", user_activities)
+    print("THIS IS THE USER ACTIVITIES AFTER LOOP", user_activities[1].to_dict())
     return jsonify([activity.to_dict() for activity in user_activities])
 
     # activitiesId = []

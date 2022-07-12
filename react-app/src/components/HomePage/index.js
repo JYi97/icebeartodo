@@ -15,6 +15,16 @@ const HomePage = () => {
     // const foldersNames = Object.values(userFolders).map((folder) => {
     //     return folder.title
     // })
+    const activities = useSelector(state => Object.values(state?.activity))
+
+    console.log("THIS SHOULD BE THE LIST OF ACTIVITIES", activities)
+
+    const activitiesDates = activities.map(activity => {
+        // return activity.date.split(" ").slice(1, 4)
+        return activity.date
+    })
+
+    console.log("THIS IS THE ARRAY OF DATES", activitiesDates)
 
     // console.log(foldersNames)
     useEffect(() => {
@@ -29,7 +39,7 @@ const HomePage = () => {
                 <div>
                     <TodayActivities />
                 </div>
-                <FoldersList folders={folders} />
+                {folders && <FoldersList folders={folders} />}
             </div>
         </>
     )
