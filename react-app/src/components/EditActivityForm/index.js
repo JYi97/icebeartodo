@@ -9,13 +9,26 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const history = useHistory()
     const [title, setTitle] = useState(activity?.title)
     const [context, setContext] = useState(activity?.context)
-    const [date, setDate] = useState(activity?.date)
+    // const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const folderId = activity?.folderId
     // console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
-    // console.log("THIS IS THE ACTIVITIES IN THE EDIT ACTIVITY FORM", activities)
+    console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date)
+    console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date.split("/"))
+    const activityDateArr = activity.date.split("/")
+
+    let activityDateEditValue
+
+    if (activityDateArr) {
+        [activityDateArr[0], activityDateArr[1]] = [activityDateArr[1], activityDateArr[0]]
+        activityDateEditValue = activityDateArr.reverse().join("-")
+    }
+
+    console.log("THIS IS THE SWAPPED ACTIVITY DATE I HOPE", activityDateEditValue)
+
+    const [date, setDate] = useState(activityDateEditValue)
 
     const activityTitles = activities.map((activity) => {
         return activity.title
