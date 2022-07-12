@@ -24,3 +24,9 @@ To deploy on heroku, just push code to main branch on git and it will be deploye
 
 You must manually seed your production database if/when you so choose (see step 8). Attention! Please run this command only if you wish to seed your production database: heroku run -a HEROKU_APP_NAME flask seed all
 
+heroku login
+
+heroku run -a icebeartodo flask seed undo
+heroku run -a icebeartodo flask db downgrade
+heroku run -a icebeartodo flask db upgrade
+heroku run -a icebeartodo flask seed all
