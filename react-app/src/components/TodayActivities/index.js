@@ -1,24 +1,23 @@
 import './todayactivities.css'
+import { NavLink } from 'react-router-dom';
 
-const TodayActivities = () => {
-
+const TodayActivities = ({ activities }) => {
+    console.log("THIS IS THE ACTIVITIES IN TODAY ACTIVITIES COMPONENT", activities)
     return (
         <>
             <h3>
                 List of Activities for current day.
             </h3>
-            <div>
-                Activity
-                <div>
-                    Can be clicked on to show more details of the activity.
+            {activities && activities.map(activity => {
+                return <div key={activities.indexOf(activity)}>
+                    <NavLink to={`/activities/${activity.id}`}>
+                        {activity.title}
+                    </NavLink>
+                    <div>
+                        {activity.context}
+                    </div>
                 </div>
-            </div>
-            <div>
-                Activity
-                <div>
-                    Can be clicked on to show more details of the activity.
-                </div>
-            </div>
+            })}
         </>
     )
 }
