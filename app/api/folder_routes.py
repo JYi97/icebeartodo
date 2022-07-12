@@ -59,7 +59,7 @@ def patch_folder(folder_id):
 @folder_routes.route('/<folder_id>', methods=['DELETE'])
 def delete_folder(folder_id):
     folder = Folder.query.filter(Folder.id == folder_id).first()
-    print("THIS IS IN THE DELETE BACKEND FOR DELETING A FOLDER", folder)
+    # print("THIS IS IN THE DELETE BACKEND FOR DELETING A FOLDER", folder)
     db.session.delete(folder)
     db.session.commit()
 
@@ -71,7 +71,7 @@ def get_one_folder(folder_id):
     # The folder_id renders returns the correct id from the url
     # print("THIS IS IN THE BACKEND FOR GETTING ONE FOLDER WITH THE ID", folder_id)
     folder = Folder.query.filter(Folder.id == folder_id).first()
-    print("THIS IS THE FOLDER FROM THE DB IN THE BACKEND", folder)
+    # print("THIS IS THE FOLDER FROM THE DB IN THE BACKEND", folder)
     return jsonify(folder.to_dict())
 
 # Users can get all activities from one specific folder

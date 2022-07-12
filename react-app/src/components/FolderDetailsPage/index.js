@@ -19,15 +19,15 @@ const FolderDetailsPage = () => {
     const folderId = Number(URLFolderId.id) // folderId = id of folder from url
     // console.log(folderId, "THIS IS THE FOLDER ID IN THE FOLDER DETAILS PAGE")
     const folders = useSelector(state => Object.values(state?.folder))
-    console.log("THIS IS THE FOLDERS IN THE FOLDER DETAILS PAGE", folders)
+    // console.log("THIS IS THE FOLDERS IN THE FOLDER DETAILS PAGE", folders)
     // console.log(folder, "THIS IS THE FOLDER OBJECT IN THE FOLDER DETAILS PAGE")
     // const folderDetails = folder[folderId]
     // console.log("THIS IS THE FOLDER DETAILS IN THE SPECIFIC PAGE", folderDetails)
 
     const userId = useSelector(state => state?.session.user.id)
-    console.log("THIS IS THE USER ID", userId)
+    // console.log("THIS IS THE USER ID", userId)
     const activitiesArr = useSelector(state => Object.values(state?.activity))
-    console.log("THIS IS THE ACTIVITIES IN THE FOLDER DETAILS PAGE", activitiesArr)
+    // console.log("THIS IS THE ACTIVITIES IN THE FOLDER DETAILS PAGE", activitiesArr)
 
 
     let folder
@@ -38,7 +38,7 @@ const FolderDetailsPage = () => {
         }
     }
 
-    console.log("THIS IS THE SPECIFIC FOLDER", folder)
+    // console.log("THIS IS THE SPECIFIC FOLDER", folder)
 
 
     useEffect(() => {

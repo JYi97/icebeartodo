@@ -22,12 +22,12 @@ def user(id):
 @user_routes.route('/<user_id>/activities')
 def get_activities_for_one_user(user_id):
     folders = Folder.query.filter(Folder.user_id == user_id).all()
-    print("THIS IS THE FOLDERS IN THE USER ROUTES", folders)
+    # print("THIS IS THE FOLDERS IN THE USER ROUTES", folders)
     def get_folder_ids(folder):
         return folder.id
 
     folder_ids = list(map(get_folder_ids, folders))
-    print("THIS IS THE FOLDER IDS", folder_ids)
+    # print("THIS IS THE FOLDER IDS", folder_ids)
     activities = Activity.query.all()
     user_activities = []
     for activity in activities:
