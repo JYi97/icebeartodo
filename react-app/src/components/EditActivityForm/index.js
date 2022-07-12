@@ -50,6 +50,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
             }
             await dispatch(editOneActivity(payload))
             await history.push(`/activities/${activityId}`)
+            setShowForm(false)
         }
 
     }
