@@ -1,8 +1,6 @@
 .login-form-image-container {
     display: flex;
     margin-top: 10em;
-    /* margin: auto; */
-    /* height: auto; */
 }
 
 .login-page-login-form,
@@ -23,6 +21,65 @@
     align-items: center;
 }
 
-.login-page-login-form{
+.login-page-login-form {
     align-items: flex-end;
+}
+
+/* .login-form-image-container{
+    display: flex;
+    justify-content: center;
+} */
+
+.login-email-form-field,
+.login-password-form-field {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #4b7dc1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.login-button-form-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 40px;
+    color: white;
+    background: #4b7dc1;
+    /* border-radius: 30%; */
+}
+
+.login-page-login-header {
+    color: #4b7dc1;
+    font-size: 36px;
+}
+
+.login-page-error-forms {
+    text-decoration: none;
+    color: red;
+    font-size: 24px;
+}
+
+.login-form-term-agreement,
+.login-form-signup-question {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.login-form-signup-link {
+    text-decoration: none;
+    color: #4b7dc1;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.login-button-form-field:hover {
+    background: skyblue;
+}
+
+.login-form-signup-link:hover {
+    color: skyblue;
 }

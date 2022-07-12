@@ -15,7 +15,7 @@ const FolderDetailsPage = () => {
     const [show, setShow] = useState(false);
     const history = useHistory()
     const URLFolderId = useParams() // URLFolderId = {id: 'folderId number'}
-    // console.log(URLFolderId, "THIS IS THE URLFOLDER ID IN THE FOLDER DETAILS PAGE")
+    // console.log(URLFolderId.id, "THIS IS THE URLFOLDER ID IN THE FOLDER DETAILS PAGE")
     const folderId = Number(URLFolderId.id) // folderId = id of folder from url
     // console.log(folderId, "THIS IS THE FOLDER ID IN THE FOLDER DETAILS PAGE")
     const folders = useSelector(state => Object.values(state?.folder))

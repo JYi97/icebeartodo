@@ -5,14 +5,13 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
 import UpcomingPage from './components/UpcomingPage';
 import FolderDetailsPage from './components/FolderDetailsPage';
 import ActivityDetailsPage from './components/ActivityDetailsPage';
 import SplashPage from './components/SplashPage';
+import HistoryPage from './components/HistoryPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,17 +41,14 @@ function App() {
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
           <HomePage />
         </ProtectedRoute>
         <ProtectedRoute path='/upcoming' exact={true} >
           <UpcomingPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/history' exact={true} >
+          <HistoryPage />
         </ProtectedRoute>
         <ProtectedRoute path='/folders/:id' exact={true} >
           <FolderDetailsPage />

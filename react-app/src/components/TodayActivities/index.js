@@ -1,8 +1,15 @@
 import './todayactivities.css'
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 const TodayActivities = ({ activities }) => {
     console.log("THIS IS THE ACTIVITIES IN TODAY ACTIVITIES COMPONENT", activities)
+
+    // useEffect(()=> {
+
+    // }, [activities.length])
+
     return (
         <>
             <h3>

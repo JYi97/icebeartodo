@@ -3,7 +3,7 @@ body {
 }
 
 .navigation-bar {
-    background-color: #d1deef;
+    background-color: #4b7dc1;
     margin: 0;
 }
 
@@ -18,11 +18,16 @@ body {
 
 .navigation-bar-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
 .navigation-bar-auth-buttons {
     display: flex;
     justify-content: space-between;
+}
+
+.navigation-bar-icebeartodo-title{
+    color: white;
+    font-size: 24px;
 }
