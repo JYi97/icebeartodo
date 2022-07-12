@@ -42,6 +42,7 @@ const FolderForm = ({ folders }) => {
             dispatch(createOneFolder(payload))
             setTitle('')
             setErrors([])
+            setShowForm(false)
         }
 
     }
