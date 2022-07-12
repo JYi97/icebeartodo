@@ -131,7 +131,6 @@ const LoginForm = () => {
           <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-coffee-512x512.png' alt=''></img>
         </div>
       </div>
-
     </>
   );
 };
