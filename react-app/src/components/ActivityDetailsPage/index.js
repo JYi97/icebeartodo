@@ -14,8 +14,8 @@ const ActivityDetailsPage = () => {
     const activities = useSelector(state => Object.values(state?.activity))
     // const activityDetails = activity[activityId]
 
-    console.log("THIS IS THE ACTIVITY ID ", activityId)
-    console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
+    // console.log("THIS IS THE ACTIVITY ID ", activityId)
+    // console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
 
 
 
@@ -27,9 +27,9 @@ const ActivityDetailsPage = () => {
         }
     }
 
-    console.log("THIS IS THE SPECIFIC ACTIVITY", activity?.folderId)
+    // console.log("THIS IS THE SPECIFIC ACTIVITY", activity?.folderId)
 
-    
+
 
     useEffect(() => {
 

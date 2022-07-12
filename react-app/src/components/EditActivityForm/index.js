@@ -14,14 +14,14 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const [show, setShow] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const folderId = activity?.folderId
-    console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
-    console.log("THIS IS THE ACTIVITIES IN THE EDIT ACTIVITY FORM", activities)
+    // console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
+    // console.log("THIS IS THE ACTIVITIES IN THE EDIT ACTIVITY FORM", activities)
 
     const activityTitles = activities.map((activity) => {
         return activity.title
     })
 
-    console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitles)
+    // console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitles)
 
     const dispatch = useDispatch();
 
@@ -50,6 +50,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
             }
             await dispatch(editOneActivity(payload))
             await history.push(`/activities/${activityId}`)
+            setShowForm(false)
         }
 
     }

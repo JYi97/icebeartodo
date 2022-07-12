@@ -11,7 +11,7 @@ const ActivityForm = ({ folderId, activities }) => {
     const [show, setShow] = useState(false);
     const [showForm, setShowForm] = useState(false)
     const dispatch = useDispatch()
-    console.log("THIS IS THE ACTIVITIES", activities)
+    // console.log("THIS IS THE ACTIVITIES", activities)
 
     const activityTitles = activities.map((activity) => {
         return activity.title

@@ -1,15 +1,15 @@
 from app.models import db, Activity
-from datetime import datetime, timedelta
+from datetime import date, timedelta, datetime
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_activities():
     eat = Activity(
-        title='Prepare dinner', folder_id='1', context='Ice Bear needs fish heavy meals.', date=datetime.today(), completed=False)
+        title='Prepare dinner', folder_id='1', context='Ice Bear needs fish heavy meals.', date=date.today(), completed=False)
     coding = Activity(
-        title='Practice coding', folder_id='1', context='Ice Bear wants to make code look cleaner.', date=datetime.today(), completed=False)
+        title='Practice coding', folder_id='1', context='Ice Bear wants to make code look cleaner.', date=date.today(), completed=False)
     basketball = Activity(
-        title='Play Basketball', folder_id='2', context='Ice Bear going into the city with Griz and Panda to play street basketball.', date=datetime.today() + timedelta(days=1), completed=False)
+        title='Play Basketball', folder_id='2', context='Ice Bear going into the city with Griz and Panda to play street basketball.', date=date.today() + timedelta(days=1), completed=False)
 
     db.session.add(basketball)
     db.session.add(coding)
