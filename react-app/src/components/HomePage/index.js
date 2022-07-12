@@ -56,12 +56,17 @@ const HomePage = () => {
         dispatch(getActivitiesFromUser(userId))
     }, [dispatch])
 
+    // useEffect(() => {
+    //     dispatch(getFolders())
+    //     dispatch(getActivitiesFromUser(userId))
+    // }, [dispatch])
+
     return (
         <>
             <h1> Ice Bear's To-Do List</h1>
             <div>
                 <div>
-                    <TodayActivities activities={todaysActivities}/>
+                    {activities && <TodayActivities activities={todaysActivities}/>}
                 </div>
                 {folders && <FoldersList folders={folders} />}
             </div>
