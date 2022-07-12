@@ -1,0 +1,86 @@
+.signup-form-image-container {
+    display: flex;
+    margin-top: 10em;
+}
+
+.signup-page-login-form,
+.signup-page-image {
+    width: 50%;
+    float: left;
+    vertical-align: middle;
+}
+
+
+.signup-page-login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-page-image {
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-username-form-field,
+.signup-email-form-field,
+.signup-password-form-field,
+.signup-repeat-password-form-field {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #4b7dc1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.signup-button-form-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 40px;
+    color: white;
+    background: #4b7dc1;
+    /* border-radius: 30%; */
+}
+
+.signup-page-login-header {
+    color: #4b7dc1;
+    font-size: 36px;
+}
+
+.signup-page-error-forms {
+    text-decoration: none;
+    color: red;
+    font-size: 24px;
+}
+
+.signup-form-login-question {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.signup-form-login-link {
+    text-decoration: none;
+    color: #4b7dc1;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.signup-page-icebear-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 100%;
+}
+
+.signup-button-form-field:hover {
+    background: skyblue;
+}
+
+.signup-form-login-link:hover {
+    color: skyblue;
+}
