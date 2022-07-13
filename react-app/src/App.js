@@ -13,6 +13,7 @@ import ActivityDetailsPage from './components/ActivityDetailsPage';
 import SplashPage from './components/SplashPage';
 import HistoryPage from './components/HistoryPage';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
