@@ -1,0 +1,8 @@
+.splash-page-demo-user-button {
+    border: 1px solid black;
+    border-radius: 30%;
+    padding: 2px;
+    font-size: 26px;
+    background-color: #4b7dc1;
+    color: white;
+}
