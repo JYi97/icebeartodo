@@ -9,7 +9,9 @@ body {
 
 .navigation-bar-home-button,
 .navigation-bar-login-button,
-.navigation-bar-signup-button {
+.navigation-bar-signup-button,
+.navigation-bar-upcoming-button,
+.navigation-bar-history-button {
     text-decoration: none;
     color: white;
     font-size: 24px;
@@ -35,7 +37,8 @@ body {
 }
 
 .navigation-bar-login-button,
-.navigation-bar-signup-button {
+.navigation-bar-signup-button,
+.navigation-bar-logout-button {
     border: 1px solid white;
     margin-right: 25px;
     border-radius: 30%;
@@ -44,13 +47,31 @@ body {
 }
 
 .navigation-bar-login-button-container,
-.navigation-bar-signup-button-container {
+.navigation-bar-signup-button-container,
+.navigation-bar-home-button-container,
+.navigation-bar-upcoming-button-container,
+.navigation-bar-history-button-container,
+.navigation-bar-logout-button-container {
     display: flex;
     align-items: center;
 }
 
 .navigation-bar-login-button:hover,
-.navigation-bar-signup-button:hover {
+.navigation-bar-signup-button:hover,
+.navigation-bar-logout-button:hover {
     color: skyblue;
     border: 1px solid skyblue;
+}
+
+.navigation-bar-home-button:hover,
+.navigation-bar-upcoming-button:hover,
+.navigation-bar-history-button:hover {
+    color: skyblue;
+}
+
+.navigation-bar-logout-button {
+    font-size: 24px;
+    color: white;
+    background-color: #4b7dc1;
+    margin-right: 40px;
 }
