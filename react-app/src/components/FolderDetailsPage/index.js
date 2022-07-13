@@ -52,59 +52,35 @@ const FolderDetailsPage = () => {
 
     }, [dispatch, folderId])
 
-    // {folder.user_id == userId ? <html page> : history.push("/home")}
-
     return (
-        // {folder && folder.userId == userId ?  <>
-        //         <h1>
-        //         This is the folder page containing all the activities.
-        //     </h1>
-        //     <h2>
-        //         {folder && folder.title}
-        //     </h2>
-        //     {folder && folders && <EditFolderForm folder={folder} folders={folders} />}
-        //     <div>
-        //         <button
-        //             onClick={() => {
-        //                 dispatch(deleteOneFolder(folder.id))
-        //                 history.push('/home')
-        //             }}>Delete This Folder
-        //         </button>
-        //     </div>
-        //     <div>
-        //         {activitiesArr && <ActivityForm folderId={folderId} activities={activitiesArr} />}
-        //     </div>
-        //     <div>
-        //         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
-        //     </div>
-        // </> : history.push('/home')}
         <>
-            <div>
-                <h1>
-                    This is the folder page containing all the activities.
-                </h1>
-                <h2>
-                    {folder && folder.title}
-                </h2>
-                {folder && folders && <EditFolderForm folder={folder} folders={folders} />}
+            {folder?.userId == userId ?
                 <div>
-                    <button
-                        onClick={() => {
-                            dispatch(deleteOneFolder(folder.id))
-                            const timer = setTimeout(() => {
-                                history.push('/home')
-                            }, 500)
-                            return (() => clearTimeout(timer))
-                        }}>Delete This Folder
-                    </button>
-                </div>
-                <div>
-                    {activitiesArr && <ActivityForm folderId={folderId} activities={activitiesArr} />}
-                </div>
-                <div>
-                    {activitiesArr && <ActivitiesList activities={activitiesArr} />}
-                </div>
-            </div>
+                    <h1>
+                        This is the folder page containing all the activities.
+                    </h1>
+                    <h2>
+                        {folder && folder.title}
+                    </h2>
+                    {folder && folders && <EditFolderForm folder={folder} folders={folders} />}
+                    <div>
+                        <button
+                            onClick={() => {
+                                dispatch(deleteOneFolder(folder.id))
+                                const timer = setTimeout(() => {
+                                    history.push('/home')
+                                }, 500)
+                                return (() => clearTimeout(timer))
+                            }}>Delete This Folder
+                        </button>
+                    </div>
+                    <div>
+                        {activitiesArr && <ActivityForm folderId={folderId} activities={activitiesArr} />}
+                    </div>
+                    <div>
+                        {activitiesArr && <ActivitiesList activities={activitiesArr} />}
+                    </div>
+                </div> : <div>Ice Bear protects other users' profiles</div>}
         </>
     )
 
