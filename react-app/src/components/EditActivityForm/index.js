@@ -15,8 +15,8 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const [showForm, setShowForm] = useState(false);
     const folderId = activity?.folderId
     // console.log(folderId, "THIS IS THE FOLDER ID I HOPE")
-    console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date)
-    console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date.split("/"))
+    // console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date)
+    // console.log("THIS IS THE ACTIVITY DATE IN THE EDIT ACTIVITY FORM", activity?.date.split("/"))
     const activityDateArr = activity.date.split("/")
 
     let activityDateEditValue
@@ -26,15 +26,19 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         activityDateEditValue = activityDateArr.reverse().join("-")
     }
 
-    console.log("THIS IS THE SWAPPED ACTIVITY DATE I HOPE", activityDateEditValue)
+    // console.log("THIS IS THE SWAPPED ACTIVITY DATE I HOPE", activityDateEditValue)
 
     const [date, setDate] = useState(activityDateEditValue)
 
-    const activityTitles = activities.map((activity) => {
-        return activity.title
+    const activitiesObjects = {}
+    const forEachActivities = activities.forEach((activity) => {
+        activitiesObjects[activity.title] = activity.id
     })
 
-    // console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitles)
+    // const filteredActivityT
+    // comepare target with titles and if title matches then check id of activity and if target matches activity then it is okay
+
+    // console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitlesandIDs)
 
     const dispatch = useDispatch();
 
@@ -42,7 +46,10 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         const error = [];
         if (title?.length < 1) error.push('You must put a name with at least 1 character')
         if (title?.length > 50) error.push('Please insert a shorter title')
-        if (activityTitles.includes(title)) error.push('Ice Bear wants a new title')
+        console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
+        if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
+            error.push('Ice Bear wants a new title')
+        }
         setErrors(error);
     }, [title])
 
@@ -61,6 +68,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                 date,
                 activityId
             }
+            console.log("THIS IS THE PAYLOAD", payload)
             await dispatch(editOneActivity(payload))
             await history.push(`/activities/${activityId}`)
             setShowForm(false)
@@ -90,53 +98,53 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                     Edit Activity
                 </button>
             </div>
-            {showForm ?  <form onSubmit={onSubmit}>
-                    <h2>Edit Your Activity</h2>
-                    {show ?
-                        errors.length > 0 ?
-                            <>
-                                <h4>Errors:</h4>
-                                <ul className='errorsArray'>{errors.map(error => {
-                                    return (
-                                        <>
-                                            <li
-                                                key={error}>{error}</li>
-                                        </>
-                                    )
-                                })}
-                                </ul>
-                            </>
-                            : null
+            {showForm ? <form onSubmit={onSubmit}>
+                <h2>Edit Your Activity</h2>
+                {show ?
+                    errors.length > 0 ?
+                        <>
+                            <h4>Errors:</h4>
+                            <ul className='errorsArray'>{errors.map(error => {
+                                return (
+                                    <>
+                                        <li
+                                            key={error}>{error}</li>
+                                    </>
+                                )
+                            })}
+                            </ul>
+                        </>
+                        : null
 
-                        : null}
+                    : null}
+                <div>
                     <div>
-                        <div>
-                            <input type='text'
-                                required
-                                placeholder='Activity Title'
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input type='text'
-                                placeholder='Activity Context'
-                                value={context}
-                                onChange={(e) => setContext(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input type='date'
-                                required
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                        </div>
-                        <button
-                            type='submit'
-                        >Submit</button>
+                        <input type='text'
+                            required
+                            placeholder='Activity Title'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
                     </div>
-                </form>: null}
+                    <div>
+                        <input type='text'
+                            placeholder='Activity Context'
+                            value={context}
+                            onChange={(e) => setContext(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input type='date'
+                            required
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                        />
+                    </div>
+                    <button
+                        type='submit'
+                    >Submit</button>
+                </div>
+            </form> : null}
             <div>
                 {/* <form onSubmit={onSubmit}>
                     <h2>Edit Your Activity</h2>

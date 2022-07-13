@@ -74,6 +74,7 @@ export const editOneActivity = (payload) => async (dispatch) => {
     })
     if (response.ok) {
         const activity = await response.json()
+        console.log("THIS IS THE ACTIVITY IN THE EDIT THUNK", activity)
         dispatch(updateOneActivity(activity))
     }
 }
@@ -127,7 +128,7 @@ export const loadActivitiesFromActivityId = (activities) => {
     }
 }
 
-export const getActivitiesFromActivityID = (activityId) => async(dispatch) => {
+export const getActivitiesFromActivityID = (activityId) => async (dispatch) => {
     const response = await fetch(`/api/activities/${activityId}/folder/activities`)
     const activities = await response.json()
     dispatch(loadActivitiesFromActivityId(activities))
