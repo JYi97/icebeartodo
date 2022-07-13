@@ -6,7 +6,7 @@ import { getFolders, deleteOneFolder } from '../../store/folders';
 import { useEffect } from 'react';
 import EditFolderForm from '../EditFolderForm';
 import ActivitiesList from '../ActivitiesList';
-import { getActivitiesFromFolder } from '../../store/activities';
+import { getActivitiesFromFolder, getActivitiesFromUser } from '../../store/activities';
 import ActivityForm from '../ActivityForm';
 
 
@@ -55,7 +55,7 @@ const FolderDetailsPage = () => {
     // {folder.user_id == userId ? <html page> : history.push("/home")}
 
     return (
-        // {folder?.user_id == userId ?  <>
+        // {folder && folder.userId == userId ?  <>
         //         <h1>
         //         This is the folder page containing all the activities.
         //     </h1>
@@ -77,7 +77,7 @@ const FolderDetailsPage = () => {
         //     <div>
         //         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
         //     </div>
-        // </> : <div>This is not your page"}
+        // </> : history.push('/home')}
         <>
             <div>
                 <h1>
@@ -91,7 +91,10 @@ const FolderDetailsPage = () => {
                     <button
                         onClick={() => {
                             dispatch(deleteOneFolder(folder.id))
-                            history.push('/home')
+                            const timer = setTimeout(() => {
+                                history.push('/home')
+                            }, 500)
+                            return (() => clearTimeout(timer))
                         }}>Delete This Folder
                     </button>
                 </div>
