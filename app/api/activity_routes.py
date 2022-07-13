@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user
 from app.models import Activity, db, Folder
-from app.forms import ActivityForm
+from app.forms import ActivityForm, EditActivityForm
 
 activity_routes = Blueprint('activities', __name__)
 
@@ -56,10 +56,11 @@ def create_activity():
 
 @activity_routes.route('/<activity_id>', methods=['PATCH'])
 def patch_activity(activity_id):
-    form = ActivityForm()
+    form = EditActivityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     activity = Activity.query.filter(Activity.id == activity_id).first()
+    print("THIS IS HITTING THE BACKEND OF THE PATCH ROUTE")
     if form.validate_on_submit():
         activity.title = form.data['title']
         activity.context = form.data['context']
@@ -67,6 +68,7 @@ def patch_activity(activity_id):
         # activity.folder_id = request.json['folderId']
         db.session.add(activity)
         db.session.commit()
+        print("THIS IS HITTING THE BACKEND OF THE PATCH ROUTE AFTER THE VALIDATION")
         return activity.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
