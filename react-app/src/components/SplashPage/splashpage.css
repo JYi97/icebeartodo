@@ -6,3 +6,12 @@
     background-color: #4b7dc1;
     color: white;
 }
+
+.splash-page-demo-user-button:hover {
+    border: 1px solid #4b7dc1;
+    border-radius: 30%;
+    padding: 2px;
+    font-size: 26px;
+    background-color: skyblue;
+    color: white;
+}

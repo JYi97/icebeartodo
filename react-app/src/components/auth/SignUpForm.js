@@ -12,6 +12,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
+  console.log(user, 'THIS IS THE USER IN THE SIGNUP FORM')
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {

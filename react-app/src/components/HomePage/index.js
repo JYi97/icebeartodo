@@ -54,7 +54,7 @@ const HomePage = () => {
     useEffect(() => {
         dispatch(getFolders())
         dispatch(getActivitiesFromUser(userId))
-    }, [dispatch])
+    }, [])
 
     // useEffect(() => {
     //     dispatch(getFolders())
