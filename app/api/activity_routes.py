@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user
 from app.models import Activity, db, Folder
-from app.forms import ActivityForm
+from app.forms import ActivityForm, EditActivityForm
 
 activity_routes = Blueprint('activities', __name__)
 
@@ -56,7 +56,7 @@ def create_activity():
 
 @activity_routes.route('/<activity_id>', methods=['PATCH'])
 def patch_activity(activity_id):
-    form = ActivityForm()
+    form = EditActivityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     activity = Activity.query.filter(Activity.id == activity_id).first()
