@@ -28,7 +28,7 @@ const SplashPage = () => {
                     </div>
                     <div>
                         <button className='splash-page-demo-user-button' type="submit" onClick={demoUser}>
-                            Look at Ice Bear's
+                            Demo Bear
                         </button>
                         <div>
                             <NavLink className='splash-page-get-started-nav-link' to='/sign-up'>Get Started</NavLink>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -14,6 +14,12 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   console.log(user, 'THIS IS THE USER IN THE SIGNUP FORM')
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const error = []
+    if (password !== repeatPassword) error.push('Ice Bear cannot match password.')
+    setErrors(error)
+  }, [repeatPassword])
 
   const onSignUp = async (e) => {
     e.preventDefault();
