@@ -47,12 +47,13 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         if (title?.length < 1) error.push('Ice Bear wants a title with at least 1 character')
         if (title?.length > 50) error.push('Ice Bear wants a shorter title.')
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
+        if (context?.length > 255) error.push('Ice Bear wants a shorter context.')
         // console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
         if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
             error.push('Ice Bear already made an activity with that title')
         }
         setErrors(error);
-    }, [title])
+    }, [title, context])
 
     const onSubmit = async (e) => {
         e.preventDefault();
