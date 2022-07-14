@@ -1,0 +1,4 @@
+.footer-about-me-container {
+    display: flex;
+    justify-content: space-between;
+}

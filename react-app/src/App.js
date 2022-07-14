@@ -12,6 +12,7 @@ import FolderDetailsPage from './components/FolderDetailsPage';
 import ActivityDetailsPage from './components/ActivityDetailsPage';
 import SplashPage from './components/SplashPage';
 import HistoryPage from './components/HistoryPage';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <SplashPage />
+          <Footer />
         </Route>
         <ProtectedRoute path='/home' exact={true} >
           <HomePage />
