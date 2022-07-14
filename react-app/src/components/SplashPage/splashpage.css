@@ -50,10 +50,21 @@
     margin-top: 5px;
 }
 
-.splash-page-answer-paragraph-container {
-    margin-left: 512px;
+
+.splash-page-intro-paragraph-container,
+.splash-page-img-answer-container {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
 }
 
-.splash-page-intro-paragraph-container {
-    margin-right: 512px;
+.splash-page-intro-paragraph,
+.splash-page-answer-paragraph {
+    line-height: 40px;
+}
+
+.splash-page-get-started-nav-link-container,
+.splash-page-buttons-container {
+    display: flex;
+    justify-content: end;
 }
