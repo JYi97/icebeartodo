@@ -9,7 +9,7 @@ const HistoryPage = () => {
     const dispatch = useDispatch();
     const activities = useSelector(state => Object.values(state?.activity))
     const userId = useSelector(state => state?.session.user.id)
-    console.log("THIS IS THE ACTIVITIES IN THE UPCOMING PAGE", activities)
+    // console.log("THIS IS THE ACTIVITIES IN THE UPCOMING PAGE", activities)
 
     let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
 
@@ -18,7 +18,7 @@ const HistoryPage = () => {
     }
 
     const currentDateFormatted = currentDate.join("/")
-    console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
+    // console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
 
     const pastActivities = []
 
@@ -30,7 +30,7 @@ const HistoryPage = () => {
         }
     }
 
-    console.log("THIS SHOULD BE THE PAST ACTIVITIES", pastActivities)
+    // console.log("THIS SHOULD BE THE PAST ACTIVITIES", pastActivities)
 
     useEffect(() => {
         dispatch(getActivitiesFromUser(userId))

@@ -29,7 +29,7 @@ const ActivityDetailsPage = () => {
         }
     }
 
-    console.log("THIS IS THE SPECIFIC ACTIVITY", activity?.folderId)
+    // console.log("THIS IS THE SPECIFIC ACTIVITY", activity?.folderId)
 
     let folder
 

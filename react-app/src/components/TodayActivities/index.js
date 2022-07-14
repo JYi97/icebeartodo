@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 
 const TodayActivities = ({ activities }) => {
-    console.log("THIS IS THE ACTIVITIES IN TODAY ACTIVITIES COMPONENT", activities)
+    // console.log("THIS IS THE ACTIVITIES IN TODAY ACTIVITIES COMPONENT", activities)
 
     // useEffect(()=> {
 
