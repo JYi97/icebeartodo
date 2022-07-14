@@ -81,12 +81,12 @@ const FolderDetailsPage = () => {
                         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
                     </div>
                 </div> : <>
-                <div>
-                    Ice Bear cannot find page.
-                </div>
-                <img src='https://mystickermania.com/cdn/stickers/cartoons/sticker_2504-512x512.png' alt=''></img>
+                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
+                    <div>
+                        Ice Bear went to the wrong page.
+                    </div>
                 </>
-                }
+            }
         </>
     )
 

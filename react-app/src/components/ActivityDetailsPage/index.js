@@ -68,10 +68,10 @@ const ActivityDetailsPage = () => {
                         {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
                     </div>
                 </div> : <>
+                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
                     <div>
-                        Ice Bear cannot find page.
+                        Ice Bear went to the wrong page.
                     </div>
-                    <img src='https://mystickermania.com/cdn/stickers/cartoons/sticker_2504-512x512.png' alt=''></img>
                 </>}
             {/* <h3>
                 Remove this activity

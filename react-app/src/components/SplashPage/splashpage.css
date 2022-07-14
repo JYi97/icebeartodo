@@ -27,6 +27,7 @@
     padding-right: 4px;
     padding-left: 4px;
     font-weight: 600;
+    margin-top: 4px;
 }
 
 .splash-page-get-started-nav-link:hover {
@@ -38,8 +39,21 @@
 
 }
 
+.splash-page-img-answer-container,
 .splash-page-img-intro-container,
 .splash-page-buttons-container {
     display: flex;
 
+}
+
+.splash-page-get-started-nav-link-container {
+    margin-top: 5px;
+}
+
+.splash-page-answer-paragraph-container {
+    margin-left: 512px;
+}
+
+.splash-page-intro-paragraph-container {
+    margin-right: 512px;
 }
