@@ -112,6 +112,9 @@ const SignUpForm = () => {
             </div>
             <button className='signup-button-form-field' type='submit'>Sign Up</button>
           </form>
+          <div className='signup-form-term-agreement'>
+            By signing up, you have read and agreed to Ice Bear's terms and conditions.
+          </div>
           <div className='signup-form-login-question'>
             Already have an account with Ice Bear?
             <NavLink className='signup-form-login-link' to='/login'>Log in</NavLink>

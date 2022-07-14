@@ -5,7 +5,6 @@
     font-size: 26px;
     background-color: #4b7dc1;
     color: white;
-    margin-bottom: 5px;
 }
 
 .splash-page-demo-user-button:hover {
@@ -36,5 +35,11 @@
     background-color: skyblue;
     border: 1px solid black;
     color: white;
+
+}
+
+.splash-page-img-intro-container,
+.splash-page-buttons-container {
+    display: flex;
 
 }

@@ -136,6 +136,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                     </div>
                     <div>
                         <input type='date'
+                            onKeyDown={(e) => e.preventDefault()}
                             required
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
