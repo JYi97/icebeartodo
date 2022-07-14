@@ -46,6 +46,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         const error = [];
         if (title?.length < 1) error.push('You must put a name with at least 1 character')
         if (title?.length > 50) error.push('Please insert a shorter title')
+        if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
         console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
         if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
             error.push('Ice Bear wants a new title')
