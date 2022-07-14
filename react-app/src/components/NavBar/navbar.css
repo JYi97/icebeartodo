@@ -7,6 +7,7 @@ body {
     margin: 0;
 }
 
+.navigation-bar-logged-out-home-button,
 .navigation-bar-home-button,
 .navigation-bar-login-button,
 .navigation-bar-signup-button,
@@ -36,6 +37,7 @@ body {
     align-items: center;
 }
 
+.navigation-bar-logged-out-home-button,
 .navigation-bar-login-button,
 .navigation-bar-signup-button,
 .navigation-bar-logout-button {
@@ -56,6 +58,7 @@ body {
     align-items: center;
 }
 
+.navigation-bar-logged-out-home-button:
 .navigation-bar-login-button:hover,
 .navigation-bar-signup-button:hover,
 .navigation-bar-logout-button:hover {

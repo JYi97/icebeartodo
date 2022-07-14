@@ -20,7 +20,7 @@ const SignUpForm = () => {
     if (email && !email.includes("@")) error.push('Ice Bear needs valid email.')
     if (password !== repeatPassword) error.push('Ice Bear cannot match password.')
     setErrors(error)
-  }, [repeatPassword, email])
+  }, [username, password, repeatPassword, email])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -110,7 +110,8 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
-            <button className='signup-button-form-field' type='submit'>Sign Up</button>
+            <button disabled={!!errors.length}
+              className='signup-button-form-field' type='submit'>Sign Up</button>
           </form>
           <div className='signup-form-term-agreement'>
             By signing up, you have read and agreed to Ice Bear's terms and conditions.
