@@ -17,12 +17,14 @@ const SignUpForm = () => {
 
   useEffect(() => {
     const error = []
+    if (email && !email.includes("@")) error.push('Ice Bear needs valid email.')
     if (password !== repeatPassword) error.push('Ice Bear cannot match password.')
     setErrors(error)
-  }, [repeatPassword])
+  }, [repeatPassword, email])
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {

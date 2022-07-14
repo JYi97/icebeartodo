@@ -44,12 +44,12 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
 
     useEffect(() => {
         const error = [];
-        if (title?.length < 1) error.push('You must put a name with at least 1 character')
-        if (title?.length > 50) error.push('Please insert a shorter title')
+        if (title?.length < 1) error.push('Ice Bear wants a title with at least 1 character')
+        if (title?.length > 50) error.push('Ice Bear wants a shorter title.')
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
-        console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
+        // console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
         if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
-            error.push('Ice Bear wants a new title')
+            error.push('Ice Bear already made an activity with that title')
         }
         setErrors(error);
     }, [title])
@@ -69,7 +69,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                 date,
                 activityId
             }
-            console.log("THIS IS THE PAYLOAD", payload)
+            // console.log("THIS IS THE PAYLOAD", payload)
             await dispatch(editOneActivity(payload))
             await history.push(`/activities/${activityId}`)
             setShowForm(false)

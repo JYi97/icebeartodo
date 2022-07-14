@@ -22,7 +22,7 @@ const ActivityForm = ({ folderId, activities }) => {
         if (title?.length < 1) error.push('Ice Bear wants at least 1 character')
         if (title?.length > 50) error.push('Ice Bear wants a shorter title')
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
-        if (activityTitles.includes(title)) error.push('Ice Bear wants a new activity')
+        if (activityTitles.includes(title)) error.push('Ice Bear already made that activity in this folder.')
         setErrors(error);
     }, [title])
 
