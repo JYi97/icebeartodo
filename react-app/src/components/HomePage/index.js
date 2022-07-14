@@ -22,13 +22,13 @@ const HomePage = () => {
         [currentDate[0], currentDate[1]] = [currentDate[1], currentDate[0]]
     }
 
-    console.log("THIS SHOULD BE THE CURRENT DAY", currentDate)
+    // console.log("THIS SHOULD BE THE CURRENT DAY", currentDate)
 
     const currentDateFormatted = currentDate.join("/")
 
 
-    console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
-    console.log("THIS SHOULD BE THE LIST OF ACTIVITIES", activities)
+    // console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
+    // console.log("THIS SHOULD BE THE LIST OF ACTIVITIES", activities)
 
 
     const todaysActivities = []
@@ -41,7 +41,7 @@ const HomePage = () => {
         }
     }
 
-    console.log("THIS IS TODAYS ACTIVITIES I HOPE", todaysActivities)
+    // console.log("THIS IS TODAYS ACTIVITIES I HOPE", todaysActivities)
 
     // const activitiesDates = activities.map(activity => {
     //     // return activity.date.split(" ").slice(1, 4)

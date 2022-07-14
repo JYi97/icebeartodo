@@ -25,7 +25,7 @@ const FolderDetailsPage = () => {
     // console.log("THIS IS THE FOLDER DETAILS IN THE SPECIFIC PAGE", folderDetails)
 
     const userId = useSelector(state => state?.session.user.id)
-    console.log("THIS IS THE USER ID", userId)
+    // console.log("THIS IS THE USER ID", userId)
     const activitiesArr = useSelector(state => Object.values(state?.activity))
     // console.log("THIS IS THE ACTIVITIES IN THE FOLDER DETAILS PAGE", activitiesArr)
 
@@ -40,9 +40,9 @@ const FolderDetailsPage = () => {
 
     // console.log("THIS IS THE SPECIFIC FOLDER", folder)
 
-    if (folder) {
-        console.log("THIS IS THE SPECIFIC FOLDER IN THE FOLDER DETAILS PAGE", folder.userId)
-    }
+    // if (folder) {
+    //     console.log("THIS IS THE SPECIFIC FOLDER IN THE FOLDER DETAILS PAGE", folder.userId)
+    // }
 
 
     useEffect(() => {

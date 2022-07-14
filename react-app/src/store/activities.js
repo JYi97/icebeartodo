@@ -74,7 +74,7 @@ export const editOneActivity = (payload) => async (dispatch) => {
     })
     if (response.ok) {
         const activity = await response.json()
-        console.log("THIS IS THE ACTIVITY IN THE EDIT THUNK", activity)
+        // console.log("THIS IS THE ACTIVITY IN THE EDIT THUNK", activity)
         dispatch(updateOneActivity(activity))
     }
 }
@@ -114,7 +114,7 @@ export const loadActivitiesFromUser = (activities) => {
 export const getActivitiesFromUser = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/activities`)
     const activities = await response.json()
-    console.log("THIS IS THE ACTIVITIES RESPONSE FROM THE FETCH CALL", activities)
+    // console.log("THIS IS THE ACTIVITIES RESPONSE FROM THE FETCH CALL", activities)
     dispatch(loadActivitiesFromUser(activities))
 }
 
@@ -148,7 +148,7 @@ const activityReducer = (state = initialState, action) => {
             }
         case GET_ACTIVITIES_FROM_USER:
             const usersActivities = {};
-            console.log("THIS IS THE ACTIVITIES FROM THE REDUCER", action.activities)
+            // console.log("THIS IS THE ACTIVITIES FROM THE REDUCER", action.activities)
             action.activities.forEach(activity => {
                 usersActivities[activity.id] = activity
             })
