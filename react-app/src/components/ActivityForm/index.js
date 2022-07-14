@@ -17,6 +17,8 @@ const ActivityForm = ({ folderId, activities }) => {
         return activity.title
     })
 
+
+
     useEffect(() => {
         const error = [];
         if (title?.length < 1) error.push('Ice Bear wants at least 1 character')
@@ -24,7 +26,7 @@ const ActivityForm = ({ folderId, activities }) => {
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
         if (activityTitles.includes(title)) error.push('Ice Bear already made that activity in this folder.')
         setErrors(error);
-    }, [title])
+    }, [title, date])
 
 
     const onSubmit = async (e) => {
@@ -111,6 +113,7 @@ const ActivityForm = ({ folderId, activities }) => {
                         </div>
                         <div>
                             <input type='date'
+                                onKeyDown={(e) => e.preventDefault()}
                                 required
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}

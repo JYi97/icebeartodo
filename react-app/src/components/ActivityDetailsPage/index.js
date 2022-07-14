@@ -67,7 +67,12 @@ const ActivityDetailsPage = () => {
                     <div>
                         {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
                     </div>
-                </div> : <div>Ice Bear protects other users' activities</div>}
+                </div> : <>
+                    <div>
+                        Ice Bear cannot find page.
+                    </div>
+                    <img src='https://mystickermania.com/cdn/stickers/cartoons/sticker_2504-512x512.png' alt=''></img>
+                </>}
             {/* <h3>
                 Remove this activity
             </h3>
