@@ -65,6 +65,11 @@ const HistoryPage = () => {
 
     return (
         <>
+        <div className='history-page-title-container'>
+            <div className='history-page-title'>
+                Past Activities
+            </div>
+        </div>
             <div className='history-page-activities-container'>
                 {pastActivities && pastActivitiesSorted.map(activity => {
                     return <div className='history-activities-activity' key={activities.indexOf(activity)}>
@@ -83,9 +88,17 @@ const HistoryPage = () => {
             <div className='history-page-activities-storing-container'>
                 <div className='history-activities-image-container'>
                     <img className='history-activities-image' src='https://s3.getstickerpack.com/storage/uploads/sticker-pack/ice-bear/sticker_26.png?afc541aae29090d288eebe018a8f726c&d=200x200' alt=''></img>
+                    <div className='history-page-activities-storing'>
+                        Ice Bear is storing your past activities... slowly...
+                    </div>
                 </div>
-                <div className='history-page-activities-storing'>
-                    Ice Bear is storing your past activities... slowly...
+                <div className='history-page-bye-bye-activities-container'>
+                    <div className='history-page-no-longer-needed-comment'>
+                        Ice Bear is glad those activities are over.
+                    </div>
+                    <div className='history-page-no-longer-needed-image'>
+                        <img src='https://chpic.su/_data/stickers/f/Fomushkina/Fomushkina_007.webp' alt=''></img>
+                    </div>
                 </div>
             </div>
         </>
