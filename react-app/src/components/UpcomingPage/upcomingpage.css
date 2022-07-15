@@ -1,0 +1,59 @@
+.upcoming-page-activities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.upcoming-page-activities-watching {
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.upcoming-activities-images-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+.upcoming-activities-image1 {
+    height: 400px;
+    margin-left: 20rem;
+    object-fit: cover;
+}
+
+.upcoming-page-activities-brought {
+    font-size: 26px;
+    margin-left: 21rem;
+    margin-bottom: 50px;
+}
+
+.upcoming-activities-activity {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.upcoming-activities-activity-title {
+    text-decoration: none;
+    color: #4b7dc1;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.upcoming-activities-activity-title:hover {
+    color: skyblue;
+}
+
+.upcoming-activities-activity-context,
+.upcoming-activities-activity-date {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.upcoming-activities-activity-context,
+.upcoming-activities-activity-date,
+.upcoming-activities-activity-title {
+    display: flex;
+    justify-content: center;
+}
