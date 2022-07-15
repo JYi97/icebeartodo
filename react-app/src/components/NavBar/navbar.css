@@ -58,7 +58,7 @@ body {
     align-items: center;
 }
 
-.navigation-bar-logged-out-home-button:
+.navigation-bar-logged-out-home-button:hover,
 .navigation-bar-login-button:hover,
 .navigation-bar-signup-button:hover,
 .navigation-bar-logout-button:hover {

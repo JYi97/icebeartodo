@@ -34,6 +34,12 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demoUser = async (e) => {
+    e.preventDefault();
+    await dispatch(login('demo@aa.io', 'password'))
+
+}
+
   if (user) {
     return <Redirect to='/home' />;
   }
@@ -123,6 +129,7 @@ const LoginForm = () => {
                 />
               </div>
               <button className='login-button-form-field' type='submit'>Login</button>
+            <button className='login-page-demo-user-button' type="submit" onClick={demoUser}>Demo Bear</button>
             </form>
             <div className='login-form-term-agreement'>
               By continuing, you agree to Ice Bear's Terms of Service and Privacy Policy
