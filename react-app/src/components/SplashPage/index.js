@@ -43,7 +43,7 @@ const SplashPage = () => {
 
                             </div>
                             <div className='splash-page-get-started-nav-link-container'>
-                            <NavLink className='splash-page-get-started-nav-link' to='/sign-up'>Get Started</NavLink>
+                                <NavLink className='splash-page-get-started-nav-link' to='/sign-up'>Get Started</NavLink>
                             </div>
 
 
@@ -68,7 +68,7 @@ const SplashPage = () => {
                                         How does Ice Bear find the time to do all this?
                                         Ice Bear uses Ice Bear's To-Do's to organize and sort his activities into any folder he wants.
                                         So Ice Bear can easily keep track of what he has to do for the current day, upcoming days,
-                                        and even what he did in in the past in his history tab. Start now and keep track of your activities
+                                        or what he did in the past in his history tab. Start now and keep track of your activities just
                                         like Ice Bear.
                                     </div>
                                 </div>
