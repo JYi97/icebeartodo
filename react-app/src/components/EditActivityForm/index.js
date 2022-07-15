@@ -35,6 +35,9 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         activitiesObjects[activity.title] = activity.id
     })
 
+    const currentYear = new Date().getFullYear()
+    const maxYear = new Date().getFullYear() + 50
+
     // const filteredActivityT
     // comepare target with titles and if title matches then check id of activity and if target matches activity then it is okay
 
@@ -49,11 +52,13 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
         if (context?.length > 255) error.push('Ice Bear wants a shorter context.')
         // console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
+        if (Number(date.slice(0, 4)) < currentYear) error.push('Ice Bear can only make activities from current year to future.')
+        if (Number(date.slice(0, 4)) > maxYear) error.push('Ice Bear cannot make activities far from present.')
         if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
             error.push('Ice Bear already made an activity with that title')
         }
         setErrors(error);
-    }, [title, context])
+    }, [title, context, date])
 
     const onSubmit = async (e) => {
         e.preventDefault();
