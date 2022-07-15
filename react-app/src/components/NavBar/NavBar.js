@@ -38,6 +38,9 @@ const NavBar = () => {
           </div>
           <div className='navigation-bar-auth-buttons'>
             <div className='navigation-bar-login-button-container'>
+            <NavLink className='navigation-bar-logged-out-home-button' to='/' exact={true} activeClassName='active'>
+              Home
+            </NavLink>
             <NavLink className='navigation-bar-login-button' to='/login' exact={true} activeClassName='active'>
               Log In
             </NavLink>

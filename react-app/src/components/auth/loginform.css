@@ -40,6 +40,13 @@
     font-size: 24px;
 }
 
+.login-page-demo-user-button,
+.login-button-form-field {
+    width: 300px;
+    font-size: 24px;
+}
+
+.login-page-demo-user-button,
 .login-button-form-field {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -76,10 +83,15 @@
     margin-left: 5px;
 }
 
+.login-page-demo-user-button:hover,
 .login-button-form-field:hover {
     background: skyblue;
 }
 
 .login-form-signup-link:hover {
     color: skyblue;
+}
+
+.login-page-demo-user-button {
+    margin-left: 4px;
 }
