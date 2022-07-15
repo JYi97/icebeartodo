@@ -38,26 +38,43 @@ const UpcomingPage = () => {
 
     return (
         <>
-            <h1>Upcoming Tasks</h1>
-            <h3>
-                Calendar to pick a date to add an activity
-            </h3>
-            <h3>
-                List of upcoming activities in chronological order from the current day.
-            </h3>
-            {upcomingActivities && upcomingActivities.map(activity => {
-                return <div key={activities.indexOf(activity)}>
-                    <NavLink to={`/activities/${activity.id}`}>
-                        {activity.title}
-                    </NavLink>
-                    <div>
-                        {activity.context}
-                    </div>
-                    <div>
-                        {activity.date}
-                    </div>
+            <div className='upcoming-page-activities-watching-container'>
+                <div className='upcoming-page-activities-watching'>
+                    Ice Bear is keeping an eye out for upcoming events
                 </div>
-            })}
+            </div>
+            <div className='upcoming-activities-images-container'>
+                <div className='upcoming-activities-image1-container'>
+                <img className='upcoming-activities-image1' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uBaCxZddD1AE4XEAigcNDk6Kb5DqZOJapA&usqp=CAU' alt=''></img>
+            </div>
+                <div className='upcoming-activities-image2-container'>
+                <img src='https://stickerly.pstatic.net/sticker_pack/JSzVPMd6Ab2TPeA9LgkBhw/1UBP58/23/715a7360-6508-4511-aa0a-0a8ce784edcd.png' alt=''></img>
+            </div>
+            </div>
+            {/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uBaCxZddD1AE4XEAigcNDk6Kb5DqZOJapA&usqp=CAU */}
+            {/* <div className='upcoming-activities-image-container'>
+                <img src='https://stickerly.pstatic.net/sticker_pack/JSzVPMd6Ab2TPeA9LgkBhw/1UBP58/23/715a7360-6508-4511-aa0a-0a8ce784edcd.png' alt=''></img>
+            </div> */}
+            <div className='upcoming-page-activities-brought-container'>
+                <div className='upcoming-page-activities-brought'>
+                    Ice Bear brought all the future to-do's.
+                </div>
+            </div>
+            <div className='upcoming-page-activities-container'>
+                {upcomingActivities && upcomingActivities.map(activity => {
+                    return <div className='upcoming-activities-activity' key={activities.indexOf(activity)}>
+                        <NavLink className='upcoming-activities-activity-title' to={`/activities/${activity.id}`}>
+                            {activity.title}
+                        </NavLink>
+                        <div className='upcoming-activities-activity-context'>
+                            {activity.context}
+                        </div>
+                        <div className='upcoming-activities-activity-date'>
+                            {activity.date}
+                        </div>
+                    </div>
+                })}
+            </div>
         </>
     )
 }
