@@ -30,7 +30,32 @@ const UpcomingPage = () => {
         }
     }
 
-    // console.log("THIS SHOULD BE THE UPCOMING ACTIVITIES", upcomingActivities)
+    let upcomingActivitiesSorted
+
+    if (upcomingActivities) {
+        upcomingActivitiesSorted = upcomingActivities.sort((a, b) => {
+            if (Number(a.date.slice(6, 10)) < Number(b.date.slice(6, 10))) {
+                return -1
+            }
+            if (Number(a.date.slice(6, 10)) > Number(b.date.slice(6, 10))) {
+                return 1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) < Number(b.date.slice(0,2))) {
+                return -1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) > Number(b.date.slice(0,2))) {
+                return 1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) === Number(b.date.slice(0,2)) && Number(a.date.slice(3,5)) < Number(b.date.slice(3,5))) {
+                return -1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) === Number(b.date.slice(0,2)) && Number(a.date.slice(3,5)) > Number(b.date.slice(3,5))) {
+                return 1
+            }
+
+    })}
+
+    console.log("THIS SHOULD BE THE UPCOMING ACTIVITIES", upcomingActivitiesSorted)
 
     useEffect(() => {
         dispatch(getActivitiesFromUser(userId))
@@ -61,7 +86,7 @@ const UpcomingPage = () => {
                 </div>
             </div>
             <div className='upcoming-page-activities-container'>
-                {upcomingActivities && upcomingActivities.map(activity => {
+                {upcomingActivitiesSorted && upcomingActivitiesSorted.map(activity => {
                     return <div className='upcoming-activities-activity' key={activities.indexOf(activity)}>
                         <NavLink className='upcoming-activities-activity-title' to={`/activities/${activity.id}`}>
                             {activity.title}
