@@ -3,14 +3,14 @@ from app.models import db, Folder
 
 # Adds a today and upcoming folder for the demo user, you can add other users here if you want
 def seed_folders():
-    today = Folder(
-        user_id='1', title='Today')
-    upcoming = Folder(
-        user_id='1', title='Upcoming')
+    chores = Folder(
+        user_id='1', title="Ice Bear's chores")
+    sports = Folder(
+        user_id='1', title="Ice Bear's sports")
 
 
-    db.session.add(today)
-    db.session.add(upcoming)
+    db.session.add(chores)
+    db.session.add(sports)
 
 
     db.session.commit()
