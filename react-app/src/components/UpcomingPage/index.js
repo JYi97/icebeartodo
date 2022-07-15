@@ -55,7 +55,7 @@ const UpcomingPage = () => {
 
     })}
 
-    console.log("THIS SHOULD BE THE UPCOMING ACTIVITIES", upcomingActivitiesSorted)
+    // console.log("THIS SHOULD BE THE UPCOMING ACTIVITIES", upcomingActivitiesSorted)
 
     useEffect(() => {
         dispatch(getActivitiesFromUser(userId))
@@ -86,7 +86,7 @@ const UpcomingPage = () => {
                 </div>
             </div>
             <div className='upcoming-page-activities-container'>
-                {upcomingActivitiesSorted && upcomingActivitiesSorted.map(activity => {
+                {upcomingActivities && upcomingActivitiesSorted.map(activity => {
                     return <div className='upcoming-activities-activity' key={activities.indexOf(activity)}>
                         <NavLink className='upcoming-activities-activity-title' to={`/activities/${activity.id}`}>
                             {activity.title}
