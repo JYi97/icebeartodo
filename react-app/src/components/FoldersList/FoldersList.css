@@ -1,0 +1,40 @@
+.folders-list-your-folders-title-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.folders-list-your-folders-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.folder-list-folders-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.folder-form-new-folder-form-button {
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.folder-list-folders-title {
+    font-size: 36px;
+    text-decoration: none;
+    color: #4b7dc1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.folder-list-folders-title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.folder-list-folders-title:hover {
+    color: skyblue;
+}

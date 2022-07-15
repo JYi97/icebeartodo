@@ -54,10 +54,7 @@ const FolderForm = ({ folders }) => {
 
     return (
         <>
-            <div>
-                This is the form to create a folder.
-            </div>
-            <div>
+            <div className='folder-form-new-folder-form-button-container'>
                 <button onClick={() => {
                     if (showForm) {
                         setShowForm(false)
@@ -65,21 +62,22 @@ const FolderForm = ({ folders }) => {
                         setShowForm(true)
                     }
                 }}>
-                    New Folder
+                    <img className='folder-form-new-folder-form-button' src='https://icon-library.com/images/add-on-icon/add-on-icon-1.jpg' alt=''></img>
                 </button>
             </div>
             {showForm ?
-                <div>
+                <div className='folder-form-image-form-container'>
+                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-love-letter-512x512.png' alt=''></img>
                     <form onSubmit={onSubmit}>
-                        <h2>Add a new folder</h2>
+                        <h2>Ice Bear will create your folder</h2>
                         {show ?
                             errors.length > 0 ?
                                 <>
-                                    <h4>Errors:</h4>
+                                    <h4 className='errorsArray-error-title'>Errors:</h4>
                                     <ul className='errorsArray'>{errors.map(error => {
                                         return (
                                             <>
-                                                <li
+                                                <li className='create-folder-form-errors-array'
                                                     key={error}>{error}</li>
                                             </>
                                         )
@@ -92,53 +90,25 @@ const FolderForm = ({ folders }) => {
                         <div>
                             <div>
                                 <input type='text'
+                                    className='create-folder-form-title-input'
                                     required
                                     placeholder='Folder Title'
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
                             </div>
+                            
                             <button
+                                className='create-folder-form-submit-button'
                                 type='submit'
-                            >Submit</button>
+                            >Create Folder</button>
                         </div>
                     </form>
-                </div> : null}
-            {/* <div>
-                <form onSubmit={onSubmit}>
-                    <h2>Add a new folder</h2>
-                    {show ?
-                        errors.length > 0 ?
-                            <>
-                                <h4>Errors:</h4>
-                                <ul className='errorsArray'>{errors.map(error => {
-                                    return (
-                                        <>
-                                            <li
-                                                key={error}>{error}</li>
-                                        </>
-                                    )
-                                })}
-                                </ul>
-                            </>
-                            : null
 
-                        : null}
-                    <div>
-                        <div>
-                            <input type='text'
-                                required
-                                placeholder='Folder Title'
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </div>
-                        <button
-                            type='submit'
-                        >Submit</button>
-                    </div>
-                </form>
-            </div> */}
+
+                </div> : null}
+
+
         </>
     )
 

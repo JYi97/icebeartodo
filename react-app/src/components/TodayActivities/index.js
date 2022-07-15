@@ -1,30 +1,35 @@
 import './todayactivities.css'
 import { NavLink } from 'react-router-dom';
-import { useEffect } from 'react';
+
 
 
 const TodayActivities = ({ activities }) => {
     // console.log("THIS IS THE ACTIVITIES IN TODAY ACTIVITIES COMPONENT", activities)
 
-    // useEffect(()=> {
-
-    // }, [activities.length])
-
     return (
         <>
-            <h3>
-                List of Activities for current day.
-            </h3>
-            {activities && activities.map(activity => {
-                return <div key={activities.indexOf(activity)}>
-                    <NavLink to={`/activities/${activity.id}`}>
-                        {activity.title}
-                    </NavLink>
-                    <div>
-                        {activity.context}
-                    </div>
+            <div className='today-activities-todo-activities-image-container'>
+                <img src='http://vignette3.wikia.nocookie.net/webarebears/images/3/37/Ice_bear.png/revision/latest?cb=20160619204008' alt=''></img>
+            </div>
+            <div className='today-activities-todo-activities-grabbed-container'>
+                <div className='today-activities-todo-activities-grabbed'>
+                    Ice Bear grabbed all the activities you have for today.
                 </div>
-            })}
+            </div>
+            <div className='today-activities-todo-activities-container'>
+                {activities && activities.map(activity => {
+                    return <div className='today-activities-todo-activity' key={activities.indexOf(activity)}>
+                        <div className='today-activities-todo-activity-title-container'>
+                            <NavLink className='today-activities-todo-activity-title' to={`/activities/${activity.id}`}>
+                                {activity.title}
+                            </NavLink>
+                        </div>
+                        <div className='today-activities-todo-activity-context'>
+                            {activity.context}
+                        </div>
+                    </div>
+                })}
+            </div>
         </>
     )
 }
