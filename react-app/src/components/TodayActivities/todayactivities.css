@@ -8,7 +8,8 @@
     padding-right: 20px;
 }
 
-.today-activities-todo-activity-title-container {
+.today-activities-todo-activity-title-container,
+.today-activities-todo-activity-context {
     display: flex;
     justify-content: center;
 }
