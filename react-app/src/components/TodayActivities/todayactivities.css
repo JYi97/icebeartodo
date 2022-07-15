@@ -1,0 +1,53 @@
+.today-activities-todo-activities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.today-activities-todo-activity {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.today-activities-todo-activity-title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.today-activities-todo-activity-title {
+    margin-bottom: 20px;
+}
+
+.today-activities-todo-activities-image-container,
+.today-activities-todo-activities-grabbed-container {
+    display: flex;
+    justify-content: center;
+}
+
+.today-activities-todo-activities-grabbed {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.today-activities-todo-activity-title {
+    font-size: 28px;
+}
+
+.today-activities-todo-activity-context {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.today-activities-todo-activities-image-container {
+    object-fit: cover;
+    height: 300px;
+}
+
+.today-activities-todo-activity-title {
+    text-decoration: none;
+    color: #4b7dc1;
+}
+
+.today-activities-todo-activity-title:hover {
+    color: skyblue;
+}

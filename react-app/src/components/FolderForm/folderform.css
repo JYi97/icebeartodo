@@ -1,0 +1,42 @@
+.folder-form-new-folder-form-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.folder-form-image-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-folder-form-errors-array,
+.errorsArray-error-title {
+    text-decoration: none;
+    color: red;
+    list-style: none;
+    font-size: 24px;
+}
+
+.create-folder-form-title-input {
+    width: 315px;
+    height: 26px;
+    margin-bottom: 20px;
+    border: 1px solid #4b7dc1;
+    font-size: 24px;
+}
+
+
+.create-folder-form-submit-button {
+    width: 323px;
+    height: 32px;
+    font-size: 24px;
+    outline: none;
+    border-radius: 0;
+    color: white;
+    background: #4b7dc1;
+}
+
+.create-folder-form-submit-button:hover {
+    background-color: skyblue;
+}

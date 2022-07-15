@@ -11,10 +11,7 @@ const HomePage = () => {
     const folders = useSelector(state => state?.folder)
     const userId = useSelector(state => state?.session.user.id)
     // console.log("THIS IS IN THE HOME PAGE COMPONENT", Object.values(userFolders))
-    // const userFoldersArr = Object.values(userFolders)
-    // const foldersNames = Object.values(userFolders).map((folder) => {
-    //     return folder.title
-    // })
+
     const activities = useSelector(state => Object.values(state?.activity))
     let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
 
@@ -43,31 +40,23 @@ const HomePage = () => {
 
     // console.log("THIS IS TODAYS ACTIVITIES I HOPE", todaysActivities)
 
-    // const activitiesDates = activities.map(activity => {
-    //     // return activity.date.split(" ").slice(1, 4)
-    //     return activity.date
-    // })
-
     // console.log("THIS IS THE ARRAY OF DATES", activitiesDates)
 
     // console.log(foldersNames)
+
     useEffect(() => {
         dispatch(getFolders())
         dispatch(getActivitiesFromUser(userId))
     }, [])
 
-    // useEffect(() => {
-    //     dispatch(getFolders())
-    //     dispatch(getActivitiesFromUser(userId))
-    // }, [dispatch])
-
     return (
         <>
-            <h1> Ice Bear's To-Do List</h1>
+            <h1> Your To-Do List</h1>
             <div>
                 <div>
-                    {activities && <TodayActivities activities={todaysActivities}/>}
+                    {activities && <TodayActivities activities={todaysActivities} />}
                 </div>
+                <hr />
                 {folders && <FoldersList folders={folders} />}
             </div>
         </>
