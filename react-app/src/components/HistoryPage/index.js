@@ -30,7 +30,34 @@ const HistoryPage = () => {
         }
     }
 
-    // console.log("THIS SHOULD BE THE PAST ACTIVITIES", pastActivities)
+    let pastActivitiesSorted
+
+    if (pastActivities) {
+        pastActivitiesSorted = pastActivities.sort((a, b) => {
+            if (Number(a.date.slice(6, 10)) < Number(b.date.slice(6, 10))) {
+                return 1
+            }
+            if (Number(a.date.slice(6, 10)) > Number(b.date.slice(6, 10))) {
+                return -1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) < Number(b.date.slice(0, 2))) {
+                return 1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) > Number(b.date.slice(0, 2))) {
+                return -1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) === Number(b.date.slice(0, 2)) && Number(a.date.slice(3, 5)) < Number(b.date.slice(3, 5))) {
+                return 1
+            }
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) === Number(b.date.slice(0, 2)) && Number(a.date.slice(3, 5)) > Number(b.date.slice(3, 5))) {
+                return -1
+            }
+
+        })
+    }
+
+
+    // console.log("THIS SHOULD BE THE PAST ACTIVITIES", pastActivitiesSorted)
 
     useEffect(() => {
         dispatch(getActivitiesFromUser(userId))
@@ -38,24 +65,29 @@ const HistoryPage = () => {
 
     return (
         <>
-            <h1>Previous Tasks</h1>
-
-            <h3>
-                List of past activities in chronological order from the current day.
-            </h3>
-            {pastActivities && pastActivities.map(activity => {
-                return <div key={activities.indexOf(activity)}>
-                    <NavLink to={`/activities/${activity.id}`}>
-                        {activity.title}
-                    </NavLink>
-                    <div>
-                        {activity.context}
+            <div className='history-page-activities-container'>
+                {pastActivities && pastActivitiesSorted.map(activity => {
+                    return <div className='history-activities-activity' key={activities.indexOf(activity)}>
+                        <NavLink className='history-activities-activity-title' to={`/activities/${activity.id}`}>
+                            {activity.title}
+                        </NavLink>
+                        <div className='history-activities-activity-context'>
+                            {activity.context}
+                        </div>
+                        <div className='history-activities-activity-date'>
+                            {activity.date}
+                        </div>
                     </div>
-                    <div>
-                        {activity.date}
-                    </div>
+                })}
+            </div>
+            <div className='history-page-activities-storing-container'>
+                <div className='history-activities-image-container'>
+                    <img className='history-activities-image' src='https://s3.getstickerpack.com/storage/uploads/sticker-pack/ice-bear/sticker_26.png?afc541aae29090d288eebe018a8f726c&d=200x200' alt=''></img>
                 </div>
-            })}
+                <div className='history-page-activities-storing'>
+                    Ice Bear is storing your past activities... slowly...
+                </div>
+            </div>
         </>
     )
 }
