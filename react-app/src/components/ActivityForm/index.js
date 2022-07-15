@@ -17,6 +17,9 @@ const ActivityForm = ({ folderId, activities }) => {
         return activity.title
     })
 
+    const currentYear = new Date().getFullYear()
+    const maxYear = new Date().getFullYear() + 50
+
 
 
     useEffect(() => {
@@ -25,6 +28,8 @@ const ActivityForm = ({ folderId, activities }) => {
         if (title?.length > 50) error.push('Ice Bear wants a shorter title')
         if (title?.startsWith(" ")) error.push('Ice Bear does not want empty title.')
         if (context?.length > 255) error.push('Ice Bear wants a shorter context.')
+        if (Number(date.slice(0, 4)) < currentYear) error.push('Ice Bear can only make activities from current year to future.')
+        if (Number(date.slice(0, 4)) > maxYear) error.push('Ice Bear cannot make activities far from present.')
         if (activityTitles.includes(title)) error.push('Ice Bear already made that activity in this folder.')
         setErrors(error);
     }, [title, context, date])
