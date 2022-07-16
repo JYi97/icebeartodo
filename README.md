@@ -10,11 +10,17 @@ Live Link: https://icebeartodo.herokuapp.com/home
 Database Schema
 ![icebeartododb](https://user-images.githubusercontent.com/96046451/179063332-d1983b59-f1e4-4ca8-b1dc-6f1324551f6f.png)
 
+Splash Page
+![icebearsplash](https://user-images.githubusercontent.com/96046451/179347085-d7b3d506-1e00-4279-afc3-2eda155e1359.PNG)
+
 Log in Page
-![icebeartodologin](https://user-images.githubusercontent.com/96046451/179063569-80fd539d-4e33-4f31-962f-9dbcd56ba283.PNG)
+![icebearlogin](https://user-images.githubusercontent.com/96046451/179347061-fe155690-30e0-4d75-bb46-7ac98734b6c9.PNG)
 
 Sign in Page
-![icebeartodosignup](https://user-images.githubusercontent.com/96046451/179063625-f219b2aa-31ac-4b83-b1f7-3c78e5d81be3.PNG)
+![icebearsignup](https://user-images.githubusercontent.com/96046451/179347073-f00f7a8e-2dc8-43b1-b683-845a8ba3e6d6.PNG)
+
+Home Page
+![icebearhomepage](https://user-images.githubusercontent.com/96046451/179347095-2e399808-9e8e-4a1d-a2b6-504455eecd01.PNG)
 
 ## Features List
 https://github.com/JYi97/iceBeartodo/wiki/Features-List
