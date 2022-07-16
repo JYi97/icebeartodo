@@ -1,0 +1,48 @@
+.activity-form-img-caption-button-form-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.create-activity-form-title-input,
+.create-activity-form-context-input,
+.create-activity-form-date-input {
+    width: 315px;
+    height: 26px;
+    margin-bottom: 20px;
+    border: 1px solid #4b7dc1;
+    font-size: 24px;
+}
+
+
+.activity-form-options-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.activity-form-add-activity-into {
+    font-size: 24px;
+}
+
+.create-activity-form-header {
+    color: #4b7dc1;
+}
+
+.create-activity-form-submit-button {
+    width: 100px;
+    height: 30px;
+    font-size: 24px;
+    outline: none;
+    border-radius: 0;
+    color: white;
+    background: #4b7dc1;
+}
+
+.create-activity-errorsArray {
+    color: red;
+}
+
+
+.create-activity-form-submit-button-container {
+    display: flex;
+    justify-content: center;
+}
