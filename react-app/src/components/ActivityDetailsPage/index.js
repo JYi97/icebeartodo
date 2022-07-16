@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import EditActivityForm from '../EditActivityForm';
 import { getFolders } from '../../store/folders';
 import { getActivitiesFromActivityID } from '../../store/activities';
-
+import WrongPage from '../WrongPage';
 
 const ActivityDetailsPage = () => {
     const dispatch = useDispatch()
@@ -54,12 +54,21 @@ const ActivityDetailsPage = () => {
                     <div>
                         {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
                     </div>
-                </div> : <>
-                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
-                    <div>
-                        Ice Bear went to the wrong page.
-                    </div>
-                </>}
+                </div> : <WrongPage/>
+                // <>
+                // <div className='wrong-activity-details-page-container'>
+                //         <div className='activity-details-page-wrong-activity-img-container'>
+                //             <img className='activity-details-page-wrong-activity-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
+                //             <div className='activity-details-page-wrong-activity-explanation-container'>
+                //                 <div className='activity-details-page-wrong-activity-explanation'>
+                //                     Ice Bear went to the wrong page.
+
+                //                 </div>
+                //             </div>
+                //         </div>
+                //     </div>
+                // </>
+                }
         </>
     )
 

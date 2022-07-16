@@ -8,6 +8,7 @@ import EditFolderForm from '../EditFolderForm';
 import ActivitiesList from '../ActivitiesList';
 import { getActivitiesFromFolder, getActivitiesFromUser } from '../../store/activities';
 import ActivityForm from '../ActivityForm';
+import WrongPage from '../WrongPage';
 
 
 const FolderDetailsPage = () => {
@@ -63,14 +64,19 @@ const FolderDetailsPage = () => {
                     <div>
                         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
                     </div>
-                </div> : <>
-                    <div className='wrong-folder-details-page-container'>
-                        <img className='folder-details-page-wrong-folder-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
-                        <div className='folder-details-page-wrong-folder-explanation'>
-                            Ice Bear went to the wrong page.
-                        </div>
-                    </div>
-                </>
+                </div> : <WrongPage />
+                // <>
+                //     <div className='wrong-folder-details-page-container'>
+                //         <div className='folder-details-page-wrong-folder-img-container'>
+                //             <img className='folder-details-page-wrong-folder-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
+                //             <div className='folder-details-page-wrong-folder-explanation-container'>
+                //                 <div className='folder-details-page-wrong-folder-explanation'>
+                //                     Ice Bear went to the wrong page.
+                //                 </div>
+                //             </div>
+                //         </div>
+                //     </div>
+                // </>
             }
         </>
     )

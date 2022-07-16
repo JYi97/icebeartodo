@@ -1,0 +1,11 @@
+.page-not-found-content-container,
+.page-not-found-title-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+}
+
+.page-not-found-title-container {
+    font-size: 24px;
+}
