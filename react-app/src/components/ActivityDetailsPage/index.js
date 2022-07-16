@@ -1,4 +1,3 @@
-import './activitydetailspage.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -54,21 +53,7 @@ const ActivityDetailsPage = () => {
                     <div>
                         {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
                     </div>
-                </div> : <WrongPage/>
-                // <>
-                // <div className='wrong-activity-details-page-container'>
-                //         <div className='activity-details-page-wrong-activity-img-container'>
-                //             <img className='activity-details-page-wrong-activity-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
-                //             <div className='activity-details-page-wrong-activity-explanation-container'>
-                //                 <div className='activity-details-page-wrong-activity-explanation'>
-                //                     Ice Bear went to the wrong page.
-
-                //                 </div>
-                //             </div>
-                //         </div>
-                //     </div>
-                // </>
-                }
+                </div> : <WrongPage />}
         </>
     )
 
