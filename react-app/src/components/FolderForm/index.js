@@ -73,16 +73,16 @@ const FolderForm = ({ folders }) => {
                         {show ?
                             errors.length > 0 ?
                                 <>
-                                    <h4 className='errorsArray-error-title'>Errors:</h4>
-                                    <ul className='errorsArray'>{errors.map(error => {
+
+                               {errors.map(error => {
                                         return (
                                             <>
-                                                <li className='create-folder-form-errors-array'
-                                                    key={error}>{error}</li>
+                                                <div className='create-folder-form-errors-array'
+                                                    key={error}>{error}</div>
                                             </>
                                         )
                                     })}
-                                    </ul>
+                                 
                                 </>
                                 : null
 
@@ -97,7 +97,7 @@ const FolderForm = ({ folders }) => {
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
                             </div>
-                            
+
                             <button
                                 className='create-folder-form-submit-button'
                                 type='submit'

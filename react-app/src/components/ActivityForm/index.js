@@ -66,72 +66,83 @@ const ActivityForm = ({ folderId, activities }) => {
 
     return (
         <>
-            <div>
-                This is the form to create an activity.
-            </div>
-            <div>
-                <button onClick={() => {
-                    if (showForm) {
-                        setShowForm(false)
-                    } else {
-                        setShowForm(true)
-                    }
-                }}>
-                    Add an Activity
-                </button>
-            </div>
-            {showForm ? <div>
-                <form onSubmit={onSubmit}>
-                    <h2>Create Your Activity</h2>
-                    {show ?
+            <div className='activity-form-img-caption-button-form-container'>
+                <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-shopping-512x512.png' alt=''></img>
+                <div className='activity-form-activity-form-show-button'>
+                    <div className='activity-form-add-activity-into'>
+                        Add an activity
 
-                        errors.length > 0 ?
-                            <>
-                                <h4>Errors:</h4>
-                                <ul className='errorsArray'>{errors.map(error => {
-                                    return (
-                                        <>
-                                            <li
-                                                key={error}>{error}</li>
-                                        </>
-                                    )
-                                })}
-                                </ul>
-                            </>
-                            : null
-
-                        : null}
-                    <div>
-                        <div>
-                            <input type='text'
-                                required
-                                placeholder='Activity Title'
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input type='text'
-                                placeholder='Activity Context'
-                                value={context}
-                                onChange={(e) => setContext(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input type='date'
-                                onKeyDown={(e) => e.preventDefault()}
-                                required
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                        </div>
-                        <button
-                            type='submit'
-                        >Submit</button>
                     </div>
-                </form>
-            </div> : null}
+                    <div className='activity-form-options-button-container'>
+                        <button onClick={() => {
+                            if (showForm) {
+                                setShowForm(false)
+                            } else {
+                                setShowForm(true)
+                            }
+                        }}>
+                            <img className='folder-form-new-folder-form-button' src='https://icon-library.com/images/add-on-icon/add-on-icon-1.jpg' alt=''></img>
+                        </button>
+                    </div>
 
+
+                    {showForm ? <div>
+                        <form onSubmit={onSubmit}>
+                            <h2 className='create-activity-form-header'>Create Your Activity</h2>
+                            {show ?
+
+                                errors.length > 0 ?
+                                    <>
+                                        {errors.map(error => {
+                                            return (
+                                                <>
+                                                    <div className='create-activity-errorsArray'
+                                                        key={error}>{error}</div>
+                                                </>
+                                            )
+                                        })}
+
+                                    </>
+                                    : null
+
+                                : null}
+                            <div>
+                                <div>
+                                    <input type='text'
+                                        required
+                                        className='create-activity-form-title-input'
+                                        placeholder='Activity Title'
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    <input type='text'
+                                        className='create-activity-form-context-input'
+                                        placeholder='Activity Context'
+                                        value={context}
+                                        onChange={(e) => setContext(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    <input type='date'
+                                        className='create-activity-form-date-input'
+                                        onKeyDown={(e) => e.preventDefault()}
+                                        required
+                                        value={date}
+                                        onChange={(e) => setDate(e.target.value)}
+                                    />
+                                </div>
+                                <div className='create-activity-form-submit-button-container'>
+                                    <button className='create-activity-form-submit-button'
+                                        type='submit'
+                                    >Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div> : null}
+                </div>
+            </div>
         </>
     )
 }

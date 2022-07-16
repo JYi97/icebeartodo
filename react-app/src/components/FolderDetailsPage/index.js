@@ -55,25 +55,8 @@ const FolderDetailsPage = () => {
     return (
         <>
             {folder?.userId == userId ?
-                <div>
-                    <h1>
-                        This is the folder page containing all the activities.
-                    </h1>
-                    <h2>
-                        {folder && folder.title}
-                    </h2>
+                <div className='folder-details-page-folder-title-container'>
                     {folder && folders && <EditFolderForm folder={folder} folders={folders} />}
-                    <div>
-                        <button
-                            onClick={() => {
-                                dispatch(deleteOneFolder(folder.id))
-                                const timer = setTimeout(() => {
-                                    history.push('/home')
-                                }, 500)
-                                return (() => clearTimeout(timer))
-                            }}>Delete This Folder
-                        </button>
-                    </div>
                     <div>
                         {activitiesArr && <ActivityForm folderId={folderId} activities={activitiesArr} />}
                     </div>
@@ -81,9 +64,11 @@ const FolderDetailsPage = () => {
                         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
                     </div>
                 </div> : <>
-                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
-                    <div>
-                        Ice Bear went to the wrong page.
+                    <div className='wrong-folder-details-page-container'>
+                        <img className='folder-details-page-wrong-folder-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
+                        <div className='folder-details-page-wrong-folder-explanation'>
+                            Ice Bear went to the wrong page.
+                        </div>
                     </div>
                 </>
             }

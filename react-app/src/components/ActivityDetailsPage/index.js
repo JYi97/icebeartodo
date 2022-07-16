@@ -14,7 +14,6 @@ const ActivityDetailsPage = () => {
     const activities = useSelector(state => Object.values(state?.activity))
     const folders = useSelector(state => Object.values(state?.folder))
     const userId = useSelector(state => state?.session.user.id)
-    // const activityDetails = activity[activityId]
 
     // console.log("THIS IS THE ACTIVITY ID ", activityId)
     // console.log("THIS IS THE ACTIVITIES ARRAY ", activities)
@@ -73,17 +72,6 @@ const ActivityDetailsPage = () => {
                         Ice Bear went to the wrong page.
                     </div>
                 </>}
-            {/* <h3>
-                Remove this activity
-            </h3>
-            <div>
-                <button
-                    onClick={() => {
-                        dispatch(deleteOneActivity(activityId))
-                    }}
-                >Delete
-                </button>
-            </div> */}
         </>
     )
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { editOneFolder } from '../../store/folders';
+import { editOneFolder, deleteOneFolder } from '../../store/folders';
 import './editfolderform.css'
 
 const EditFolderForm = ({ folder, folders }) => {
@@ -46,7 +46,6 @@ const EditFolderForm = ({ folder, folders }) => {
                 userId,
             }
             await dispatch(editOneFolder(payload))
-            // await history.push(`/home`)
             await history.push(`/folders/${folderId}`)
             setShowForm(false)
 
@@ -60,74 +59,64 @@ const EditFolderForm = ({ folder, folders }) => {
 
     return (
         <>
-            <h4>
-                Edit Folder Form Here
-            </h4>
-            <div>
-                <button onClick={() => {
-                    if (showForm) {
-                        setShowForm(false)
-                    } else {
-                        setShowForm(true)
-                    }
-                }}>
-                    Edit Folder Title
-                </button>
+            <div className='folder-details-page-title-container'>
+                <div className='folder-title-options-button-container'>
+                    <div className='folder-details-page-title'>
+                        {folder && folder.title}
+                    <div className='edit-folder-form-options-button-container'>
+                        <button className='edit-folder-form-options-button' onClick={() => {
+                            if (showForm) {
+                                setShowForm(false)
+                            } else {
+                                setShowForm(true)
+                            }
+                        }}>
+                            Options
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                {showForm ? <><form onSubmit={onSubmit}>
+                    {show ?
+                        errors.length > 0 ?
+                            <>
+                                {errors.map(error => {
+                                    return (
+                                        <>
+                                            <div className='create-form-error'
+                                                key={error}>{error}</div>
+                                        </>
+                                    )
+                                })}
+
+                            </>
+                            : null
+                        : null}
+                    <div className='edit-folder-form-input-submit-button-containers'>
+                        <input type='text'
+                            className='edit-folder-form-edit-title-input'
+                            required
+                            placeholder={folder.title}
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <button className='edit-folder-form-edit-title-button' type='submit'>Edit</button>
+                    <div className='edit-folder-form-delete-button-container'>
+                        <button className='edit-folder-form-delete-button'
+                            onClick={() => {
+                                dispatch(deleteOneFolder(folder.id))
+                                const timer = setTimeout(() => {
+                                    history.push('/home')
+                                }, 500)
+                                return (() => clearTimeout(timer))
+                            }}>Delete
+                        </button>
+                    </div>
+                    </div>
+                </form>
+                </>
+                    : null}
             </div>
-            {showForm ? <form onSubmit={onSubmit}>
-                {show ?
-                    errors.length > 0 ?
-                        <>
-                            <h3>Error</h3>
-                            <ul>{errors.map(error => {
-                                return (
-                                    <>
-                                        <li
-                                            key={error}>{error}</li>
-                                    </>
-                                )
-                            })}
-                            </ul>
-                        </>
-                        : null
-                    : null}
-                <div>
-                    <input type='text'
-                        required
-                        placeholder={folder.title}
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </div>
-                <button type='submit'>Keep your changes to folder title</button>
-            </form> : null}
-            {/* <form onSubmit={onSubmit}>
-                {show ?
-                    errors.length > 0 ?
-                        <>
-                            <h3>Error</h3>
-                            <ul>{errors.map(error => {
-                                return (
-                                    <>
-                                        <li
-                                            key={error}>{error}</li>
-                                    </>
-                                )
-                            })}
-                            </ul>
-                        </>
-                        : null
-                    : null}
-                <div>
-                    <input type='text'
-                        required
-                        placeholder={folder.title}
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </div>
-                <button type='submit'>Keep your changes</button>
-            </form> */}
         </>
     )
 }

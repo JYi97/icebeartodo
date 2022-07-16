@@ -10,8 +10,7 @@
     align-items: center;
 }
 
-.create-folder-form-errors-array,
-.errorsArray-error-title {
+.create-folder-form-errors-array {
     text-decoration: none;
     color: red;
     list-style: none;

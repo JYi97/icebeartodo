@@ -1,0 +1,36 @@
+.folder-details-to-dos-titles {
+    margin-left: 20px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #4b7dc1;
+}
+
+.folder-detail-page-activities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.activitieslist-activity-title {
+    text-decoration: none;
+    color: #4b7dc1;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.activitieslist-activity-date,
+.activitieslist-activity-context {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.activitieslist-activity-title:hover {
+    color: skyblue;
+}
+
+.activitieslist-activity-title,
+.activitieslist-activity-context,
+.activitieslist-activity-date {
+    display: flex;
+    justify-content: center;
+}

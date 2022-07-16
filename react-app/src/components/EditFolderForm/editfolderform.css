@@ -1,0 +1,87 @@
+.folder-details-page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 36px;
+}
+
+.edit-folder-form-options-button-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+/* .edit-folder-form-delete-button,
+.edit-folder-form-edit-title-button,
+.edit-folder-form-options-button,
+.edit-folder-form-edit-title-input {
+    margin-left: 10px;
+}
+
+.edit-folder-form-edit-title-input {
+    height: 36px;
+} */
+
+
+/* .folder-title-options-button-container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+} */
+
+.create-form-error {
+    color: red;
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    margin-right: 7.5rem;
+}
+
+.edit-folder-form-edit-title-input {
+    width: 315px;
+    height: 26px;
+    margin-bottom: 20px;
+    border: 1px solid #4b7dc1;
+    font-size: 24px;
+}
+
+.edit-folder-form-options-button,
+.edit-folder-form-edit-title-button,
+.edit-folder-form-delete-button {
+    width: 100px;
+    height: 30px;
+    font-size: 24px;
+    outline: none;
+    border-radius: 0;
+    color: white;
+    background: #4b7dc1;
+}
+
+.edit-folder-form-delete-button:hover,
+.edit-folder-form-edit-title-button:hover {
+    background: skyblue;
+}
+
+.edit-folder-form-input-submit-button-containers {
+    display: flex;
+    justify-content: end;
+}
+
+.edit-folder-form-delete-button-container {
+    display: flex;
+    justify-content: end;
+}
+
+.edit-folder-form-input-submit-button-containers {
+    margin-right: 20px;
+}
+
+.folder-details-page-title {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.folder-details-page-title {
+    color: #4b7dc1;
+}
