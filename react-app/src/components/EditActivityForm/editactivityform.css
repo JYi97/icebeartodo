@@ -1,0 +1,66 @@
+.edit-activity-title {
+    font-size: 36px;
+    margin-left: 25px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-activity-icebear-img1 {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.edit-activity-options-button {
+    margin-top: 20px;
+    margin-left: 7rem;
+    width: 100px;
+    height: 30px;
+    font-size: 24px;
+    outline: none;
+    border-radius: 0;
+    color: white;
+    background: #4b7dc1;
+}
+
+.edit-activity-form-edit-button:hover,
+.edit-activity-form-delete-button:hover,
+.edit-activity-options-button:hover {
+    background: skyblue;
+}
+
+.edit-activity-form-title-input,
+.edit-activity-form-context-input,
+.edit-activity-form-date-input {
+    width: 700px;
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #4b7dc1;
+    font-size: 24px;
+}
+
+.edit-activity-form-edit-button,
+.edit-activity-form-delete-button {
+    width: 350px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 0;
+    color: white;
+    background: #4b7dc1;
+}
+
+.activity-details-page-activity-title {
+    margin-bottom: 28px;
+    margin-top: 5px;
+}
+
+.activity-details-page-activity-context {
+    margin-bottom: 30px;
+}
+
+.edit-activity-form-errors {
+    color: red;
+    font-size: 24px;
+}
+
+

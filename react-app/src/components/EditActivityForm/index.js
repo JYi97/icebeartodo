@@ -91,130 +91,128 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
 
     return (
         <>
-            <div>
-                This is the form to edit an activity.
-            </div>
-            <div>
-                <button onClick={() => {
-                    if (showForm) {
-                        setShowForm(false)
-                    } else {
-                        setShowForm(true)
-                    }
-                }}>
-                    Edit Activity
-                </button>
-            </div>
-            {showForm ? <form onSubmit={onSubmit}>
-                <h2>Edit Your Activity</h2>
-                {show ?
-                    errors.length > 0 ?
-                        <>
-                            <h4>Errors:</h4>
-                            <ul className='errorsArray'>{errors.map(error => {
-                                return (
-                                    <>
-                                        <li
-                                            key={error}>{error}</li>
-                                    </>
-                                )
-                            })}
-                            </ul>
-                        </>
-                        : null
+            <div className='edit-activity-img-options-button-container'>
+                <div className='edit-activity-title'>
+                    <div className='activity-details-page-activity-details'>
+                        <div className='activity-details-page-activity-title'>
+                            {activity.title}
+                        </div>
+                        <div className='activity-details-page-activity-context'>
+                            {activity.context}
+                        </div>
+                        <div className='activity-details-page-activity-date'>
+                            {activity.date}
+                        </div>
+                    </div>
 
-                    : null}
-                <div>
-                    <div>
-                        <input type='text'
-                            required
-                            placeholder='Activity Title'
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <input type='text'
-                            placeholder='Activity Context'
-                            value={context}
-                            onChange={(e) => setContext(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <input type='date'
-                            onKeyDown={(e) => e.preventDefault()}
-                            required
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                        />
-                    </div>
-                    <button
-                        type='submit'
-                    >Submit</button>
-                </div>
-            </form> : null}
-            <div>
-                {/* <form onSubmit={onSubmit}>
-                    <h2>Edit Your Activity</h2>
-                    {show ?
-                        errors.length > 0 ?
-                            <>
-                                <h4>Errors:</h4>
-                                <ul className='errorsArray'>{errors.map(error => {
-                                    return (
-                                        <>
-                                            <li
-                                                key={error}>{error}</li>
-                                        </>
-                                    )
-                                })}
-                                </ul>
-                            </>
-                            : null
+                    {/* <div>
+                        <button className='edit-activity-options-button' onClick={() => {
+                            if (showForm) {
+                                setShowForm(false)
+                            } else {
+                                setShowForm(true)
+                            }
+                        }}>
+                            Options
+                        </button>
+                        <div className='edit-activity-icebear-img1'>
+                            <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
+                        </div>
+                    </div> */}
+
+                    {showForm ? <form onSubmit={onSubmit}>
+                        {show ?
+                            errors.length > 0 ?
+                                <>
+                                    {errors.map(error => {
+                                        return (
+                                            <>
+                                                <div className='edit-activity-form-errors'
+                                                    key={error}>{error}</div>
+                                            </>
+                                        )
+                                    })}
+
+                                </>
+                                : null
+
+                            : null}
+                        <div>
+                            <div>
+                                <input type='text'
+                                    className='edit-activity-form-title-input'
+                                    required
+                                    placeholder='Activity Title'
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <input type='text'
+                                    className='edit-activity-form-context-input'
+                                    placeholder='Activity Context'
+                                    value={context}
+                                    onChange={(e) => setContext(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <input type='date'
+                                    className='edit-activity-form-date-input'
+                                    onKeyDown={(e) => e.preventDefault()}
+                                    required
+                                    value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <button className='edit-activity-form-edit-button'
+                                type='submit'
+                            >Edit</button>
+                            <button className='edit-activity-form-delete-button'
+                                onClick={() => {
+                                    dispatch(deleteOneActivity(activityId))
+                                    setTitle('')
+                                    setContext('')
+                                    setDate('')
+                                    history.push(`/folders/${activity.folderId}`)
+                                }}
+                            >Delete
+                            </button>
+                        </div>
+                    </form>
 
                         : null}
                     <div>
-                        <div>
-                            <input type='text'
-                                required
-                                placeholder='Activity Title'
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
+                        <button className='edit-activity-options-button' onClick={() => {
+                            if (showForm) {
+                                setShowForm(false)
+                            } else {
+                                setShowForm(true)
+                            }
+                        }}>
+                            Options
+                        </button>
+                        <div className='edit-activity-icebear-img1'>
+                            <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
                         </div>
-                        <div>
-                            <input type='text'
-                                placeholder='Activity Context'
-                                value={context}
-                                onChange={(e) => setContext(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input type='date'
-                                required
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                        </div>
-                        <button
-                            type='submit'
-                        >Submit</button>
                     </div>
-                </form> */}
-                <h3>
-                    Remove this activity
-                </h3>
+                </div>
+            </div>
+            <div className='activities-details-page-practice-quote-container'>
+                <div className='activities-details-page-practice-quote'>
+                    Hone your skills and become a master like Ice Bear.
+                </div>
+            </div>
+            <div className='activities-details-page-icebear-images-container'>
                 <div>
-                    <button
-                        onClick={() => {
-                            dispatch(deleteOneActivity(activityId))
-                            setTitle('')
-                            setContext('')
-                            setDate('')
-                            history.push(`/folders/${activity.folderId}`)
-                        }}
-                    >Delete This Activity
-                    </button>
+                    <img className='activities-details-page-icebear-img2' src='https://s3.getstickerpack.com/storage/uploads/sticker-pack/we-bare-bears-1/sticker_7.png?b06d21a7be7c7c698a041705a4cf0bb0&d=200x200' alt=''></img>
+                </div>
+                <div>
+                    <img className='activities-details-page-icebear-img3' src='https://tlgrm.eu/_/stickers/346/2a1/3462a144-2d9f-47cb-9515-a63b7c7f46ff/5.jpg' alt=''></img>
+                </div>
+                <div>
+                    <img className='activities-details-page-icebear-img3' src='https://chpic.su/_data/stickers/w/wbbicebear/wbbicebear_041.webp' alt=''></img>
                 </div>
             </div>
         </>

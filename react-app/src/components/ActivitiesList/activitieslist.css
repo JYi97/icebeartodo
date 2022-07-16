@@ -1,7 +1,7 @@
 .folder-details-to-dos-titles {
     margin-left: 20px;
     margin-bottom: 40px;
-    font-size: 24px;
+    font-size: 32px;
     color: #4b7dc1;
 }
 
@@ -33,4 +33,8 @@
 .activitieslist-activity-date {
     display: flex;
     justify-content: center;
+}
+
+.activities-list-activity {
+    margin-top: 20px;
 }

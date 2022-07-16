@@ -8,6 +8,7 @@ const ActivitiesList = ({ activities }) => {
             <div className='folder-details-to-dos-titles'>
                 to-do's
             </div>
+            <hr />
             <div className='folder-detail-page-activities-container'>
                 {activities && activities.map(activity => {
                     return <div className='activities-list-activity' key={activities.indexOf(activity)}>

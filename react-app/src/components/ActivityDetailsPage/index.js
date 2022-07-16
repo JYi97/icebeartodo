@@ -51,18 +51,6 @@ const ActivityDetailsPage = () => {
         <>
             {folder?.userId == userId && folder?.id == activity?.folderId ?
                 <div>
-                    <h1>
-                        This is the Activity Details Page
-                    </h1>
-                    <h2>
-                        {activity && activity.title}
-                    </h2>
-                    <h3>
-                        {activity && activity.context}
-                    </h3>
-                    <h3>
-                        {activity && activity.date}
-                    </h3>
                     <div>
                         {(activity && activities) && <EditActivityForm activityId={activityId} activity={activity} activities={activities} />}
                     </div>

@@ -6,12 +6,14 @@
 .create-activity-form-title-input,
 .create-activity-form-context-input,
 .create-activity-form-date-input {
-    width: 315px;
-    height: 26px;
+    width: 700px;
+    height: 50px;
     margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
 }
+
+
 
 
 .activity-form-options-button-container {
@@ -35,6 +37,10 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
+}
+
+.create-activity-form-submit-button:hover {
+    background: skyblue;
 }
 
 .create-activity-errorsArray {
