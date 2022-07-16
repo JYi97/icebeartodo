@@ -40,20 +40,21 @@ const UpcomingPage = () => {
             if (Number(a.date.slice(6, 10)) > Number(b.date.slice(6, 10))) {
                 return 1
             }
-            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) < Number(b.date.slice(0,2))) {
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) < Number(b.date.slice(0, 2))) {
                 return -1
             }
-            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) > Number(b.date.slice(0,2))) {
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) > Number(b.date.slice(0, 2))) {
                 return 1
             }
-            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) === Number(b.date.slice(0,2)) && Number(a.date.slice(3,5)) < Number(b.date.slice(3,5))) {
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) === Number(b.date.slice(0, 2)) && Number(a.date.slice(3, 5)) < Number(b.date.slice(3, 5))) {
                 return -1
             }
-            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0,2)) === Number(b.date.slice(0,2)) && Number(a.date.slice(3,5)) > Number(b.date.slice(3,5))) {
+            if (Number(a.date.slice(6, 10)) === Number(b.date.slice(6, 10)) && Number(a.date.slice(0, 2)) === Number(b.date.slice(0, 2)) && Number(a.date.slice(3, 5)) > Number(b.date.slice(3, 5))) {
                 return 1
             }
 
-    })}
+        })
+    }
 
     // console.log("THIS SHOULD BE THE UPCOMING ACTIVITIES", upcomingActivitiesSorted)
 
@@ -70,11 +71,11 @@ const UpcomingPage = () => {
             </div>
             <div className='upcoming-activities-images-container'>
                 <div className='upcoming-activities-image1-container'>
-                <img className='upcoming-activities-image1' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uBaCxZddD1AE4XEAigcNDk6Kb5DqZOJapA&usqp=CAU' alt=''></img>
-            </div>
+                    <img className='upcoming-activities-image1' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uBaCxZddD1AE4XEAigcNDk6Kb5DqZOJapA&usqp=CAU' alt=''></img>
+                </div>
                 <div className='upcoming-activities-image2-container'>
-                <img src='https://stickerly.pstatic.net/sticker_pack/JSzVPMd6Ab2TPeA9LgkBhw/1UBP58/23/715a7360-6508-4511-aa0a-0a8ce784edcd.png' alt=''></img>
-            </div>
+                    <img src='https://stickerly.pstatic.net/sticker_pack/JSzVPMd6Ab2TPeA9LgkBhw/1UBP58/23/715a7360-6508-4511-aa0a-0a8ce784edcd.png' alt=''></img>
+                </div>
             </div>
             {/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uBaCxZddD1AE4XEAigcNDk6Kb5DqZOJapA&usqp=CAU */}
             {/* <div className='upcoming-activities-image-container'>
@@ -85,6 +86,7 @@ const UpcomingPage = () => {
                     Ice Bear brought all the future to-do's.
                 </div>
             </div>
+            <hr />
             <div className='upcoming-page-activities-container'>
                 {upcomingActivities && upcomingActivitiesSorted.map(activity => {
                     return <div className='upcoming-activities-activity' key={activities.indexOf(activity)}>

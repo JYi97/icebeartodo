@@ -85,6 +85,7 @@ const HistoryPage = () => {
                     </div>
                 })}
             </div>
+            <hr/>
             <div className='history-page-activities-storing-container'>
                 <div className='history-activities-image-container'>
                     <img className='history-activities-image' src='https://s3.getstickerpack.com/storage/uploads/sticker-pack/ice-bear/sticker_26.png?afc541aae29090d288eebe018a8f726c&d=200x200' alt=''></img>

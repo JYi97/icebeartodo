@@ -63,18 +63,19 @@ const EditFolderForm = ({ folder, folders }) => {
                 <div className='folder-title-options-button-container'>
                     <div className='folder-details-page-title'>
                         {folder && folder.title}
-                    <div className='edit-folder-form-options-button-container'>
-                        <button className='edit-folder-form-options-button' onClick={() => {
-                            if (showForm) {
-                                setShowForm(false)
-                            } else {
-                                setShowForm(true)
-                            }
-                        }}>
-                            Options
-                        </button>
+                        <div className='edit-folder-form-options-button-container'>
+                            <button className='edit-folder-form-options-button' onClick={() => {
+                                if (showForm) {
+                                    setShowForm(false)
+                                } else {
+                                    setShowForm(true)
+                                }
+                            }}>
+                                Options
+                            </button>
+                        </div>
                     </div>
-                    </div>
+                    <hr />
                 </div>
                 {showForm ? <><form onSubmit={onSubmit}>
                     {show ?
@@ -101,17 +102,17 @@ const EditFolderForm = ({ folder, folders }) => {
                             onChange={(e) => setTitle(e.target.value)}
                         />
                         <button className='edit-folder-form-edit-title-button' type='submit'>Edit</button>
-                    <div className='edit-folder-form-delete-button-container'>
-                        <button className='edit-folder-form-delete-button'
-                            onClick={() => {
-                                dispatch(deleteOneFolder(folder.id))
-                                const timer = setTimeout(() => {
-                                    history.push('/home')
-                                }, 500)
-                                return (() => clearTimeout(timer))
-                            }}>Delete
-                        </button>
-                    </div>
+                        <div className='edit-folder-form-delete-button-container'>
+                            <button className='edit-folder-form-delete-button'
+                                onClick={() => {
+                                    dispatch(deleteOneFolder(folder.id))
+                                    const timer = setTimeout(() => {
+                                        history.push('/home')
+                                    }, 500)
+                                    return (() => clearTimeout(timer))
+                                }}>Delete
+                            </button>
+                        </div>
                     </div>
                 </form>
                 </>

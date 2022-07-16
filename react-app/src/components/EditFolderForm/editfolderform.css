@@ -58,6 +58,7 @@
     background: #4b7dc1;
 }
 
+.edit-folder-form-options-button:hover,
 .edit-folder-form-delete-button:hover,
 .edit-folder-form-edit-title-button:hover {
     background: skyblue;
