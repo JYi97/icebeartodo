@@ -1,12 +1,12 @@
 import './wrongpage.css'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 const WrongPage = () => {
-    const history = useHistory()
+    // const history = useHistory()
 
-    setTimeout(() => {
-        history.push('/home')
-    }, 5000)
+    // setTimeout(() => {
+    //     history.push('/home')
+    // }, 5000)
 
 
     return (
