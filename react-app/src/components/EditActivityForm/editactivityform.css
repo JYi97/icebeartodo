@@ -63,4 +63,22 @@
     font-size: 24px;
 }
 
+.activities-details-page-practice-quote-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+}
 
+.activities-details-page-practice-quote {
+    font-size: 24px;
+    color: #4b7dc1;
+}
+
+.activities-details-page-icebear-images-container {
+    display: flex;
+    justify-content: space-evenly
+}
+
+.activity-details-page-activity-title {
+    color: #4b7dc1;
+}
