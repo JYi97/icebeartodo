@@ -13,7 +13,7 @@ import ActivityDetailsPage from './components/ActivityDetailsPage';
 import SplashPage from './components/SplashPage';
 import HistoryPage from './components/HistoryPage';
 import Footer from './components/Footer';
-
+import PageNotFound from './components/PageNotFound'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +61,7 @@ function App() {
         <ProtectedRoute path='/activities/:id' exact={true} >
           <ActivityDetailsPage />
         </ProtectedRoute>
+        <PageNotFound />
       </Switch>
     </BrowserRouter>
   );

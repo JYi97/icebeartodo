@@ -83,7 +83,7 @@ const UpcomingPage = () => {
             </div> */}
             <div className='upcoming-page-activities-brought-container'>
                 <div className='upcoming-page-activities-brought'>
-                    Ice Bear brought all the future to-do's.
+                    Ice Bear brought all the future activities you have planned.
                 </div>
             </div>
             <hr />

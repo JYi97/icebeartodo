@@ -51,7 +51,7 @@ const HomePage = () => {
 
     return (
         <>
-            <h1> Your To-Do List</h1>
+            <h1 className='home-page-to-do-list-title'> Your To-Do List</h1>
             <div>
                 <div>
                     {activities && <TodayActivities activities={todaysActivities} />}

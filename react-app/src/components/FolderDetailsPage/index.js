@@ -1,19 +1,16 @@
-import './folderdetailspage.css'
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { getFolders, deleteOneFolder } from '../../store/folders';
+import { useParams } from 'react-router-dom';
+import { getFolders} from '../../store/folders';
 import { useEffect } from 'react';
 import EditFolderForm from '../EditFolderForm';
 import ActivitiesList from '../ActivitiesList';
-import { getActivitiesFromFolder, getActivitiesFromUser } from '../../store/activities';
+import { getActivitiesFromFolder } from '../../store/activities';
 import ActivityForm from '../ActivityForm';
+import WrongPage from '../WrongPage';
 
 
 const FolderDetailsPage = () => {
     const dispatch = useDispatch()
-    // const [show, setShow] = useState(false);
-    const history = useHistory()
     const URLFolderId = useParams() // URLFolderId = {id: 'folderId number'}
     // console.log(URLFolderId.id, "THIS IS THE URLFOLDER ID IN THE FOLDER DETAILS PAGE")
     const folderId = Number(URLFolderId.id) // folderId = id of folder from url
@@ -63,14 +60,7 @@ const FolderDetailsPage = () => {
                     <div>
                         {activitiesArr && <ActivitiesList activities={activitiesArr} />}
                     </div>
-                </div> : <>
-                    <div className='wrong-folder-details-page-container'>
-                        <img className='folder-details-page-wrong-folder-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-crab-512x512.png' alt=''></img>
-                        <div className='folder-details-page-wrong-folder-explanation'>
-                            Ice Bear went to the wrong page.
-                        </div>
-                    </div>
-                </>
+                </div> : <WrongPage />
             }
         </>
     )
