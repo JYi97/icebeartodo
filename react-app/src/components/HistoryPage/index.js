@@ -11,24 +11,40 @@ const HistoryPage = () => {
     const userId = useSelector(state => state?.session.user.id)
     // console.log("THIS IS THE ACTIVITIES IN THE UPCOMING PAGE", activities)
 
-    let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
+    let currentDate = new Date().toJSON().slice(0, 10).split("-")
 
-    if (currentDate) {
-        [currentDate[0], currentDate[1]] = [currentDate[1], currentDate[0]]
-    }
+    // console.log(currentDate)
 
-    const currentDateFormatted = currentDate.join("/")
-    // console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
+    let currentYear = Number(currentDate[0])
+
+    let currentMonth = Number(currentDate[1])
+
+    let currentDay = Number(currentDate[2])
+
+    // console.log(currentYear, currentMonth, currentDay)
 
     const pastActivities = []
 
-    if (currentDateFormatted && activities) {
+    if (currentDate && activities) {
         for (let i = 0; i < activities.length; i++) {
-            if (Number(activities[i].date.split("/").join("")) < Number(currentDateFormatted.split("/").join(""))) {
+            let activityMonth = Number(activities[i].date.split("/")[0])
+            let activityDay = Number(activities[i].date.split("/")[1])
+            let activityYear = Number(activities[i].date.split("/")[2])
+            // console.log(activityYear, activityMonth, activityDay)
+
+            if (activityYear < currentYear) {
+                pastActivities.push(activities[i])
+            }
+            if (activityYear === currentYear && activityMonth < currentMonth) {
+                pastActivities.push(activities[i])
+            }
+            if (activityYear === currentYear && activityMonth === currentMonth && activityDay < currentDay) {
                 pastActivities.push(activities[i])
             }
         }
     }
+
+    // console.log(pastActivities)
 
     let pastActivitiesSorted
 
@@ -65,11 +81,11 @@ const HistoryPage = () => {
 
     return (
         <>
-        <div className='history-page-title-container'>
-            <div className='history-page-title'>
-                Past Activities
+            <div className='history-page-title-container'>
+                <div className='history-page-title'>
+                    Past Activities
+                </div>
             </div>
-        </div>
             <div className='history-page-activities-container'>
                 {pastActivities && pastActivitiesSorted.map(activity => {
                     return <div className='history-activities-activity' key={activities.indexOf(activity)}>
@@ -85,7 +101,7 @@ const HistoryPage = () => {
                     </div>
                 })}
             </div>
-            <hr/>
+            <hr />
             <div className='history-page-activities-storing-container'>
                 <div className='history-activities-image-container'>
                     <img className='history-activities-image' src='https://s3.getstickerpack.com/storage/uploads/sticker-pack/ice-bear/sticker_26.png?afc541aae29090d288eebe018a8f726c&d=200x200' alt=''></img>

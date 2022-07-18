@@ -11,20 +11,52 @@ const UpcomingPage = () => {
     const userId = useSelector(state => state?.session.user.id)
     // console.log("THIS IS THE ACTIVITIES IN THE UPCOMING PAGE", activities)
 
-    let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
+    // let currentDate = new Date().toJSON().slice(0, 10).split("-").reverse();
 
-    if (currentDate) {
-        [currentDate[0], currentDate[1]] = [currentDate[1], currentDate[0]]
-    }
+    // if (currentDate) {
+    //     [currentDate[0], currentDate[1]] = [currentDate[1], currentDate[0]]
+    // }
 
-    const currentDateFormatted = currentDate.join("/")
-    // console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
+    // const currentDateFormatted = currentDate.join("/")
+    // // console.log("THIS SHOULD BE THE CURRENT DAY REFORMATTED", currentDateFormatted)
+
+    // const upcomingActivities = []
+
+    // if (currentDateFormatted && activities) {
+    //     for (let i = 0; i < activities.length; i++) {
+    //         if (Number(activities[i].date.split("/").join("")) > Number(currentDateFormatted.split("/").join(""))) {
+    //             upcomingActivities.push(activities[i])
+    //         }
+    //     }
+    // }
+    let currentDate = new Date().toJSON().slice(0, 10).split("-")
+
+    // console.log(currentDate)
+
+    let currentYear = Number(currentDate[0])
+
+    let currentMonth = Number(currentDate[1])
+
+    let currentDay = Number(currentDate[2])
+
+    // console.log(currentYear, currentMonth, currentDay)
 
     const upcomingActivities = []
 
-    if (currentDateFormatted && activities) {
+    if (currentDate && activities) {
         for (let i = 0; i < activities.length; i++) {
-            if (Number(activities[i].date.split("/").join("")) > Number(currentDateFormatted.split("/").join(""))) {
+            let activityMonth = Number(activities[i].date.split("/")[0])
+            let activityDay = Number(activities[i].date.split("/")[1])
+            let activityYear = Number(activities[i].date.split("/")[2])
+            // console.log(activityYear, activityMonth, activityDay)
+
+            if (activityYear > currentYear) {
+                upcomingActivities.push(activities[i])
+            }
+            if (activityYear === currentYear && activityMonth > currentMonth) {
+                upcomingActivities.push(activities[i])
+            }
+            if (activityYear === currentYear && activityMonth === currentMonth && activityDay > currentDay) {
                 upcomingActivities.push(activities[i])
             }
         }
