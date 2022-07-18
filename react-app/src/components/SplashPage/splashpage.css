@@ -66,6 +66,12 @@
 .splash-page-get-started-nav-link {
     width: 400px;
     height: 60px;
+
+}
+
+.splash-page-demo-user-button {
+    font-family: cursive;
+    font-weight: 800;
 }
 
 .splash-page-get-started-nav-link {
