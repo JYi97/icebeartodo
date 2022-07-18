@@ -44,6 +44,7 @@
     margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
+    font-family: cursive;
 }
 
 .edit-folder-form-options-button,
@@ -56,6 +57,10 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-folder-form-options-button:hover,

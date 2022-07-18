@@ -21,6 +21,10 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-activity-form-edit-button:hover,
@@ -37,6 +41,7 @@
     margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
+    font-family: cursive;
 }
 
 .edit-activity-form-edit-button,
@@ -47,6 +52,7 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
+    font-family: cursive;
 }
 
 .activity-details-page-activity-title {

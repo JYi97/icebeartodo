@@ -18,7 +18,7 @@ const ActivityForm = ({ folderId, activities }) => {
     })
 
     const currentYear = new Date().getFullYear()
-    const maxYear = new Date().getFullYear() + 50
+    const maxYear = new Date().getFullYear() + 5
 
 
 
