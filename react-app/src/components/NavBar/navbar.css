@@ -35,12 +35,19 @@
 
 .navigation-bar-logged-out-home-button,
 .navigation-bar-login-button,
-.navigation-bar-signup-button,
-.navigation-bar-logout-button {
+.navigation-bar-signup-button{
     border: 1px solid white;
     margin-right: 25px;
     border-radius: 30%;
     padding: .5px;
+    font-size: 24px;
+}
+
+.navigation-bar-logout-button {
+    border: 1px solid white;
+    margin-right: 25px;
+    border-radius: 30%;
+    padding: 2.5px;
     font-size: 24px;
 }
 
