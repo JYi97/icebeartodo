@@ -10,30 +10,20 @@
 
 .today-activities-todo-activities-image-container,
 .today-activities-todo-activities-grabbed-container,
-.today-activities-todo-activity-title-container,
 .today-activities-todo-activity-context {
     display: flex;
     justify-content: center;
 }
 
-/* .today-activities-todo-activity-title {
-    margin-bottom: 20px;
-} */
+.today-activities-todo-activity-title-container {
+    align-items: center;
+}
 
-/* .today-activities-todo-activities-image-container,
-.today-activities-todo-activities-grabbed-container {
-    display: flex;
-    justify-content: center;
-} */
 
 .today-activities-todo-activities-grabbed {
     font-size: 36px;
     margin-bottom: 24px;
 }
-
-/* .today-activities-todo-activity-title {
-    font-size: 28px;
-} */
 
 .today-activities-todo-activity-context {
     margin-bottom: 20px;
@@ -55,4 +45,14 @@
 
 .today-activities-todo-activity-title:hover {
     color: skyblue;
+}
+
+.today-activities-todo-activity-complete-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.today-activities-todo-activity-title-container {
+    display: flex;
+    justify-content: center;
 }

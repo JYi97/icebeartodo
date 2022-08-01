@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { editOneActivity, deleteOneActivity } from '../../store/activities';
+import { editOneActivity, deleteOneActivity, completedOneActivity } from '../../store/activities';
 import './editactivityform.css'
 
 
@@ -9,6 +9,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const history = useHistory()
     const [title, setTitle] = useState(activity?.title)
     const [context, setContext] = useState(activity?.context)
+    const [completed, setCompleted] = useState(activity?.completed)
     // const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
@@ -80,10 +81,14 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
             await history.push(`/activities/${activityId}`)
             setShowForm(false)
         }
-
     }
 
-
+    const onComplete = async () => {
+        const payload = {
+            activityId
+        }
+        await dispatch(completedOneActivity(payload))
+    }
 
     useEffect(() => {
 
@@ -102,6 +107,9 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                         </div>
                         <div className='activity-details-page-activity-date'>
                             {activity.date}
+                        </div>
+                        <div className='activity-details-page-activity-completed'>
+                            {activity.completed ? <div>Completed</div> : <div>Not Completed</div> }
                         </div>
                     </div>
                     {showForm ? <form onSubmit={onSubmit}>
@@ -178,7 +186,9 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             }}>
                                 <img className='activity-form-options-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
                             </button>
-
+                            <button className='complete-activity-checkmark-button' onClick={() => onComplete()}>
+                                <img className='activity-form-options-button' src='https://icon-library.com/images/baby_child_play_teddy_bear-512_5880.png' alt=''></img>
+                            </button>
                         </div>
                         <div className='edit-activity-icebear-img1'>
                             <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
