@@ -105,3 +105,11 @@
 .activity-details-page-activity-completed {
     margin-top: 5px;
 }
+
+.activity-details-page-completed {
+    color: green;
+}
+
+.activity-details-page-not-completed {
+    color: red;
+}

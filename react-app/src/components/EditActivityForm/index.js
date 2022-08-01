@@ -109,7 +109,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             {activity.date}
                         </div>
                         <div className='activity-details-page-activity-completed'>
-                            {activity.completed ? <div>Completed</div> : <div>Not Completed</div> }
+                            {activity.completed ? <div className='activity-details-page-completed'>Completed</div> : <div className='activity-details-page-not-completed'>Not Completed</div> }
                         </div>
                     </div>
                     {showForm ? <form onSubmit={onSubmit}>
