@@ -79,6 +79,29 @@ export const editOneActivity = (payload) => async (dispatch) => {
     }
 }
 
+// Completing one specific activity
+const COMPLETE_ONE_ACTIVITY = 'activity/completeOneActivity'
+
+export const completeOneActivity = (activity) => {
+    return {
+        type: COMPLETE_ONE_ACTIVITY,
+        activity
+    }
+}
+
+export const completedOneActivity = (payload) => async (dispatch) => {
+    const activityId = payload.activityId
+    const response = await fetch(`/api/activities/${activityId}/complete`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const activity = await response.json()
+        dispatch(completeOneActivity(activity))
+    }
+}
+
 // DELETE one specific activity
 const DELETE_ONE_ACTIVITY = 'activity/deleteOneActivity'
 
@@ -179,6 +202,15 @@ const activityReducer = (state = initialState, action) => {
             }
             break
         case UPDATE_ONE_ACTIVITY:
+            if (state[action.activity.id]) {
+                const newState = {
+                    ...state,
+                    [action.activity.id]: action.activity
+                }
+                return newState
+            }
+            break
+        case COMPLETE_ONE_ACTIVITY:
             if (state[action.activity.id]) {
                 const newState = {
                     ...state,

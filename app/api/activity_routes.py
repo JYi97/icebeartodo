@@ -54,6 +54,7 @@ def create_activity():
         return new_activity.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
+# Users can UPDATE one activity
 @activity_routes.route('/<activity_id>', methods=['PATCH'])
 def patch_activity(activity_id):
     form = EditActivityForm()
@@ -80,3 +81,22 @@ def delete_activity(activity_id):
     db.session.commit()
 
     return activity.to_dict()
+
+# Users can complete an activity
+@activity_routes.route('/<activity_id>/complete', methods=["PATCH"])
+def complete_activity(activity_id):
+    activity = Activity.query.filter(Activity.id == activity_id).first()
+    print("THIS IS THE COMPLETED ACTIVITY", activity)
+
+    if activity.completed == False:
+        print("THIS IS HITTING THE FALSE CONDITIONAL")
+        activity.completed = True
+        db.session.add(activity)
+        db.session.commit()
+        return activity.to_dict()
+    if activity.completed == True:
+        print("THIS IS HITTING THE TRUE CONDITIONAL")
+        activity.completed = False
+        db.session.add(activity)
+        db.session.commit()
+        return activity.to_dict()

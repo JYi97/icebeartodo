@@ -20,9 +20,11 @@ const TodayActivities = ({ activities }) => {
                 {activities && activities.map(activity => {
                     return <div className='today-activities-todo-activity' key={activities.indexOf(activity)}>
                         <div className='today-activities-todo-activity-title-container'>
+                            <div className='today-activities-todo-activity-title-navlink-container'>
                             <NavLink className='today-activities-todo-activity-title' to={`/activities/${activity.id}`}>
                                 {activity.title}
                             </NavLink>
+                            </div>
                         </div>
                         <div className='today-activities-todo-activity-context'>
                             {activity.context}

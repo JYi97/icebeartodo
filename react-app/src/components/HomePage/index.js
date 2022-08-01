@@ -32,7 +32,7 @@ const HomePage = () => {
 
     if (currentDateFormatted && activities) {
         for (let i = 0; i < activities.length; i++) {
-            if (activities[i].date === currentDateFormatted) {
+            if (activities[i].date === currentDateFormatted && activities[i].completed === false) {
                 todaysActivities.push(activities[i])
             }
         }

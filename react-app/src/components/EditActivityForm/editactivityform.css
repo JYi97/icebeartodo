@@ -95,5 +95,13 @@
 
 .edit-activity-options-button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.activity-details-page-activity-date {
+    margin-bottom: 28px;
+}
+
+.activity-details-page-activity-completed {
+    margin-top: 5px;
 }
