@@ -54,7 +54,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         // console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
         if (Number(date.slice(0, 4)) < currentYear) error.push('Ice Bear can only make activities from current year to future.')
         if (Number(date.slice(0, 4)) > maxYear) error.push('Ice Bear cannot make activities far from present.')
-        if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
+        if (activitiesObjects[title] && activitiesObjects[title] !== activityId) {
             error.push('Ice Bear already made an activity with that title')
         }
         setErrors(error);

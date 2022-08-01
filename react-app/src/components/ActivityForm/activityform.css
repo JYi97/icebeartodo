@@ -11,7 +11,7 @@
     margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -38,7 +38,7 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
