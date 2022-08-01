@@ -104,22 +104,6 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             {activity.date}
                         </div>
                     </div>
-
-                    {/* <div>
-                        <button className='edit-activity-options-button' onClick={() => {
-                            if (showForm) {
-                                setShowForm(false)
-                            } else {
-                                setShowForm(true)
-                            }
-                        }}>
-                            Options
-                        </button>
-                        <div className='edit-activity-icebear-img1'>
-                            <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
-                        </div>
-                    </div> */}
-
                     {showForm ? <form onSubmit={onSubmit}>
                         {show ?
                             errors.length > 0 ?
