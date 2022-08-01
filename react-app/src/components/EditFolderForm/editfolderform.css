@@ -47,7 +47,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.edit-folder-form-options-button,
+
 .edit-folder-form-edit-title-button,
 .edit-folder-form-delete-button {
     width: 100px;
@@ -63,7 +63,6 @@
     align-items: center;
 }
 
-.edit-folder-form-options-button:hover,
 .edit-folder-form-delete-button:hover,
 .edit-folder-form-edit-title-button:hover {
     background: skyblue;
@@ -90,4 +89,8 @@
 
 .folder-details-page-title {
     color: #4b7dc1;
+}
+
+.folder-form-edit-folder-form-button {
+    height: 30px;
 }

@@ -71,7 +71,7 @@ const EditFolderForm = ({ folder, folders }) => {
                                     setShowForm(true)
                                 }
                             }}>
-                                Options
+                                <img className='folder-form-edit-folder-form-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
                             </button>
                         </div>
                     </div>

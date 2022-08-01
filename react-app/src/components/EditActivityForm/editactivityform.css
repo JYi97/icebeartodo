@@ -11,7 +11,7 @@
     margin-right: 20px;
 }
 
-.edit-activity-options-button {
+/* .edit-activity-options-button {
     margin-top: 20px;
     margin-left: 7rem;
     width: 100px;
@@ -25,11 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .edit-activity-form-edit-button:hover,
-.edit-activity-form-delete-button:hover,
-.edit-activity-options-button:hover {
+.edit-activity-form-delete-button:hover {
     background: skyblue;
 }
 
@@ -72,7 +71,8 @@
 .activities-details-page-practice-quote-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+    margin-top: 10rem;
 }
 
 .activities-details-page-practice-quote {
@@ -87,4 +87,13 @@
 
 .activity-details-page-activity-title {
     color: #4b7dc1;
+}
+
+.activity-form-options-button {
+    height: 30px;
+}
+
+.edit-activity-options-button-container {
+    display: flex;
+    justify-content: center;
 }

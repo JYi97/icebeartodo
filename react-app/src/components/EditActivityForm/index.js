@@ -184,15 +184,18 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
 
                         : null}
                     <div>
-                        <button className='edit-activity-options-button' onClick={() => {
-                            if (showForm) {
-                                setShowForm(false)
-                            } else {
-                                setShowForm(true)
-                            }
-                        }}>
-                            Options
-                        </button>
+                        <div className='edit-activity-options-button-container'>
+                            <button className='edit-activity-options-button' onClick={() => {
+                                if (showForm) {
+                                    setShowForm(false)
+                                } else {
+                                    setShowForm(true)
+                                }
+                            }}>
+                                <img className='activity-form-options-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
+                            </button>
+
+                        </div>
                         <div className='edit-activity-icebear-img1'>
                             <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
                         </div>
