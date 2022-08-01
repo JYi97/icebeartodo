@@ -32,7 +32,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .signup-button-form-field {
@@ -45,7 +45,7 @@
     background: #4b7dc1;
     width: 606px;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* border-radius: 30%; */
 }
 

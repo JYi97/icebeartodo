@@ -38,14 +38,14 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .login-page-demo-user-button,
 .login-button-form-field {
     width: 300px;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .login-page-demo-user-button,

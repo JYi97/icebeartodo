@@ -54,7 +54,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         // console.log("THIS IS THE ACTIVITIES IN THE USEEFFECT", activitiesObjects, activityId)
         if (Number(date.slice(0, 4)) < currentYear) error.push('Ice Bear can only make activities from current year to future.')
         if (Number(date.slice(0, 4)) > maxYear) error.push('Ice Bear cannot make activities far from present.')
-        if (activitiesObjects[title] !== activityId && activitiesObjects[title]) {
+        if (activitiesObjects[title] && activitiesObjects[title] !== activityId) {
             error.push('Ice Bear already made an activity with that title')
         }
         setErrors(error);
@@ -104,22 +104,6 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             {activity.date}
                         </div>
                     </div>
-
-                    {/* <div>
-                        <button className='edit-activity-options-button' onClick={() => {
-                            if (showForm) {
-                                setShowForm(false)
-                            } else {
-                                setShowForm(true)
-                            }
-                        }}>
-                            Options
-                        </button>
-                        <div className='edit-activity-icebear-img1'>
-                            <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
-                        </div>
-                    </div> */}
-
                     {showForm ? <form onSubmit={onSubmit}>
                         {show ?
                             errors.length > 0 ?
@@ -184,15 +168,18 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
 
                         : null}
                     <div>
-                        <button className='edit-activity-options-button' onClick={() => {
-                            if (showForm) {
-                                setShowForm(false)
-                            } else {
-                                setShowForm(true)
-                            }
-                        }}>
-                            Options
-                        </button>
+                        <div className='edit-activity-options-button-container'>
+                            <button className='edit-activity-options-button' onClick={() => {
+                                if (showForm) {
+                                    setShowForm(false)
+                                } else {
+                                    setShowForm(true)
+                                }
+                            }}>
+                                <img className='activity-form-options-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
+                            </button>
+
+                        </div>
                         <div className='edit-activity-icebear-img1'>
                             <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
                         </div>

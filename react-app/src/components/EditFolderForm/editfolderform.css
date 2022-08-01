@@ -41,13 +41,12 @@
 .edit-folder-form-edit-title-input {
     width: 315px;
     height: 26px;
-    margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.edit-folder-form-options-button,
+
 .edit-folder-form-edit-title-button,
 .edit-folder-form-delete-button {
     width: 100px;
@@ -57,13 +56,12 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.edit-folder-form-options-button:hover,
 .edit-folder-form-delete-button:hover,
 .edit-folder-form-edit-title-button:hover {
     background: skyblue;
@@ -80,7 +78,8 @@
 }
 
 .edit-folder-form-input-submit-button-containers {
-    margin-right: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .folder-details-page-title {
@@ -90,4 +89,8 @@
 
 .folder-details-page-title {
     color: #4b7dc1;
+}
+
+.folder-form-edit-folder-form-button {
+    height: 30px;
 }

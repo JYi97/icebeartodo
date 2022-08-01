@@ -11,7 +11,7 @@
     margin-right: 20px;
 }
 
-.edit-activity-options-button {
+/* .edit-activity-options-button {
     margin-top: 20px;
     margin-left: 7rem;
     width: 100px;
@@ -21,15 +21,14 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .edit-activity-form-edit-button:hover,
-.edit-activity-form-delete-button:hover,
-.edit-activity-options-button:hover {
+.edit-activity-form-delete-button:hover {
     background: skyblue;
 }
 
@@ -41,7 +40,7 @@
     margin-bottom: 20px;
     border: 1px solid #4b7dc1;
     font-size: 24px;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .edit-activity-form-edit-button,
@@ -52,7 +51,7 @@
     border-radius: 0;
     color: white;
     background: #4b7dc1;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .activity-details-page-activity-title {
@@ -72,7 +71,8 @@
 .activities-details-page-practice-quote-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+    margin-top: 8rem;
 }
 
 .activities-details-page-practice-quote {
@@ -87,4 +87,13 @@
 
 .activity-details-page-activity-title {
     color: #4b7dc1;
+}
+
+.activity-form-options-button {
+    height: 30px;
+}
+
+.edit-activity-options-button-container {
+    display: flex;
+    justify-content: center;
 }

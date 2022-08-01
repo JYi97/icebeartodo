@@ -63,21 +63,7 @@ const EditFolderForm = ({ folder, folders }) => {
                 <div className='folder-title-options-button-container'>
                     <div className='folder-details-page-title'>
                         {folder && folder.title}
-                        <div className='edit-folder-form-options-button-container'>
-                            <button className='edit-folder-form-options-button' onClick={() => {
-                                if (showForm) {
-                                    setShowForm(false)
-                                } else {
-                                    setShowForm(true)
-                                }
-                            }}>
-                                Options
-                            </button>
-                        </div>
-                    </div>
-                    <hr />
-                </div>
-                {showForm ? <><form onSubmit={onSubmit}>
+                        {showForm ? <><form onSubmit={onSubmit}>
                     {show ?
                         errors.length > 0 ?
                             <>
@@ -117,6 +103,20 @@ const EditFolderForm = ({ folder, folders }) => {
                 </form>
                 </>
                     : null}
+                        <div className='edit-folder-form-options-button-container'>
+                            <button className='edit-folder-form-options-button' onClick={() => {
+                                if (showForm) {
+                                    setShowForm(false)
+                                } else {
+                                    setShowForm(true)
+                                }
+                            }}>
+                                <img className='folder-form-edit-folder-form-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
+                            </button>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
             </div>
         </>
     )
