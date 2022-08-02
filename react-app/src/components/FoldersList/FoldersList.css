@@ -10,10 +10,10 @@
     margin-right: 20px;
 }
 
-.folder-list-folders-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+/* .folder-list-folders-container {
+    display: flex;
+    width: 50%;
+} */
 
 .folder-form-new-folder-form-button {
     object-fit: cover;
@@ -37,4 +37,8 @@
 
 .folder-list-folders-title:hover {
     color: skyblue;
+}
+
+.folder-list-folders{
+    display: flex;
 }

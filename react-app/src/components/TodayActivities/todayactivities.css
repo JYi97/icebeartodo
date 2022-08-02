@@ -1,24 +1,19 @@
-.today-activities-todo-activities-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
 .today-activities-todo-activity {
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .today-activities-todo-activities-image-container,
-.today-activities-todo-activities-grabbed-container,
-.today-activities-todo-activity-context {
+.today-activities-todo-activities-grabbed-container {
     display: flex;
     justify-content: center;
 }
 
-.today-activities-todo-activity-title-container {
-    align-items: center;
-}
 
+.today-activities-todo-activity-context {
+    display: flex;
+    justify-content: center;
+}
 
 .today-activities-todo-activities-grabbed {
     font-size: 36px;
@@ -52,7 +47,11 @@
     align-items: center;
 }
 
-.today-activities-todo-activity-title-container {
+.today-activity-list-container {
+    margin-right: 200px;
+}
+
+.today-activities-todo-activity-title-navlink-container {
     display: flex;
     justify-content: center;
 }

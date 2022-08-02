@@ -9,13 +9,8 @@ const FoldersList = ({ folders }) => {
 
     return (
         <>
-            <div className='folders-list-your-folders-title-container'>
-                <div className='folders-list-your-folders-title'>
-                    Your Folders
-                </div>
-                <div>
+            <div className='folder-list-folders-titles-new-folder-button-container'>
                 {foldersArr && <FolderForm folders={foldersArr} />}
-            </div>
             </div>
             <div className='folder-list-folders-container'>
                 {foldersArr && foldersArr.map(folder => {

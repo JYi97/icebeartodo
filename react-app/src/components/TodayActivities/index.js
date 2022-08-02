@@ -8,6 +8,7 @@ const TodayActivities = ({ activities }) => {
 
     return (
         <>
+        <div className='today-activity-list-container'>
             <div className='today-activities-todo-activities-image-container'>
                 <img src='http://vignette3.wikia.nocookie.net/webarebears/images/3/37/Ice_bear.png/revision/latest?cb=20160619204008' alt=''></img>
             </div>
@@ -16,6 +17,7 @@ const TodayActivities = ({ activities }) => {
                     Ice Bear grabbed all the activities you have for today.
                 </div>
             </div>
+        </div>
             <div className='today-activities-todo-activities-container'>
                 {activities && activities.map(activity => {
                     return <div className='today-activities-todo-activity' key={activities.indexOf(activity)}>
