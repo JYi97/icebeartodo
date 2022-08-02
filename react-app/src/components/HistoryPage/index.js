@@ -32,13 +32,13 @@ const HistoryPage = () => {
             let activityYear = Number(activities[i].date.split("/")[2])
             // console.log(activityYear, activityMonth, activityDay)
 
-            if (activityYear < currentYear) {
+            if (activityYear < currentYear && activities[i].completed === true) {
                 pastActivities.push(activities[i])
             }
-            if (activityYear === currentYear && activityMonth < currentMonth) {
+            if (activityYear === currentYear && activityMonth < currentMonth && activities[i].completed === true) {
                 pastActivities.push(activities[i])
             }
-            if (activityYear === currentYear && activityMonth === currentMonth && activityDay < currentDay) {
+            if (activityYear === currentYear && activityMonth === currentMonth && activityDay < currentDay && activities[i].completed === true) {
                 pastActivities.push(activities[i])
             }
         }
