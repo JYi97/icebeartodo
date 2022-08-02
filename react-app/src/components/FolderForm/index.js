@@ -54,7 +54,11 @@ const FolderForm = ({ folders }) => {
 
     return (
         <>
-            <div className='folder-form-new-folder-form-button-container'>
+            <div className='folder-form-your-folders-title-new-form-button-container'>
+                <div className='folder-form-your-folders-title'>
+                    Your Folders
+                </div>
+                <div className='folder-form-new-button'>
                 <button onClick={() => {
                     if (showForm) {
                         setShowForm(false)
@@ -64,6 +68,9 @@ const FolderForm = ({ folders }) => {
                 }}>
                     <img className='folder-form-new-folder-form-button' src='https://icon-library.com/images/add-on-icon/add-on-icon-1.jpg' alt=''></img>
                 </button>
+                </div>
+            </div>
+            <div className='folder-form-new-folder-form-button-container'>
             </div>
             {showForm ?
                 <div className='folder-form-image-form-container'>
@@ -74,7 +81,7 @@ const FolderForm = ({ folders }) => {
                             errors.length > 0 ?
                                 <>
 
-                               {errors.map(error => {
+                                    {errors.map(error => {
                                         return (
                                             <>
                                                 <div className='create-folder-form-errors-array'
@@ -82,7 +89,7 @@ const FolderForm = ({ folders }) => {
                                             </>
                                         )
                                     })}
-                                 
+
                                 </>
                                 : null
 

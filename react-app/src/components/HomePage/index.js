@@ -52,12 +52,13 @@ const HomePage = () => {
     return (
         <>
             <h1 className='home-page-to-do-list-title'> Your To-Do List</h1>
-            <div>
-                <div>
+            <div className='home-page-folders-activities-container'>
+                <div className='home-page-folders-container'>
+                    {folders && <FoldersList folders={folders} />}
+                </div>
+                <div className='home-page-activities-container'>
                     {activities && <TodayActivities activities={todaysActivities} />}
                 </div>
-                <hr />
-                {folders && <FoldersList folders={folders} />}
             </div>
         </>
     )

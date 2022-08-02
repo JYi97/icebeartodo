@@ -2,3 +2,15 @@
     margin-left: 20px;
     color: #4b7dc1;
 }
+
+.home-page-folders-activities-container {
+    display: flex;
+}
+
+.home-page-activities-container {
+    display: flex;
+}
+
+.home-page-folders-container {
+    margin-right: 20px;
+}

@@ -2,12 +2,15 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .folder-form-image-form-container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    width: 50%;
 }
 
 .create-folder-form-errors-array {
@@ -43,4 +46,20 @@
 
 .create-folder-form-submit-button:hover {
     background-color: skyblue;
+}
+
+.folder-form-your-folders-title {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+}
+
+.folder-form-new-button {
+    margin-left: 10px;
+}
+
+.folder-form-your-folders-title-new-form-button-container {
+    display: flex;
+    margin-left: 20px;
+    justify-content: center;
 }
