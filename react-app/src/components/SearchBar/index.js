@@ -74,24 +74,32 @@ function SearchBar({ currentUser }) {
                     <ul>
                         {searchResults?.length > 0 && searchResults?.map(result => (
                             <>
-                            {result.folderId ? <div
-                            className='search-bar-dropdown'
-                            key={result.id}
-                            onMouseDown={()=>{
-                                setSearch('')
-                                setSearchResults([])
-                                history.push(`/folders/${result.folderId}`)
-                            }}>
-                                <p>{result.title}</p>
-                            </div> : <div
-                            className='search-bar-dropdown'
-                            key={result.id}
-                            onMouseDown={()=>{
-                                setSearch('')
-                                setSearchResults([])
-                                history.push(`/activities/${result.activityId}`)
-                            }}><p>{result.title}</p>
-                            </div>}
+                                {result.folderId ?
+                                    <div
+                                        className='search-bar-dropdown'
+                                        key={result.id}
+                                        onMouseDown={() => {
+                                            setSearch('')
+                                            setSearchResults([])
+                                            history.push(`/folders/${result.folderId}`)
+                                        }}>
+                                        <p>
+                                            {result.title}
+                                        </p>
+                                    </div>
+                                    :
+                                    <div
+                                        className='search-bar-dropdown'
+                                        key={result.id}
+                                        onMouseDown={() => {
+                                            setSearch('')
+                                            setSearchResults([])
+                                            history.push(`/activities/${result.activityId}`)
+                                        }}>
+                                        <p>
+                                            {result.title}
+                                        </p>
+                                    </div>}
                             </>
                         ))}
                     </ul>

@@ -39,7 +39,6 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const currentYear = new Date().getFullYear()
     const maxYear = new Date().getFullYear() + 5
 
-    // const filteredActivityT
     // comepare target with titles and if title matches then check id of activity and if target matches activity then it is okay
 
     // console.log("THIS IS THE ACTIVITIES TITLES ARRAY ", activityTitlesandIDs)
