@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
+import SearchBar from '../SearchBar';
 import './navbar.css'
 
 const NavBar = () => {
@@ -16,6 +17,9 @@ const NavBar = () => {
             <NavLink className='navigation-bar-home-button' to='/home' exact={true} activeClassName='active'>
               Home
             </NavLink>
+          </div>
+          <div className='navigation-bar-home-button-container'>
+            <SearchBar currentUser={currentUser}/>
           </div>
           <div className='navigation-bar-upcoming-button-container'>
             <NavLink className='navigation-bar-upcoming-button' to='/upcoming' exact={true} activeClassName='active'>

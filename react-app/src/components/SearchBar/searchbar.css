@@ -1,0 +1,41 @@
+.search-bar-container input {
+    height: 23px;
+    width: 300px;
+
+}
+
+.search-bar-container {
+    display: flex;
+}
+
+.search-bar-search-results {
+    width: 307px;
+    max-height: 250px;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: 1;
+    margin-top: 28px;
+}
+
+.search-bar-dropdown {
+    background-color: white;
+    cursor: pointer;
+}
+
+.search-bar-container ul {
+    padding: 0;
+    background-color: white;
+    position: sticky;
+    z-index: 1;
+    width: 300px;
+}
+
+.search-bar-dropdown {
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.search-bar-dropdown:hover {
+    background-color: #4b7dc1;
+}
