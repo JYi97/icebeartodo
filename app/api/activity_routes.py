@@ -86,16 +86,16 @@ def delete_activity(activity_id):
 @activity_routes.route('/<activity_id>/complete', methods=["PATCH"])
 def complete_activity(activity_id):
     activity = Activity.query.filter(Activity.id == activity_id).first()
-    print("THIS IS THE COMPLETED ACTIVITY", activity)
+    # print("THIS IS THE COMPLETED ACTIVITY", activity)
 
     if activity.completed == False:
-        print("THIS IS HITTING THE FALSE CONDITIONAL")
+        # print("THIS IS HITTING THE FALSE CONDITIONAL")
         activity.completed = True
         db.session.add(activity)
         db.session.commit()
         return activity.to_dict()
     if activity.completed == True:
-        print("THIS IS HITTING THE TRUE CONDITIONAL")
+        # print("THIS IS HITTING THE TRUE CONDITIONAL")
         activity.completed = False
         db.session.add(activity)
         db.session.commit()
