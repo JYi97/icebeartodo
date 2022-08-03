@@ -9,21 +9,21 @@ function SearchBar({ currentUser }) {
     const history = useHistory();
     const titles = useSelector(state => state?.search?.entries);
     const userId = currentUser.id
-    console.log("THIS IS THE TITLES IN SEARCH BAR", titles)
+    // console.log("THIS IS THE TITLES IN SEARCH BAR", titles)
 
     const folderTitles = titles?.folder_titles?.map(folder => folder.title)
 
     const activityTitles = titles?.activity_titles?.map(activity => activity.title)
 
-    console.log("THIS IS THE FOLDER TITLES", folderTitles)
-    console.log("THIS IS THE ACTIVITIES TITLES", activityTitles)
+    // console.log("THIS IS THE FOLDER TITLES", folderTitles)
+    // console.log("THIS IS THE ACTIVITIES TITLES", activityTitles)
 
     const folders = titles?.folder_titles
 
     const activities = titles?.activity_titles
 
-    console.log("THIS IS THE FOLDER", folders)
-    console.log("THIS IS THE ACTIVITIES", activities)
+    // console.log("THIS IS THE FOLDER", folders)
+    // console.log("THIS IS THE ACTIVITIES", activities)
 
 
     const [search, setSearch] = useState('')
@@ -45,10 +45,10 @@ function SearchBar({ currentUser }) {
             results = folderResults.concat(activityResults)
             setSearchResults(results)
         }
-        console.log("THIS IS THE RESULTS IN THE SEARCH BAR USEEFFECT", results)
+        // console.log("THIS IS THE RESULTS IN THE SEARCH BAR USEEFFECT", results)
 
         // setSearchResults(results)
-        console.log("THIS IS THE SEARCH RESULTS AFTER THE SET SEARCH RESULT", searchResults)
+        // console.log("THIS IS THE SEARCH RESULTS AFTER THE SET SEARCH RESULT", searchResults)
 
         if (!results || search === '') {
             setSearchResults('')
