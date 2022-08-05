@@ -7,17 +7,19 @@ page, users can click on the bear icon that will change the completed property o
 Live Link: https://icebeartodo.herokuapp.com/home
 
 ## Technologies Used:
-* Javascript
-* Python
-* Flask
-* React
-* Redux
-* Docker
-* SQLAlchemy
-* PostgreSQL
-* HTML
-* CSS
-* Heroku
+### Front End
+![react](https://user-images.githubusercontent.com/90019010/179418431-3768ece7-d988-43f1-a22b-4707848ac9d2.svg)
+![redux](https://user-images.githubusercontent.com/90019010/179418433-e3ae4f1d-a1dc-4772-84b7-56db8132d01e.svg)
+![javascript](https://user-images.githubusercontent.com/90019010/179418437-d00f3585-d6a9-4531-af2f-e5cb321e2780.svg)
+![html](https://user-images.githubusercontent.com/90019010/179418445-20d38d75-eae7-4bbf-bed0-5c26ec4aa977.svg)
+![css](https://user-images.githubusercontent.com/90019010/179418447-fd17f92e-83e6-4e60-b4d6-602b8300bdc9.svg)
+![heroku](https://user-images.githubusercontent.com/90019010/179418448-91d1d47f-1184-440a-bcd0-03f36192f775.svg)
+
+### Back End
+![python](https://user-images.githubusercontent.com/90019010/179418459-28523cdb-5d46-4473-a744-efcf2bb47c8d.svg)
+![flask](https://user-images.githubusercontent.com/90019010/179418464-dac29f71-39ae-425b-bbc7-86e6dd29098b.svg)
+![postgres](https://user-images.githubusercontent.com/90019010/179418482-fca795c5-b035-43e6-91cb-c136d0c9f6fb.svg)
+![docker](https://user-images.githubusercontent.com/90019010/180459609-e8cd6ead-1cd3-4c23-a50c-d44f672212fb.svg)
 
 ## Screenshots
 
