@@ -8,17 +8,11 @@ const TodayActivities = ({ activities }) => {
 
     return (
         <>
-        <div className='today-activity-list-container'>
-            <div className='today-activities-todo-activities-image-container'>
-                <img src='http://vignette3.wikia.nocookie.net/webarebears/images/3/37/Ice_bear.png/revision/latest?cb=20160619204008' alt=''></img>
-            </div>
-            <div className='today-activities-todo-activities-grabbed-container'>
-                <div className='today-activities-todo-activities-grabbed'>
-                    Ice Bear grabbed all the activities you have for today.
-                </div>
-            </div>
-        </div>
+
             <div className='today-activities-todo-activities-container'>
+                <div className='today-activies-todays-activities-title'>
+                    Today's Activities
+                </div>
                 {activities && activities.map(activity => {
                     return <div className='today-activities-todo-activity' key={activities.indexOf(activity)}>
                         <div className='today-activities-todo-activity-title-container'>
@@ -34,6 +28,16 @@ const TodayActivities = ({ activities }) => {
                     </div>
                 })}
             </div>
+            <div className='today-activity-list-container'>
+            <div className='today-activities-todo-activities-image-container'>
+                <img src='http://vignette3.wikia.nocookie.net/webarebears/images/3/37/Ice_bear.png/revision/latest?cb=20160619204008' alt=''></img>
+            </div>
+            <div className='today-activities-todo-activities-grabbed-container'>
+                <div className='today-activities-todo-activities-grabbed'>
+                    Ice Bear grabbed all the activities you have for today.
+                </div>
+            </div>
+        </div>
         </>
     )
 }

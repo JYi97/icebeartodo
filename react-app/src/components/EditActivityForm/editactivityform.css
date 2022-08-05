@@ -113,3 +113,15 @@
 .activity-details-page-not-completed {
     color: red;
 }
+
+.activity-details-page-hover-incomplete-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+.activity-details-page-hover-complete-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: green;
+}

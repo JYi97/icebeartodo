@@ -9,7 +9,7 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
     const history = useHistory()
     const [title, setTitle] = useState(activity?.title)
     const [context, setContext] = useState(activity?.context)
-    const [completed, setCompleted] = useState(activity?.completed)
+    const [hover, setHover] = useState(false)
     // const [date, setDate] = useState(activity?.date)
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
@@ -59,6 +59,14 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
         }
         setErrors(error);
     }, [title, context, date])
+
+    const hoverOver = () => {
+        setHover(true)
+    }
+
+    const notHoverOver = () => {
+        setHover(false)
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -185,11 +193,12 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             }}>
                                 <img className='activity-form-options-button' src='https://cdn-icons-png.flaticon.com/512/109/109733.png' alt=''></img>
                             </button>
-                            <button className='complete-activity-checkmark-button' onClick={() => onComplete()}>
+                            <button className='complete-activity-checkmark-button' onMouseOver={hoverOver} onMouseOut={notHoverOver} onClick={() => onComplete()}>
                                 <img className='activity-form-options-button' src='https://icon-library.com/images/baby_child_play_teddy_bear-512_5880.png' alt=''></img>
                             </button>
                         </div>
                         <div className='edit-activity-icebear-img1'>
+                            {hover && (activity.completed ? <div className='activity-details-page-hover-incomplete-title'>Incomplete Activity</div> : <div className='activity-details-page-hover-complete-title'>Complete Activity</div>)}
                             <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
                         </div>
                     </div>
