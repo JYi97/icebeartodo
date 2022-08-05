@@ -33,7 +33,7 @@ Sign in Page
 ![icebearsignup](https://user-images.githubusercontent.com/96046451/182528089-d91739d1-9fb5-476c-aa78-76d2bd2211fb.PNG)
 
 Home Page
-![icebearhome](https://user-images.githubusercontent.com/96046451/182528105-e8b843e8-8d60-4d4b-aedc-4c4d58ec132a.PNG)
+![icebearnewhome](https://user-images.githubusercontent.com/96046451/183038035-f42d8bf8-82d9-4d20-b03b-887b426e7b09.PNG)
 
 ## Features List
 https://github.com/JYi97/iceBeartodo/wiki/Features-List
