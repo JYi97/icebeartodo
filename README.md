@@ -29,7 +29,7 @@ Splash Page
 Log in Page
 ![icebearlogin](https://user-images.githubusercontent.com/96046451/182528076-26a3e4e2-616f-45a8-938d-8c50f13adffb.PNG)
 
-Sign in Page
+Sign Up Page
 ![icebearsignup](https://user-images.githubusercontent.com/96046451/182528089-d91739d1-9fb5-476c-aa78-76d2bd2211fb.PNG)
 
 Home Page
