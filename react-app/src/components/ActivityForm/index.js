@@ -70,11 +70,8 @@ const ActivityForm = ({ folderId, activities }) => {
                 <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-shopping-512x512.png' alt=''></img>
                 <div className='activity-form-activity-form-show-button'>
                     <div className='activity-form-add-activity-into'>
-                        Add an activity
-
-                    </div>
-                    <div className='activity-form-options-button-container'>
-                        <button onClick={() => {
+                        Add an Activity
+                        <button className='activity-form-create-button' onClick={() => {
                             if (showForm) {
                                 setShowForm(false)
                             } else {
@@ -84,8 +81,6 @@ const ActivityForm = ({ folderId, activities }) => {
                             <img className='folder-form-new-folder-form-button' src='https://icon-library.com/images/add-on-icon/add-on-icon-1.jpg' alt=''></img>
                         </button>
                     </div>
-
-
                     {showForm ? <div>
                         <form onSubmit={onSubmit}>
                             <h2 className='create-activity-form-header'>Create Your Activity</h2>
