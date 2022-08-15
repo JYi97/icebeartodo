@@ -198,8 +198,8 @@ const EditActivityForm = ({ activityId, activity, activities }) => {
                             </button>
                         </div>
                         <div className='edit-activity-icebear-img1'>
-                            {hover && (activity.completed ? <div className='activity-details-page-hover-incomplete-title'>Incomplete Activity</div> : <div className='activity-details-page-hover-complete-title'>Complete Activity</div>)}
                             <img src='https://i.pinimg.com/originals/01/50/bb/0150bb30e1e7804130e1112a59116a44.png' alt=''></img>
+                            {hover && (activity.completed ? <div className='activity-details-page-hover-incomplete-title'>Incomplete Activity</div> : <div className='activity-details-page-hover-complete-title'>Complete Activity</div>)}
                         </div>
                     </div>
                 </div>

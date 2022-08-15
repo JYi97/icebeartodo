@@ -26,7 +26,7 @@
 .signup-email-form-field,
 .signup-password-form-field,
 .signup-repeat-password-form-field {
-    width: 600px;
+    width: 610px;
     height: 40px;
     border: 1px solid #4b7dc1;
     margin-top: 10px;
@@ -43,7 +43,7 @@
     padding: 10px 40px;
     color: white;
     background: #4b7dc1;
-    width: 606px;
+    width: 616px;
     font-size: 24px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* border-radius: 30%; */
@@ -64,6 +64,7 @@
 .signup-form-login-question {
     margin-top: 10px;
     font-size: 20px;
+    width: 620px;
 }
 
 .signup-form-login-link {

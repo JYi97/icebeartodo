@@ -36,18 +36,13 @@
 .navigation-bar-logged-out-home-button,
 .navigation-bar-login-button,
 .navigation-bar-signup-button{
-    border: 1px solid white;
+    border: none;
     margin-right: 25px;
-    border-radius: 30%;
-    padding: .5px;
     font-size: 24px;
 }
 
 .navigation-bar-logout-button {
-    border: 1px solid white;
-    margin-right: 25px;
-    border-radius: 30%;
-    padding: 2.5px;
+    border: none;
     font-size: 24px;
 }
 
@@ -63,10 +58,13 @@
 
 .navigation-bar-logged-out-home-button:hover,
 .navigation-bar-login-button:hover,
-.navigation-bar-signup-button:hover,
+.navigation-bar-signup-button:hover {
+    color: skyblue;
+}
+
 .navigation-bar-logout-button:hover {
     color: skyblue;
-    border: 1px solid skyblue;
+
 }
 
 .navigation-bar-home-button:hover,
@@ -80,4 +78,5 @@
     color: white;
     background-color: #4b7dc1;
     margin-right: 40px;
+    cursor: pointer;
 }

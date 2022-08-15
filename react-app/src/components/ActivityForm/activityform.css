@@ -14,9 +14,6 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
-
-
 .activity-form-options-button-container {
     display: flex;
     justify-content: center;
@@ -24,6 +21,13 @@
 
 .activity-form-add-activity-into {
     font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-form-create-button{
+    margin-left: 10px;
 }
 
 .create-activity-form-header {
@@ -31,8 +35,8 @@
 }
 
 .create-activity-form-submit-button {
-    width: 100px;
-    height: 30px;
+    width: 100%;
+    height: 50px;
     font-size: 24px;
     outline: none;
     border-radius: 0;
