@@ -61,5 +61,12 @@
 .folder-form-your-folders-title-new-form-button-container {
     display: flex;
     margin-left: 20px;
-    justify-content: center;
+}
+
+.create-folder-ice-bear-image{
+    width: 300px;
+}
+
+.create-folder-form-container{
+    margin-left: 20px;
 }

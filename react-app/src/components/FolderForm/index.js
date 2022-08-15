@@ -74,8 +74,7 @@ const FolderForm = ({ folders }) => {
             </div>
             {showForm ?
                 <div className='folder-form-image-form-container'>
-                    <img src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-love-letter-512x512.png' alt=''></img>
-                    <form onSubmit={onSubmit}>
+                    <form className='create-folder-form-container' onSubmit={onSubmit}>
                         <h2>Ice Bear will create your folder</h2>
                         {show ?
                             errors.length > 0 ?
@@ -110,6 +109,7 @@ const FolderForm = ({ folders }) => {
                                 type='submit'
                             >Create Folder</button>
                         </div>
+                    <img className='create-folder-ice-bear-image' src='https://mystickermania.com/cdn/stickers/we-bare-bears/wbb-ice-bear-love-letter-512x512.png' alt=''></img>
                     </form>
 
 
